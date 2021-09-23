@@ -7,11 +7,12 @@ export const postAPI = (url, requestData) => {
         data: requestData || {}, 
         method: 'POST'
     })
-    .then(async response => {
-        const data = [await response.data?.data, await response.headers]
+    .then(response => {
+        const data = [response.data?.data, response.headers]
         return Promise.resolve(data)
     })
     .catch(error => {
-        return Promise.reject(error);
+        const errorMessage = error?.response.data?.errors[0]
+        return Promise.reject(errorMessage)
     })
 }

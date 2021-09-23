@@ -16,8 +16,9 @@ const useFetch = (url, headers) => {
             setIsLoading(false)
             setFetchedData(await response.data?.data)
         })
-        .catch(error => {
-            setError(error);
+        .catch(errorMessage => {
+            setError(errorMessage)
+            console.log(errorMessage)
         })
     // eslint-disable-next-line
     }, []);

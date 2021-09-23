@@ -5,6 +5,7 @@ const URL = 'auth/sign_in'
 const Login = () => {
     const [fetchedData, setFetchedData] = useState(null)
     const [headers, setHeaders] = useState(null)
+    const [error, setError] = useState(null)
     const emailRef = useRef();
     const passwordRef = useRef();
 
@@ -18,8 +19,12 @@ const Login = () => {
             .then(data => {
                 setFetchedData(data[0])
                 setHeaders(data[1])
-                console.log(data[0])
-                console.log(data[1])
+                setError(null)
+            })
+            .catch(error => {
+                setError(error)
+                setHeaders(null)
+                setFetchedData(null)
             })
     }
 
@@ -34,6 +39,7 @@ const Login = () => {
             {fetchedData && 
                 (
                     <>
+                        <div>Logged In!</div>
                         <div>Email: {fetchedData.email}</div>
                         <div>Name: {fetchedData.name}</div>
                         <div>Image: {fetchedData.image}</div>
@@ -52,6 +58,11 @@ const Login = () => {
                 )
             }
 
+            {error && 
+                (
+                    <div>{error}</div>
+                )
+            }
             
         </div>
     )
