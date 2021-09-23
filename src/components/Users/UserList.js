@@ -1,17 +1,16 @@
-import useFetch from '../../helpers/useFetch'
+import useFetch from '../../helpers/useFetchGet'
 import UserTable from './UserTable'
 
 const url = 'users'
-const method = 'GET'
 const headers = {
-    'access-token': 'jjYmE3gQDoexsMNe3ktNNw',
-    'client': 'Eq9Hz1qf7eFIkR8c5izU2A',
-    'expiry': '1633568827',
+    'access-token': 'qYXDfbgm7H3tQfm0K3ASOg',
+    'client': 'qYXDfbgm7H3tQfm0K3ASOg',
+    'expiry': '1633617309',
     'uid': 'blfernandez3@gmail.com'
 }
 
 const UserList = () => {
-    const {fetchedData: users, isLoading, error} = useFetch(url, method, headers)
+    const {fetchedData: users, isLoading, error} = useFetch(url, headers)
 
     return (
         <div>
