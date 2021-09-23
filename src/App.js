@@ -1,9 +1,15 @@
 import './App.css';
+import UserList from './components/Users/UserList'
+
+let renderCount = 0;
 
 function App() {
+  renderCount++
+  console.log(renderCount)
+
   return (
     <div className="App">
-      <h1>Test</h1>
+      <UserList />
     </div>
   );
 }
