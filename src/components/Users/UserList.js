@@ -1,16 +1,20 @@
-import useFetch from '../../helpers/useFetchGet'
+import useAxiosGet from '../../helpers/useAxiosGet'
 import UserTable from './UserTable'
-
-const url = 'users'
+import { userListUrl, userListAuditText } from '../../helpers/constants'
 
 const UserList = ({headers}) => {
-    const {fetchedData: users, isLoading, error} = useFetch(url, headers)
+    // Use custom react hook - useAxiosGet - to automatically call API request for retrieving list of users
+    const {fetchedData: users, isLoading, errorMessage} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
     return (
         <div>
+            <strong>User List</strong>
             { isLoading && <p>Loading...</p> }
+            
+            {/* Table component that displays list of Users */}
             { users && <UserTable users={users} /> }
-            { error && <p>Cannot fetch API {error}</p> }
+            
+            { errorMessage &&  <div>{errorMessage}</div> }
         </div>
     )
 }
