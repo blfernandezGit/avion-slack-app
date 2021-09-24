@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css';
 import ChatContainer from './components/ChatContainer'
 import Login from './components/Login/Login'
+import Registration from './components/Login/Registration';
 
 let renderCount = 0;
 const LOCAL_STORAGE_KEY_1 = 'userLoginSession'
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <Registration/>
       { !response?.headers
         ?
         <Login 
