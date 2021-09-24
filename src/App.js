@@ -1,5 +1,8 @@
 import './App.css';
 import UserList from './components/Users/UserList'
+import test from './components/Users/test'
+import Register from './components/Login/Registration'
+
 
 let renderCount = 0;
 
@@ -9,9 +12,12 @@ function App() {
 
   return (
     <div className="App">
-      <UserList />
+      <h1>User List</h1>
+      <Register/>
+      {/* <UserList /> */}
     </div>
   );
 }
+
 
 export default App;
