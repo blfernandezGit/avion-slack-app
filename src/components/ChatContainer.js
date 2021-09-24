@@ -3,7 +3,7 @@ import Logout from './Login/Logout'
 
 const ChatContainer = ({fetchedData, headers, setLoginDetails}) => {
     return (
-        <div>
+        <div className="chat-container">
             <Logout 
                 setLoginDetails={setLoginDetails}
             />

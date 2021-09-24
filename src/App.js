@@ -28,12 +28,9 @@ function App() {
     <div className="App">
       { !response?.headers
         ?
-        (
         <Login 
           setLoginDetails={setLoginDetails} 
         />
-        
-        )
         :
         <ChatContainer 
           fetchedData={response?.fetchedData} 
