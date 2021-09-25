@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
@@ -50,7 +50,13 @@ const Login = () => {
             
             {/* Display error message if it exists */}
             { errorMessage &&  <div>{errorMessage}</div> }
-                
+
+            <div>
+                <Link to={`/signup`}>
+                    Sign up
+                </Link>
+            </div>
+            
         </div>
     )
 }

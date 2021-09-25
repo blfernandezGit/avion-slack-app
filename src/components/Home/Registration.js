@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { Link } from "react-router-dom";
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
 
@@ -51,6 +52,12 @@ const Registration = () => {
                     <div>{errorMessage[1]}</div>
                 </>
             }
+
+            <div>
+                <Link to={`/`}>
+                    Sign in
+                </Link>
+            </div>
         </div>
     )
 }

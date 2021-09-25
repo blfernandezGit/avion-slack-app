@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ClientContextProvider from "./context/ClientContext";
 import './App.css';
 import ChatContainer from './routes/ChatContainer'
-import Home from './routes/Home'
 import AuthRoute from './routes/AuthRoute'
 import RedirectComp from './routes/RedirectComp'
+import Registration from './components/Home/Registration'
+import Login from './components/Home/Login'
 
 let renderCount = 0;
 
@@ -21,12 +22,17 @@ function App() {
             <Route 
               path="/" 
               exact 
-              component={props => <Home/>}
+              component={props => <Login/>}
             />
             <AuthRoute 
               path="/client" 
               exact 
               component={props => <ChatContainer />}
+            />
+            <Route 
+              path="/signup" 
+              exact 
+              component={props => <Registration/>}
             />
           </Switch>
           <RedirectComp />
