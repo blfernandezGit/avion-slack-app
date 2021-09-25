@@ -25,6 +25,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
                 // Get response data
                 setFetchedData(response.data?.data)
                 setErrorMessage(response.data?.errors)
+                console.log(response)
                 // Display action done via API in console
                 console.log(auditTrail)
             

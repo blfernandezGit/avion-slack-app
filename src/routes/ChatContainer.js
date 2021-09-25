@@ -2,6 +2,7 @@ import { Switch, Route } from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import UserList from '../components/Users/UserList'
 import CreateChannel from '../components/Channels/CreateChannel'
+import ChannelDetails from '../components/Channels/ChannelDetails'
 
 const ChatContainer = () => {
     return (
@@ -28,6 +29,10 @@ const ChatContainer = () => {
                 <Route path='/client/users/list'>
                     {/* User List */}
                     <UserList />
+                </Route>
+                <Route path='/client/channels/:id'>
+                    {/* Channel Specific Messages */}
+                    <ChannelDetails />
                 </Route>
             </Switch>
             
