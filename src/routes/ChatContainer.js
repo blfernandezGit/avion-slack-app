@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import UserList from '../components/Users/UserList'
-import ChannelList from '../components/Channels/ChannelList/ChannelList'
 import CreateChannel from '../components/Channels/CreateChannel'
 import { v4 as uuid_v4 } from "uuid";
 
@@ -26,31 +25,28 @@ const ChatContainer = ({fetchedData, headers, setLoginDetails}) => {
             <div>Image: {fetchedData.image}</div> */}
 
             {/* headers - can be removed */}
-            {/* <div>access-token: {headers['access-token']}</div>
+            <div>access-token: {headers['access-token']}</div>
             <div>client: {headers.client}</div>
             <div>expiry: {headers.expiry}</div>
-            <div>uid: {headers.uid}</div> */}
+            <div>uid: {headers.uid}</div>
 
-            <Menu 
-                setLoginDetails= {setLoginDetails}
-                headers={headers}
-                recallChannels={recallChannels}
-            />
+            <Menu />
             <Switch>
+                <Route 
+                    path="/" 
+                    exact 
+                    render={props => <CreateChannel/>}
+                />
                 <Route path='/client/channels/create'>
-                    {/* Create Channel Form */}
-                    <CreateChannel
-                        headers={headers}
-                        handleRecall = {handleRecall}
-                    />
+                    <CreateChannel/>
                 </Route>
                 <Route path='/client/channels/list'>
-                    {/* User List */}
                     <UserList 
                         headers={headers}
                     />
                 </Route>
             </Switch>
+
             
         </div>
     )

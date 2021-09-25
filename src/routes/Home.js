@@ -8,12 +8,12 @@ const Home = () => {
             <Route 
                 path="/" 
                 exact 
-                component={props => <Login/>}
+                component={() => <Login/>}
             />
             <Route 
                 path="/signup" 
                 exact 
-                component={props => <Registration/>}
+                component={() => <Registration/>}
             />
         </Switch>
     )
