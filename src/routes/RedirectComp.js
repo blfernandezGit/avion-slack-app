@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { ClientContext } from '../context/ClientContext';
 
 const RedirectComp = () => {
+    //TODO: fix this
     const { isAuth } = useContext(ClientContext)
     return (
         <>

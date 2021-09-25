@@ -19,23 +19,17 @@ function App() {
       <ClientContextProvider>
         <Router>
           <Switch>
-            <Route 
-              path="/" 
-              exact 
-              component={props => <Login/>}
-            />
-            <AuthRoute 
-              path="/client" 
-              exact 
-              component={props => <ChatContainer />}
-            />
-            <Route 
-              path="/signup" 
-              exact 
-              component={props => <Registration/>}
-            />
+            <Route exact path="/">
+              <Login />
+            </Route>
+            <Route path="/client">
+              <ChatContainer />
+            </Route>
+            <Route path="/signup">
+              <Registration />
+            </Route>
           </Switch>
-          <RedirectComp />
+          {/* <RedirectComp /> */}
         </Router>
       </ClientContextProvider>
       

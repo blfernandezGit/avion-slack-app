@@ -3,8 +3,8 @@ import {postAPI} from '../../helpers/useAxiosPost'
 import { channelsBaseUrl, channelCreateAuditText } from '../../helpers/constants'
 import { ClientContext } from '../../context/ClientContext';
 
-const CreateChannel = ({ handleRecall }) => {
-    const { headers } = useContext(ClientContext)
+const CreateChannel = () => {
+    const { headers, handleRecall } = useContext(ClientContext)
 
     // Input field references
     const channelNameRef = useRef();

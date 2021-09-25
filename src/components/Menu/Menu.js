@@ -1,5 +1,6 @@
 import Logout from '../Home/Logout'
 import ChannelList from '../Channels/ChannelList/ChannelList'
+import MessagesList from '../Messages/MessageList/MessageList'
 
 const Menu = ({recallChannels}) => {
     return (
@@ -9,6 +10,7 @@ const Menu = ({recallChannels}) => {
             <ChannelList
                 recallChannels={recallChannels}
             />
+            <MessagesList/>
         </div>
     )
 }
