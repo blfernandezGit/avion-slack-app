@@ -5,7 +5,7 @@ import { channelsBaseUrl, channelListAuditText } from '../../../helpers/constant
 const ChannelList = ({headers, recallChannels}) => {
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Channels of User
     const {fetchedData: channels, isLoading, errorMessage} = useAxiosGet(channelsBaseUrl, headers, null, channelListAuditText, recallChannels)
-    
+    // console.log(errorMessage)
     return (
         <div>
             <strong>Channel List</strong>

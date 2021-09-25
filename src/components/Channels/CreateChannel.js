@@ -12,6 +12,7 @@ const CreateChannel = ({ headers, handleRecall }) => {
     // Function to submit a post request for creating a new channel with user
     const createChannel = (e) => {
         e.preventDefault();
+        setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
             name: channelNameRef.current.value,
@@ -21,15 +22,12 @@ const CreateChannel = ({ headers, handleRecall }) => {
         // API for this function needs both body and headers
         postAPI(channelsBaseUrl, requestData, headers, channelCreateAuditText)
             .then(data => {
-                // TODO: Might need to change this since no data is being retrieved from this buggy API
-                // temporarily calls function that has a side-effect of re-requesting the API to fetch Channel List
-                handleRecall()
-            })
-            .catch(error => {
-                // Set error message from error response
-                // TODO: Might need to change this since error is always being retrieved from this buggy API
-                setErrorMessage(error)
-                // Calls function to re-render Channel List
+                data[2]
+                ?
+                // Sets error message from error response - this is specifically for Creating of Channel API since it always retrieves a response, not a POST error
+                setErrorMessage(data[2][0])
+                :
+                // Calls function that has a side-effect of re-requesting the API to fetch Channel List
                 handleRecall()
             })
     }

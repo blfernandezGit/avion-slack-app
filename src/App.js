@@ -8,7 +8,7 @@ import { LOCAL_STORAGE_KEY_1 } from './helpers/constants'
 let renderCount = 0;
 
 function App() {
-  //temporary render counter
+  //temporary render counter - TODO: remove when done
   renderCount++
   console.log(renderCount)
 

@@ -7,7 +7,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
     // States for data, loading and error
     const [fetchedData, setFetchedData] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(null)
 
     // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
@@ -19,23 +19,25 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
             headers: headers || {}, 
             method: 'GET'
         })
-        .then(async response => {
+        .then(response => {
             // Loading set to false when response is retrieved
-            setIsLoading(false)
-            // Get response data
-            setFetchedData(await response.data?.data)
-            // Display action done via API in console
-            console.log(auditTrail)
+                setIsLoading(false)
+                // Get response data
+                setFetchedData(response.data?.data)
+                setErrorMessage(response.data?.errors)
+                // Display action done via API in console
+                console.log(auditTrail)
+            
         })
         .catch(error => {
             // set error message from error response
-            setError(error.response?.data?.errors[0])
+            setErrorMessage(error.response?.data?.errors[0])
         })
         //eslint-disable-next-line
     }, [checker]) // checker used for re-requesting api every time the checker value changes
 
     // when api is called, these values can be retrieved
-    return { fetchedData, isLoading, error}
+    return { fetchedData, isLoading, errorMessage}
 }
 
 export default useAxiosGet;

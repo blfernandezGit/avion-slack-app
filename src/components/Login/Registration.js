@@ -14,6 +14,7 @@ const Registration = () => {
     // Function to submit a post request for user registration
     const handleRegistration = (e) => {
         e.preventDefault();
+        setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
             email: emailRef.current.value,
@@ -27,8 +28,9 @@ const Registration = () => {
                 console.log(data)
             })
             .catch(error => {
+                const errorArray = error?.full_messages
                 // Set error message from error response
-                setErrorMessage(error)
+                setErrorMessage(errorArray)
             })
     }
 
@@ -42,8 +44,13 @@ const Registration = () => {
                 <button type="submit">Register</button>
             </form>
             
-            {/* Display error message if it exists */}
-            { errorMessage &&  <div>{errorMessage}</div> }
+            {/* Display error message if it exists - specific for Registration API */}
+            { errorMessage && 
+                <>
+                    <div>{errorMessage[0]}</div>
+                    <div>{errorMessage[1]}</div>
+                </>
+            }
         </div>
     )
 }

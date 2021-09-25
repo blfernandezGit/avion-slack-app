@@ -13,6 +13,7 @@ const Login = ({setLoginDetails}) => {
     // Function to submit a post request for creating a user session
     const handleLogin = (e) => {
         e.preventDefault();
+        setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
             email: emailRef.current.value,

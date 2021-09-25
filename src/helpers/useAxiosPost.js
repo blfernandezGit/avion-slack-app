@@ -14,7 +14,7 @@ export const postAPI = (url, requestData, headers, auditTrail) => {
     })
     .then(response => {
         // create array that includes both response data and headers
-        const data = [response.data?.data, response.headers]
+        const data = [response.data?.data, response.headers, response.data?.errors]
         // Display action done via API in console
         console.log(auditTrail)
         // Passes data value to js that called it
@@ -23,9 +23,11 @@ export const postAPI = (url, requestData, headers, auditTrail) => {
     })
     .catch(error => {
         // create variable to store error message from error response
-        const errorMessage = error.response?.data?.errors[0]
+        const errorMessages = error.response?.data?.errors
+        console.log(error.response?.data?.errors)
+        // FIXME: cannot catch error in channel creation - instead passes through .then response
         // Passes error value to js that called it
-        return Promise.reject(errorMessage)
+        return Promise.reject(errorMessages)
     })
 }
 //used a separate function for POST since cannot call a custom hook within a function such as handleLogin in Login.js
