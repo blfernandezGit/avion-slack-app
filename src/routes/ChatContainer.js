@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import Logout from './Login/Logout'
-import UserList from './Users/UserList'
-import ChannelList from './Channels/ChannelList/ChannelList'
-import CreateChannel from './Channels/CreateChannel'
+import { Switch, Route } from 'react-router-dom'
+import Menu from '../components/Menu/Menu'
+import UserList from '../components/Users/UserList'
+import ChannelList from '../components/Channels/ChannelList/ChannelList'
+import CreateChannel from '../components/Channels/CreateChannel'
 import { v4 as uuid_v4 } from "uuid";
 
 const ChatContainer = ({fetchedData, headers, setLoginDetails}) => {
@@ -17,39 +18,40 @@ const ChatContainer = ({fetchedData, headers, setLoginDetails}) => {
 
     return (
         <div className="chat-container">
-            {/* Logout component - logout button */}
-            <Logout 
-                setLoginDetails={setLoginDetails}
-            />
 
             {/* login details - temporary location TODO: move to separate component */}
-            <div>Logged In!</div>
+            {/* <div>Logged In!</div>
             <div>Email: {fetchedData.email}</div>
             <div>Name: {fetchedData.name}</div>
-            <div>Image: {fetchedData.image}</div>
+            <div>Image: {fetchedData.image}</div> */}
 
             {/* headers - can be removed */}
-            <div>access-token: {headers['access-token']}</div>
+            {/* <div>access-token: {headers['access-token']}</div>
             <div>client: {headers.client}</div>
             <div>expiry: {headers.expiry}</div>
-            <div>uid: {headers.uid}</div>
+            <div>uid: {headers.uid}</div> */}
 
-            {/* Create Channel Form */}
-            <CreateChannel
-                headers={headers}
-                handleRecall = {handleRecall}
-            />
-
-            {/* Channel List */}
-            <ChannelList
+            <Menu 
+                setLoginDetails= {setLoginDetails}
                 headers={headers}
                 recallChannels={recallChannels}
             />
-
-            {/* User List */}
-            <UserList 
-                headers={headers}
-            />
+            <Switch>
+                <Route path='/client/channels/create'>
+                    {/* Create Channel Form */}
+                    <CreateChannel
+                        headers={headers}
+                        handleRecall = {handleRecall}
+                    />
+                </Route>
+                <Route path='/client/channels/list'>
+                    {/* User List */}
+                    <UserList 
+                        headers={headers}
+                    />
+                </Route>
+            </Switch>
+            
         </div>
     )
 }

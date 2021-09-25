@@ -1,8 +1,15 @@
 import { useState, useRef } from 'react'
+import { useHistory } from "react-router-dom";
 import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
+import { useContext } from 'react'
+import { ClientContext } from '../../context/ClientContext';
 
-const Login = ({setLoginDetails}) => {
+const Login = () => {
+    const { setLoginDetails } = useContext(ClientContext)
+    // get current url path
+    const history = useHistory();
+
     // Input field references
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -24,6 +31,7 @@ const Login = ({setLoginDetails}) => {
             .then(data => {
                 // Change login details to response data
                 setLoginDetails(data)
+                history.push("/client");
             })
             .catch(error => {
                 // Set error message from error response
