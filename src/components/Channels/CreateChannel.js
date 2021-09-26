@@ -3,8 +3,8 @@ import {postAPI} from '../../helpers/useAxiosPost'
 import { channelsBaseUrl, channelCreateAuditText } from '../../helpers/constants'
 import { ClientContext } from '../../context/ClientContext';
 
-const CreateChannel = () => {
-    const { headers, handleRecall } = useContext(ClientContext)
+const CreateChannel = ({handleRecallChannels}) => {
+    const { headers } = useContext(ClientContext)
 
     // Input field references
     const channelNameRef = useRef();
@@ -31,12 +31,12 @@ const CreateChannel = () => {
                 setErrorMessage(data[2][0])
                 :
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
-                handleRecall()
+                handleRecallChannels()
             })
     }
 
     return (
-        <div>
+        <div className="CreateChannel">
             {/* Create Channel Form */}
             <form onSubmit={(e) => createChannel(e)}>
                 <input type="text" ref={channelNameRef} placeholder="Channel Name"/>

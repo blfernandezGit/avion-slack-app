@@ -2,7 +2,7 @@ import Users from './Users'
 
 const UserTable = ({users}) => {
     return (
-        <table>
+        <table className="UserTable">
             <tbody>
                 {/* Map users into a table*/}
                 {users.map(user => {

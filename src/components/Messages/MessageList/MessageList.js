@@ -1,6 +1,6 @@
 const MessageList = () => {
     return (
-        <div>
+        <div className="MessageList">
             <strong>MessageList</strong>
         </div>
     )

@@ -16,8 +16,8 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
             // Axios needed parameters to fetch API
             url: url,
             data: requestData || {},
-            headers: headers || {}, 
-            method: 'GET'
+            headers: {...headers, 'Access-Control-Allow-Origin': '*'} || {}, 
+            method: 'GET',
         })
         .then(response => {
             // Loading set to false when response is retrieved
@@ -25,7 +25,6 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
                 // Get response data
                 setFetchedData(response.data?.data)
                 setErrorMessage(response.data?.errors)
-                console.log(response)
                 // Display action done via API in console
                 console.log(auditTrail)
             
@@ -35,7 +34,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
             setErrorMessage(error.response?.data?.errors[0])
         })
         //eslint-disable-next-line
-    }, [checker]) // checker used for re-requesting api every time the checker value changes
+    }, [checker, url]) // checker used for re-requesting api every time the checker value changes
 
     // when api is called, these values can be retrieved
     return { fetchedData, isLoading, errorMessage}

@@ -10,7 +10,7 @@ const ChannelList = ({recallChannels}) => {
     const {fetchedData: channels, isLoading, errorMessage} = useAxiosGet(channelsBaseUrl, headers, null, channelListAuditText, recallChannels)
     // console.log(errorMessage)
     return (
-        <div>
+        <div className="ChannelList">
             <strong>Channel List</strong>
             { isLoading && <p>Loading...</p> }
 

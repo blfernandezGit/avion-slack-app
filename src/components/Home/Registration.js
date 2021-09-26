@@ -36,8 +36,7 @@ const Registration = () => {
     }
 
     return (
-        <div>
-            {/* Registration Form */}
+        <div className="Registration">
             <form onSubmit={(e) => handleRegistration(e)}>
                 <input type="email" ref={emailRef} placeholder="Email"/>
                 <input type="password" ref={passwordRef} placeholder="Password"/>

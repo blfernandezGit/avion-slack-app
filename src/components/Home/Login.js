@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="Login">
             {/* Login Form */}
             <form onSubmit={(e) => handleLogin(e)}>
                 <input type="email" ref={emailRef} placeholder="Email"/>

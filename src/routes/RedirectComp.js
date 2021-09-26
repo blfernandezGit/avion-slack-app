@@ -2,8 +2,9 @@ import { Redirect } from 'react-router-dom';
 import { useContext } from 'react'
 import { ClientContext } from '../context/ClientContext';
 
+
+// NOT CURRENTLY USED TODO: Remove or modify
 const RedirectComp = () => {
-    //TODO: fix this
     const { isAuth } = useContext(ClientContext)
     return (
         <>

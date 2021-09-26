@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
 import { LOCAL_STORAGE_KEY_1 } from '../helpers/constants'
-import { v4 as uuid_v4 } from "uuid";
 export const ClientContext = createContext();
 
 const ClientContextProvider = (props) => {
@@ -25,18 +24,9 @@ const ClientContextProvider = (props) => {
     useEffect(() =>{
         localStorage.setItem(LOCAL_STORAGE_KEY_1, JSON.stringify(response))
     }, [response])
-
-    const [recallChannels, setRecallChannels] = useState(null)
-
-    // function that changes recallChannels state every call such that it can be added as a useEffect dependency in useAxiosGet call by ChannelList
-    // basically a function to re-render Channel List whenever a new Channel is created locally
-    // TODO: improve if possible - since currently just setting a state to a unique id - uuid_v4() so that API request is called every time the function is called
-    const handleRecall = () => {
-        setRecallChannels(uuid_v4())
-    }
     
     return (
-        <ClientContext.Provider value={{ fetchedData: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, recallChannels, handleRecall }}>
+        <ClientContext.Provider value={{ fetchedData: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails }}>
             { props.children }
         </ClientContext.Provider>
     )

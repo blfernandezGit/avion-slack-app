@@ -10,9 +10,10 @@ const UserList = () => {
     const {fetchedData: users, isLoading, errorMessage} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
     return (
-        <div>
-            <strong>User List</strong>
-            { isLoading && <p>Loading...</p> }
+        <div className="UserList">
+            <strong>User List</strong> {/* temporary, may or may not be removed */}
+            
+            { isLoading && <p>Loading...</p> /* Displayed while API is being fetched */ } 
             
             {/* Table component that displays list of Users */}
             { users && <UserTable users={users} /> }
