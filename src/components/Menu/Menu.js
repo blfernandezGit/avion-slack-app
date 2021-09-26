@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { v4 as uuid_v4 } from "uuid";
 import Logout from '../Home/Logout'
 import ChannelList from '../Channels/ChannelList/ChannelList'
-import MessagesList from '../Messages/MessageList/MessageList'
 import CreateChannel from '../Channels/CreateChannel'
 
 const Menu = () => {
@@ -15,6 +14,7 @@ const Menu = () => {
         setRecallChannels(uuid_v4())
     }
     
+    //TODO: add link to a default page /client to remove view from messages
     return (
         <div className="Menu">
             <Logout /> {/* Can be moved to header or anywhere else */}
@@ -22,8 +22,9 @@ const Menu = () => {
             <CreateChannel 
                 handleRecallChannels={handleRecallChannels} 
             />
-            <ChannelList recallChannels={recallChannels}/>
-            <MessagesList/>
+            <ChannelList 
+                recallChannels={recallChannels}
+            />
         </div>
     )
 }

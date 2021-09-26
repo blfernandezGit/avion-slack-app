@@ -13,6 +13,10 @@ export const channelsBaseUrl = 'channels'
 export const channelAddUserUrl = 'channel/add_member'
 export const messagesBaseUrl = 'messages'
 
+// Receiver class
+export const channelReceiverClass = 'Channel'
+export const userReceiverClass = 'User'
+
 // Audit Trail
 export const loginAuditText = 'Create User Session'
 export const registerAuditText = 'User Registration'

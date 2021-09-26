@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ClientContextProvider from "./context/ClientContext";
 import './App.css';
 import ChatContainer from './routes/ChatContainer'
-import AuthRoute from './routes/AuthRoute'
-import RedirectComp from './routes/RedirectComp'
+// import AuthRoute from './routes/AuthRoute'
+// import RedirectComp from './routes/RedirectComp'
 import Registration from './components/Home/Registration'
 import Login from './components/Home/Login'
 

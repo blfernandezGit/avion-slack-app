@@ -3,7 +3,7 @@ import MemberList from './ChannelMembers/MemberList'
 
 const ChannelDetails = ({details, handleRecallMembers}) => {
     return (
-        <div className="ChannelDetails">
+        <div className="ChannelDetails modal">
             {details &&
                 <div>
                     <div>Channel Name: {details.name}</div>

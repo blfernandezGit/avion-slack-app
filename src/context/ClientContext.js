@@ -26,7 +26,7 @@ const ClientContextProvider = (props) => {
     }, [response])
     
     return (
-        <ClientContext.Provider value={{ fetchedData: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails }}>
+        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails }}>
             { props.children }
         </ClientContext.Provider>
     )

@@ -2,7 +2,7 @@ import ChannelDetails from './ChannelDetails'
 
 const ChannelHeader = ({details, handleRecallMembers}) => {
     return (
-        <div className="ChannelHeader">
+        <div className="ChannelHeader sub-header">
             { details &&
                 <>
                     <div className="ChannelName">{details.name}</div>

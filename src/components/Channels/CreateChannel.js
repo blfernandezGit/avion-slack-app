@@ -33,10 +33,12 @@ const CreateChannel = ({handleRecallChannels}) => {
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
                 handleRecallChannels()
             })
+
+        channelNameRef.current.value = null
     }
 
     return (
-        <div className="CreateChannel">
+        <div className="CreateChannel modal">
             {/* Create Channel Form */}
             <form onSubmit={(e) => createChannel(e)}>
                 <input type="text" ref={channelNameRef} placeholder="Channel Name"/>

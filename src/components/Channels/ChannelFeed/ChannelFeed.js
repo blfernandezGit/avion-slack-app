@@ -1,11 +1,23 @@
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { useParams } from "react-router-dom";
 import useAxiosGet from '../../../helpers/useAxiosGet'
 import { channelsBaseUrl, channelRetrieveAuditText } from '../../../helpers/constants'
 import { ClientContext } from '../../../context/ClientContext';
 import ChannelHeader from './ChannelHeader'
+import CreateChannelMessages from './ChannelMessages/CreateChannelMessage';
+import ChannelMessageList from './ChannelMessages/ChannelMessageList/ChannelMessageList';
+import { v4 as uuid_v4 } from "uuid";
 
-const ChannelFeed = ({recallMembers, handleRecallMembers}) => {
+const ChannelFeed = () => {
+    const [recallMembers, setRecallMembers] = useState(null) 
+
+    // function that changes memberChannels state every call such that it can be added as a useEffect dependency in useAxiosGet call by MemberList
+    // basically a function to re-render Member List whenever a new Member is added locally
+    // TODO: improve if possible - since currently just setting a state to a unique id - uuid_v4() so that API request is called every time the function is called
+    const handleRecallMembers = () => {
+        setRecallMembers(uuid_v4())
+    }
+
     // get channel id from url
     const { id } = useParams();
     
@@ -19,7 +31,7 @@ const ChannelFeed = ({recallMembers, handleRecallMembers}) => {
     const {fetchedData: details, isLoading} = useAxiosGet( channelUrl, headers, null, channelRetrieveAuditText, recallMembers )
 
     return (
-        <div className="ChannelFeed">
+        <div className="ChannelFeed feed">
             <strong>Channel Feed</strong>
             { isLoading && <p>Loading...</p> }
 
@@ -27,6 +39,17 @@ const ChannelFeed = ({recallMembers, handleRecallMembers}) => {
                 details={details}
                 handleRecallMembers={handleRecallMembers}
             />
+
+            {details && 
+                <>
+                    <ChannelMessageList 
+                        details={details}
+                    />
+                    <CreateChannelMessages 
+                        details={details}
+                    />
+                </>
+            }
         </div>
     )
 }
