@@ -10,10 +10,12 @@ const ContactList = () => {
             <strong>Contact List</strong> {/* temporary, may or may not be removed */}
             
             {/* Table component that displays list of Contacts */}
-            { currentUserContacts && 
+            { currentUserContacts ?
                 <ContactsTable 
                     currentUserContacts={currentUserContacts} 
                 /> 
+                :
+                <div>No available contacts.</div>
             }
             
         </div>
