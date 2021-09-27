@@ -14,14 +14,17 @@ const ChannelMessageList = ({details}) => {
 
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Channels of User
     const {fetchedData: messages, isLoading, errorMessage} = useAxiosGetMessages(messageUrl, headers, null, channelMessagesAuditText)
-    // console.log(errorMessage)
+    // console.log(messages)
     return (
         <div className="ChannelMessageList message-list">
             <strong>Channel Message List</strong>
             { isLoading && <p>Loading...</p> }
 
-            {/* Table component that displays list of Channels for User */}
-            { messages && <ChannelMessageTable messages={messages} /> }
+            { (messages && messages.length>0) ? 
+                <ChannelMessageTable messages={messages} /> //Table component that displays list of Channels for User
+                :
+                <div>Start Conversation</div>
+            }
 
             { errorMessage &&  <div>{errorMessage}</div> }
         </div>

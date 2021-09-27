@@ -3,7 +3,6 @@ import { ClientContext } from '../../context/ClientContext';
 
 const UserProfile = () => {
     const { userDetails } = useContext(ClientContext)
-    console.log(userDetails)
 
     return (
         <div className="UserProfile modal">

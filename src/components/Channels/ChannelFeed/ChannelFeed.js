@@ -42,9 +42,9 @@ const ChannelFeed = () => {
 
             {details && 
                 <>
-                    {/* <ChannelMessageList 
+                    <ChannelMessageList 
                         details={details}
-                    /> */}
+                    />
                     <CreateChannelMessages 
                         details={details}
                     />

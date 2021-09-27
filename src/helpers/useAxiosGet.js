@@ -12,6 +12,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
     // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     useEffect(() => {
+        let isActive = true;
         axios({
             // Axios needed parameters to fetch API
             url: url,
@@ -20,21 +21,26 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
             method: 'GET',
         })
         .then(response => {
-            // Loading set to false when response is retrieved
-            setIsLoading(false)
-            // Get response data
-            setFetchedData(response.data?.data)
-            setErrorMessage(response.data?.errors)
-            // Display action done via API in console
-            console.log(auditTrail)
-        
+            if(isActive){
+                // Loading set to false when response is retrieved
+                setIsLoading(false)
+                // Get response data
+                setFetchedData(response.data?.data)
+                setErrorMessage(response.data?.errors)
+                // Display action done via API in console
+                console.log(auditTrail)
+            }
         })
         .catch(error => {
-            // Loading set to false when error is retrieved
-            setIsLoading(false)
-            // set error message from error response
-            setErrorMessage(error.response?.data?.errors[0])
+            if(isActive){
+                // Loading set to false when error is retrieved
+                setIsLoading(false)
+                // set error message from error response
+                setErrorMessage(error.response?.data?.errors[0])
+            }
         })
+
+        return () => { isActive = false };
         //eslint-disable-next-line
     }, [checker, url]) // checker used for re-requesting api every time the checker value changes
 

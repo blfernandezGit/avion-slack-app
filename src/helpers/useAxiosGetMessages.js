@@ -12,6 +12,7 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
     // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     useEffect(() => {
+        let isActive = true
         axios({
             // Axios needed parameters to fetch API
             url: url,
@@ -20,22 +21,30 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
             method: 'GET',
         })
         .then(response => {
-            // Display action done via API in console
-            console.log(auditTrail)
-            return response?.data;
+            if(isActive){
+                // Display action done via API in console
+                console.log(auditTrail)
+                return response?.data;
+            }
         })
         .then(data => {
-            // Loading set to false when response is retrieved
-            setIsLoading(false)
-            // Get response data
-            setFetchedData(data?.data)
+            if(isActive){
+                // Loading set to false when response is retrieved
+                setIsLoading(false)
+                // Get response data
+                setFetchedData(data?.data)
+            }
         })
         .catch(error => {
-            // Loading set to false when response is retrieved
-            setIsLoading(false)
-            // set error message from error response
-            setErrorMessage(error.response?.data?.errors[0])
+            if(isActive) {
+                // Loading set to false when response is retrieved
+                setIsLoading(false)
+                // set error message from error response
+                setErrorMessage(error.response?.data?.errors[0])
+            }
         })
+
+        return () => { isActive = false };
         //eslint-disable-next-line
     },[fetchedData])
 

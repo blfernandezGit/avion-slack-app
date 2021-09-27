@@ -1,7 +1,6 @@
 import Users from './Users'
 
 const UserTable = ({users, onClick, searchQuery}) => {
-    console.log(searchQuery)
     return (
         // TODO: make list scrollable 
         <div className="UserTable">

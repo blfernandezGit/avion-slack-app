@@ -26,7 +26,7 @@ const CreateChannelMessages = ({details}) => {
         // API for this function needs both body and headers
         postAPI(messagesBaseUrl, requestData, headers, sendChannelMessageAuditText)
         .then(data => {
-            console.log(data)
+            // console.log(data) TODO: think what should be added here?
         })
         bodyRef.current.value = null;
     }

@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useContext } from 'react'
 import {postAPI} from '../../../helpers/useAxiosPost'
 import { channelAddUserUrl, inviteToChannelAuditText } from '../../../helpers/constants'
 import { ClientContext } from '../../../context/ClientContext';
