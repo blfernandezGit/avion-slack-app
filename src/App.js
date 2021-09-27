@@ -7,6 +7,7 @@ import ChatContainer from './routes/ChatContainer'
 import Registration from './components/Home/Registration'
 import Login from './components/Home/Login'
 import RedirectComp from './routes/RedirectComp'
+import AuthRoute from './routes/AuthRoute'
 
 function App() {
   return (
@@ -17,14 +18,14 @@ function App() {
             <Route exact path="/">
               <Login />
             </Route>
-            <Route path="/client">
+            <AuthRoute path="/client">
               <ChatContainer />
-            </Route>
+            </AuthRoute>
             <Route path="/signup">
               <Registration />
             </Route>
           </Switch>
-          <RedirectComp />
+          {/* <RedirectComp /> */}
         </Router>
       </ClientContextProvider>
       
