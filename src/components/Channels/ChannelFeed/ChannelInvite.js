@@ -8,7 +8,7 @@ const ChannelInvite = ({details, handleRecallMembers}) => {
     const { headers } = useContext(ClientContext)
 
     // State for search query
-    const [searchQuery, setSearchQuery] = useState(null)
+    const [searchQuery, setSearchQuery] = useState('')
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
@@ -34,7 +34,6 @@ const ChannelInvite = ({details, handleRecallMembers}) => {
             handleRecallMembers()
         })
 
-        memberNameRef.current.value = null
     }
 
     return (

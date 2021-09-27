@@ -8,12 +8,13 @@ const ChannelDetails = ({details, handleRecallMembers}) => {
                 <div>
                     <div>Channel Name: {details.name}</div>
                     <div>Channel Owner: {details.owner_id}</div> {/*TODO: get name from user details*/}
+                    <MemberList 
+                        details={details}
+                    />
+                    {/* TODO: move to a tab in modal? */}
                     <ChannelInvite 
                         details={details} 
                         handleRecallMembers={handleRecallMembers}
-                    />
-                    <MemberList 
-                        details={details}
                     />
                 </div>
             }
