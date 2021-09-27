@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 import { baseUrl } from './constants'
 
 /* Reusable function for using axios post */
@@ -24,7 +24,6 @@ export const postAPI = (url, requestData, headers, auditTrail) => {
     .catch(error => {
         // create variable to store error message from error response
         const errorMessages = error.response?.data?.errors
-        console.log(error.response?.data?.errors)
         // FIXME: cannot catch error in channel creation - instead passes through .then response
         // Passes error value to js that called it
         return Promise.reject(errorMessages)

@@ -1,20 +1,20 @@
 import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../helpers/useAxiosPost'
 import { channelsBaseUrl, channelCreateAuditText } from '../../helpers/constants'
-import { ClientContext } from '../../context/ClientContext';
+import { ClientContext } from '../../context/ClientContext'
 
-const CreateChannel = ({ handleRecall }) => {
+const CreateChannel = ({handleRecallChannels}) => {
     const { headers } = useContext(ClientContext)
 
     // Input field references
-    const channelNameRef = useRef();
+    const channelNameRef = useRef()
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
     // Function to submit a post request for creating a new channel with user
     const createChannel = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
@@ -31,12 +31,14 @@ const CreateChannel = ({ handleRecall }) => {
                 setErrorMessage(data[2][0])
                 :
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
-                handleRecall()
+                handleRecallChannels()
             })
+
+        channelNameRef.current.value = null
     }
 
     return (
-        <div>
+        <div className="CreateChannel modal">
             {/* Create Channel Form */}
             <form onSubmit={(e) => createChannel(e)}>
                 <input type="text" ref={channelNameRef} placeholder="Channel Name"/>

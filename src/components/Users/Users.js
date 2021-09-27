@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Users = ({user}) => {
+const Users = ({user, onClick}) => {
     return (
-        <tr>
-            {/* User details */}
-            <td>{user.image}</td>
-            <td>{user.uid}</td>
-            <td>{user.name}</td>
-        </tr>
+        <div>
+            <button onClick={() => {onClick(user.id, user.uid)}}>
+                {user.uid}
+            </button>
+        </div>
     )
 }
 

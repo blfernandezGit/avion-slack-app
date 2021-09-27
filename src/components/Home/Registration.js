@@ -1,19 +1,23 @@
 import { useState, useRef } from 'react'
+import { Link, Redirect } from "react-router-dom"
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
 
 const Registration = () => {
     // Input field references
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmationRef = useRef();
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const passwordConfirmationRef = useRef()
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
+    // State for successful registration - to handle redirect
+    const [redirectToSignIn, setRedirectToSignIn] = useState(false)
+
     // Function to submit a post request for user registration
     const handleRegistration = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
@@ -24,8 +28,7 @@ const Registration = () => {
         // Call function from useAxiosPost.js - postAPI(url, requestData, headers, auditTrail)
         postAPI(registrationUrl, requestData, null, registerAuditText)
             .then(data => {
-                // TODO: Think of a way where data will be displayed on user registration OR just remove this .then lines of code (lines 25 to 28)
-                console.log(data)
+                setRedirectToSignIn(true)
             })
             .catch(error => {
                 const errorArray = error?.full_messages
@@ -34,9 +37,11 @@ const Registration = () => {
             })
     }
 
+    if(redirectToSignIn){
+        return (<Redirect to='/'/>) //redirect to sign in page on successful registration
+    }
     return (
-        <div>
-            {/* Registration Form */}
+        <div className="Registration">
             <form onSubmit={(e) => handleRegistration(e)}>
                 <input type="email" ref={emailRef} placeholder="Email"/>
                 <input type="password" ref={passwordRef} placeholder="Password"/>
@@ -51,6 +56,12 @@ const Registration = () => {
                     <div>{errorMessage[1]}</div>
                 </>
             }
+
+            <div>
+                <Link to={`/`}>
+                    Sign in
+                </Link>
+            </div>
         </div>
     )
 }

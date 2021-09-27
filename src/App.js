@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ClientContextProvider from "./context/ClientContext";
 import './App.css';
 import ChatContainer from './routes/ChatContainer'
-import Home from './routes/Home'
-import AuthRoute from './routes/AuthRoute'
-import RedirectComp from './routes/RedirectComp'
+// import AuthRoute from './routes/AuthRoute'
+// import RedirectComp from './routes/RedirectComp'
+import Registration from './components/Home/Registration'
+import Login from './components/Home/Login'
 
 let renderCount = 0;
 
@@ -18,19 +19,17 @@ function App() {
       <ClientContextProvider>
         <Router>
           <Switch>
-            <Route path='/'>
-              <Home />
+            <Route exact path="/">
+              <Login />
             </Route>
-            {/* <AuthRoute 
-              path="/client" 
-              exact 
-              component={<ChatContainer />}
-            /> */}
-            <Route path='/client'>
+            <Route path="/client">
               <ChatContainer />
             </Route>
+            <Route path="/signup">
+              <Registration />
+            </Route>
           </Switch>
-          <RedirectComp />
+          {/* <RedirectComp /> */}
         </Router>
       </ClientContextProvider>
       

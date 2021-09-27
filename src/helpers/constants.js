@@ -2,6 +2,7 @@
 
 // Local Storage Key
 export const LOCAL_STORAGE_KEY_1 = 'userLoginSession'
+export const LOCAL_STORAGE_KEY_2 = 'contacts'
 
 // URL
 export const baseUrl = 'http://206.189.91.54//api/v1/'
@@ -13,6 +14,10 @@ export const channelsBaseUrl = 'channels'
 export const channelAddUserUrl = 'channel/add_member'
 export const messagesBaseUrl = 'messages'
 
+// Receiver class
+export const channelReceiverClass = 'Channel'
+export const userReceiverClass = 'User'
+
 // Audit Trail
 export const loginAuditText = 'Create User Session'
 export const registerAuditText = 'User Registration'
@@ -22,6 +27,6 @@ export const channelRetrieveAuditText = 'Retrieve a Channel'
 export const inviteToChannelAuditText = 'Invite User to a Channel'
 export const channelListAuditText = 'Retrieve all Channels where User was invited'
 export const channelMessagesAuditText = 'Retrieve All Messages in a Channel'
-export const userMessagesAuditText = 'Retrieve All Messages with a User'
+export const directMessagesAuditText = 'Retrieve All Messages with a User'
 export const sendChannelMessageAuditText = 'Create Message in a Channel'
-export const sendUserMessageAuditText = 'Create Direct Message to a User'
+export const sendDirectMessageAuditText = 'Create Direct Message to a User'

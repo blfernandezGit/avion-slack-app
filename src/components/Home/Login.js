@@ -1,25 +1,25 @@
 import { useState, useRef } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom"
 import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
-import { ClientContext } from '../../context/ClientContext';
+import { ClientContext } from '../../context/ClientContext'
 
 const Login = () => {
     const { setLoginDetails } = useContext(ClientContext)
     // get current url path
-    const history = useHistory();
+    const history = useHistory()
 
     // Input field references
-    const emailRef = useRef();
-    const passwordRef = useRef();
+    const emailRef = useRef()
+    const passwordRef = useRef()
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
     // Function to submit a post request for creating a user session
     const handleLogin = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
@@ -31,7 +31,7 @@ const Login = () => {
             .then(data => {
                 // Change login details to response data
                 setLoginDetails(data)
-                history.push("/client");
+                history.push("/client")
             })
             .catch(error => {
                 // Set error message from error response
@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="Login">
             {/* Login Form */}
             <form onSubmit={(e) => handleLogin(e)}>
                 <input type="email" ref={emailRef} placeholder="Email"/>
@@ -50,7 +50,13 @@ const Login = () => {
             
             {/* Display error message if it exists */}
             { errorMessage &&  <div>{errorMessage}</div> }
-                
+
+            <div>
+                <Link to={`/signup`}>
+                    Sign up
+                </Link>
+            </div>
+            
         </div>
     )
 }

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { baseUrl } from './constants'
 
-/* Custom hook for using axios get NOTE: not live, this is the version of the hook that relies on a local checker*/
-const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
+/* Custom hook for using axios get for live messages - this is the version of the hook that can get live details from api*/
+const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
     // States for data, loading and error
     const [fetchedData, setFetchedData] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
@@ -22,18 +22,22 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
         })
         .then(response => {
             if(isActive){
+                // Display action done via API in console
+                console.log(auditTrail)
+                return response?.data
+            }
+        })
+        .then(data => {
+            if(isActive){
                 // Loading set to false when response is retrieved
                 setIsLoading(false)
                 // Get response data
-                setFetchedData(response.data?.data)
-                setErrorMessage(response.data?.errors)
-                // Display action done via API in console
-                console.log(auditTrail)
+                setFetchedData(data?.data)
             }
         })
         .catch(error => {
-            if(isActive){
-                // Loading set to false when error is retrieved
+            if(isActive) {
+                // Loading set to false when response is retrieved
                 setIsLoading(false)
                 // set error message from error response
                 setErrorMessage(error.response?.data?.errors[0])
@@ -42,10 +46,10 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
 
         return () => { isActive = false }
         //eslint-disable-next-line
-    }, [checker, url]) // checker used for re-requesting api every time the checker value changes
+    },[fetchedData])
 
     // when api is called, these values can be retrieved
     return { fetchedData, isLoading, errorMessage}
 }
 
-export default useAxiosGet
+export default useAxiosGetChannel
