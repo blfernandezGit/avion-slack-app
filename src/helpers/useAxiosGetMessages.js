@@ -24,7 +24,7 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
             if(isActive){
                 // Display action done via API in console
                 console.log(auditTrail)
-                return response?.data;
+                return response?.data
             }
         })
         .then(data => {
@@ -44,7 +44,7 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
             }
         })
 
-        return () => { isActive = false };
+        return () => { isActive = false }
         //eslint-disable-next-line
     },[fetchedData])
 
@@ -52,4 +52,4 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
     return { fetchedData, isLoading, errorMessage}
 }
 
-export default useAxiosGetChannel;
+export default useAxiosGetChannel

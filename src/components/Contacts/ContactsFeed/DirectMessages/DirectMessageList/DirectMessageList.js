@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import DirectMessageTable from './DirectMessageTable'
 import { messagesBaseUrl, directMessagesAuditText, userReceiverClass } from '../../../../../helpers/constants'
-import { ClientContext } from '../../../../../context/ClientContext';
-import useAxiosGetMessages from '../../../../../helpers/useAxiosGetMessages';
+import { ClientContext } from '../../../../../context/ClientContext'
+import useAxiosGetMessages from '../../../../../helpers/useAxiosGetMessages'
 
 const ChannelMessageList = ({id}) => {
     const { headers } = useContext(ClientContext)

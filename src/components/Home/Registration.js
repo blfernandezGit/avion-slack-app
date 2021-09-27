@@ -1,23 +1,23 @@
 import { useState, useRef } from 'react'
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom"
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
 
 const Registration = () => {
     // Input field references
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmationRef = useRef();
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const passwordConfirmationRef = useRef()
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
     // State for successful registration - to handle redirect
-    const [redirectToSignIn, setRedirectToSignIn] = useState(false);
+    const [redirectToSignIn, setRedirectToSignIn] = useState(false)
 
     // Function to submit a post request for user registration
     const handleRegistration = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {

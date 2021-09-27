@@ -12,7 +12,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
     // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     useEffect(() => {
-        let isActive = true;
+        let isActive = true
         axios({
             // Axios needed parameters to fetch API
             url: url,
@@ -40,7 +40,7 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
             }
         })
 
-        return () => { isActive = false };
+        return () => { isActive = false }
         //eslint-disable-next-line
     }, [checker, url]) // checker used for re-requesting api every time the checker value changes
 
@@ -48,4 +48,4 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
     return { fetchedData, isLoading, errorMessage}
 }
 
-export default useAxiosGet;
+export default useAxiosGet

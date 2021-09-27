@@ -2,7 +2,7 @@ import useAxiosGet from '../../helpers/useAxiosGet'
 import UserTable from './UserTable'
 import { userListUrl, userListAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
-import { ClientContext } from '../../context/ClientContext';
+import { ClientContext } from '../../context/ClientContext'
 
 const UserList = ({onClick, searchQuery}) => {
     const { headers } = useContext(ClientContext)

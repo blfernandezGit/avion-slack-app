@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { v4 as uuid_v4 } from "uuid";
+import { v4 as uuid_v4 } from "uuid"
 import Logout from '../Home/Logout'
 import ChannelList from '../Channels/ChannelList/ChannelList'
 import CreateChannel from '../Channels/CreateChannel'

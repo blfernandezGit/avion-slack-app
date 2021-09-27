@@ -1,12 +1,12 @@
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import { useContext } from 'react'
-import { ClientContext } from '../../context/ClientContext';
+import { ClientContext } from '../../context/ClientContext'
 
 const Logout = () => {
     const { setLoginDetails } = useContext(ClientContext)
 
     // get current url path
-    const history = useHistory();
+    const history = useHistory()
 
     const handleLogout = () => {
         setLoginDetails()

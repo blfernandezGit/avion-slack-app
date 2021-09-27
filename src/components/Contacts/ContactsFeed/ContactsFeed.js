@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import ContactsHeader from "./ContactsHeader";
+import { useParams } from "react-router-dom"
+import ContactsHeader from "./ContactsHeader"
 import DirectMessageList from './DirectMessages/DirectMessageList/DirectMessageList'
 import CreateDirectMessage from './DirectMessages/CreateDirectMessage'
 

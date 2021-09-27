@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react'
 import { LOCAL_STORAGE_KEY_1, LOCAL_STORAGE_KEY_2} from '../helpers/constants'
-export const ClientContext = createContext();
+export const ClientContext = createContext()
 
 const ClientContextProvider = (props) => {
     // State to store response data and headers from login - initial value from local storage
@@ -22,7 +22,8 @@ const ClientContextProvider = (props) => {
             headers: {},
             isAuth: false
         })
-    };
+    }
+
     // On change of response, saves data and headers to local storage
     useEffect(() =>{
         localStorage.setItem(LOCAL_STORAGE_KEY_1, JSON.stringify(response))

@@ -1,20 +1,20 @@
 import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../../../helpers/useAxiosPost'
 import { messagesBaseUrl, sendDirectMessageAuditText, userReceiverClass } from '../../../../helpers/constants'
-import { ClientContext } from '../../../../context/ClientContext';
+import { ClientContext } from '../../../../context/ClientContext'
 
 const CreateDirectMessages = ({id, uid}) => {
     const { headers } = useContext(ClientContext)
 
     // Input field references
-    const bodyRef = useRef();
+    const bodyRef = useRef()
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
     // Function to submit a post request for creating a new channel with user
     const createDirectMessage = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
@@ -28,7 +28,7 @@ const CreateDirectMessages = ({id, uid}) => {
         .then(data => {
             //console.log(data) // TODO: think what should be added here?
         })
-        bodyRef.current.value = null;
+        bodyRef.current.value = null
     }
 
     const placeholder = `Message ${uid}`

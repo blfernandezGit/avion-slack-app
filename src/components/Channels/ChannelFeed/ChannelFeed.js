@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
 import useAxiosGet from '../../../helpers/useAxiosGet'
 import { channelsBaseUrl, channelRetrieveAuditText } from '../../../helpers/constants'
-import { ClientContext } from '../../../context/ClientContext';
+import { ClientContext } from '../../../context/ClientContext'
 import ChannelHeader from './ChannelHeader'
-import CreateChannelMessages from './ChannelMessages/CreateChannelMessage';
-import ChannelMessageList from './ChannelMessages/ChannelMessageList/ChannelMessageList';
-import { v4 as uuid_v4 } from "uuid";
+import CreateChannelMessages from './ChannelMessages/CreateChannelMessage'
+import ChannelMessageList from './ChannelMessages/ChannelMessageList/ChannelMessageList'
+import { v4 as uuid_v4 } from "uuid"
 
 const ChannelFeed = () => {
     const [recallMembers, setRecallMembers] = useState(null) 
@@ -19,7 +19,7 @@ const ChannelFeed = () => {
     }
 
     // get channel id from url
-    const { id } = useParams();
+    const { id } = useParams()
     
     // get required headers from context
     const { headers } = useContext(ClientContext)
