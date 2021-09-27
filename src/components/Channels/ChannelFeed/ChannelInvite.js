@@ -2,24 +2,24 @@ import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../../helpers/useAxiosPost'
 import { channelAddUserUrl, inviteToChannelAuditText } from '../../../helpers/constants'
 import { ClientContext } from '../../../context/ClientContext';
+import UserList from '../../Users/UserList'
 
 const ChannelInvite = ({details, handleRecallMembers}) => {
     const { headers } = useContext(ClientContext)
 
-    // Input field references
-    const memberNameRef = useRef();
+    // State for search query
+    const [searchQuery, setSearchQuery] = useState(null)
 
     // State for error message
     const [errorMessage, setErrorMessage] = useState(null)
 
     // Function to submit a post request for creating a new channel with user
-    const handleInvite = (e) => {
-        e.preventDefault()
+    const channelInvite = (user_id) => {
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
             id: details.id,
-            member_id: memberNameRef.current.value //TODO: change value to member_id
+            member_id: user_id
         }
         // Call function from useAxiosPost.js - postAPI(url, requestData, headers, auditTrail)
         // API for this function needs both body and headers
@@ -39,11 +39,15 @@ const ChannelInvite = ({details, handleRecallMembers}) => {
 
     return (
         <div className="ChannelInvite">
-            {/* Add Member Form */}
-            <form onSubmit={(e) => handleInvite(e)}>
-                <input type="text" ref={memberNameRef} placeholder="Member Name"/> {/* TODO: fix such that member_id is found from user list, might need useContext? */}
-                <button type="submit">Invite Member</button>
+            {/* Search User form */}
+            <form onSubmit={(e) => channelInvite(e)}>
+                <input type="text" placeholder="User Email" onChange={(e) =>setSearchQuery(e.target.value)}/> 
             </form>
+
+            <UserList 
+                onClick={channelInvite}
+                searchQuery={searchQuery}
+            />
             
             {/* Display error message if it exists */}
             { errorMessage &&  <div>{errorMessage}</div> }
