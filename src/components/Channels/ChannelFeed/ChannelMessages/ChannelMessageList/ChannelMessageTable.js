@@ -1,12 +1,12 @@
-import ChannelMessage from './ChannelMessage'
+import ChannelMessages from './ChannelMessages'
 
 const ChannelMessageTable = ({messages}) => {
     return (
         <table className="ChannelMessageTable message-table">
             <tbody>
-                {/* Map members into a table*/}
+                {/* Map messages into a table*/}
                 {messages.map(message => {
-                    return <ChannelMessage key={message.id}  message = {message}/>
+                    return <ChannelMessages key={message.id}  message = {message}/>
                 })}
             </tbody>
         </table>

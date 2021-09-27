@@ -3,6 +3,7 @@ import Menu from '../components/Menu/Menu'
 import UserList from '../components/Users/UserList'
 import ChannelFeed from '../components/Channels/ChannelFeed/ChannelFeed'
 import Header from '../components/Menu/Header'
+import ContactsFeed from '../components/Contacts/ContactsFeed/ContactsFeed'
 
 const ChatContainer = () => {
     return (
@@ -24,6 +25,10 @@ const ChatContainer = () => {
                 <Route path='/client/channels/:id'>
                     {/* Channel Specific Messages */}
                     <ChannelFeed />
+                </Route>
+                <Route path='/client/messages/:id/:uid'>
+                    {/* Contact Specific Messages */}
+                    <ContactsFeed />
                 </Route>
             </Switch>
             

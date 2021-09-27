@@ -3,6 +3,8 @@ import { v4 as uuid_v4 } from "uuid";
 import Logout from '../Home/Logout'
 import ChannelList from '../Channels/ChannelList/ChannelList'
 import CreateChannel from '../Channels/CreateChannel'
+import AddContact from '../Contacts/AddContact'
+import ContactList from '../Contacts/ContactList/ContactList'
 
 const Menu = () => {
     const [recallChannels, setRecallChannels] = useState(null)
@@ -25,6 +27,9 @@ const Menu = () => {
             <ChannelList 
                 recallChannels={recallChannels}
             />
+            {/* TODO: Create modal for AddContact */}
+            <AddContact />
+            <ContactList />
         </div>
     )
 }

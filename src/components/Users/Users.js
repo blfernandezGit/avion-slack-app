@@ -3,7 +3,7 @@ import React from 'react'
 const Users = ({user, onClick}) => {
     return (
         <div>
-            <button onClick={() => {onClick(user.id)}}>
+            <button onClick={() => {onClick(user.id, user.uid)}}>
                 {user.uid}
             </button>
         </div>

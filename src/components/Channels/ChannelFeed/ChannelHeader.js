@@ -5,7 +5,7 @@ const ChannelHeader = ({details, handleRecallMembers}) => {
         <div className="ChannelHeader sub-header">
             { details &&
                 <>
-                    <div className="ChannelName">{details.name}</div>
+                    <div className="ChannelName headerTitle">{details.name}</div>
                     <div className="channel-members-count">{details?.channel_members.length}</div>
 
                     {/*TODO: Create modal for this*/ }

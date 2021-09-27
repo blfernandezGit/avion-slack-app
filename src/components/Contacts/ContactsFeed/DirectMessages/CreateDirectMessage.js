@@ -1,9 +1,9 @@
 import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../../../helpers/useAxiosPost'
-import { messagesBaseUrl, sendChannelMessageAuditText, channelReceiverClass } from '../../../../helpers/constants'
+import { messagesBaseUrl, sendDirectMessageAuditText, userReceiverClass } from '../../../../helpers/constants'
 import { ClientContext } from '../../../../context/ClientContext';
 
-const CreateChannelMessages = ({details}) => {
+const CreateDirectMessages = ({id, uid}) => {
     const { headers } = useContext(ClientContext)
 
     // Input field references
@@ -13,30 +13,30 @@ const CreateChannelMessages = ({details}) => {
     const [errorMessage, setErrorMessage] = useState(null)
 
     // Function to submit a post request for creating a new channel with user
-    const createChannelMessage = (e) => {
+    const createDirectMessage = (e) => {
         e.preventDefault();
         setErrorMessage(null) // remove previously set error message
         // data needed to fulfill API request
         const requestData = {
-            receiver_id: details.id,
-            receiver_class: channelReceiverClass,
+            receiver_id: id,
+            receiver_class: userReceiverClass,
             body: bodyRef.current.value
         }
         // Call function from useAxiosPost.js - postAPI(url, requestData, headers, auditTrail)
         // API for this function needs both body and headers
-        postAPI(messagesBaseUrl, requestData, headers, sendChannelMessageAuditText)
+        postAPI(messagesBaseUrl, requestData, headers, sendDirectMessageAuditText)
         .then(data => {
-            // console.log(data) TODO: think what should be added here?
+            //console.log(data) // TODO: think what should be added here?
         })
         bodyRef.current.value = null;
     }
 
-    const placeholder = `Message #${details.name}`
+    const placeholder = `Message ${uid}`
 
     return (
-        <div className="ChannelChatBox chat-box">
+        <div className="DirectMessageChatBox chat-box">
             {/* Add Member Form */}
-            <form onSubmit={(e) => createChannelMessage(e)}>
+            <form onSubmit={(e) => createDirectMessage(e)}>
                 <input type="text" ref={bodyRef} placeholder={placeholder}/>
                 <button type="submit">Send</button>
             </form>
@@ -47,4 +47,4 @@ const CreateChannelMessages = ({details}) => {
     )
 }
 
-export default CreateChannelMessages
+export default CreateDirectMessages
