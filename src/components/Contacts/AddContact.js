@@ -4,14 +4,24 @@ import { useContext } from 'react'
 import { ClientContext } from '../../context/ClientContext'
 
 const AddContact = () => {
-    const { setUserContacts } = useContext(ClientContext)
+    const { setUserContacts, currentUserContacts } = useContext(ClientContext)
 
     // state for search bar
     const [searchQuery, setSearchQuery] = useState('')
 
+    // state for error message
+    const [errorMessage, setErrorMessage] = useState(null)
+
     // function for adding user as contact
     const handleAddContact = (user_id, user_uid) => {
-        setUserContacts(user_id, user_uid)
+        const contact = currentUserContacts.find(user => user.id === user_id)
+        if(!contact){
+            setUserContacts(user_id, user_uid)
+            setErrorMessage(null)
+        }
+        else{
+            setErrorMessage('User is already in contacts list.')
+        }
     }
 
     return (
@@ -25,6 +35,8 @@ const AddContact = () => {
                 onClick={handleAddContact}
                 searchQuery={searchQuery}
             />
+
+            {errorMessage && <div>{errorMessage}</div>}
         </div>
     )
 }
