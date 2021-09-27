@@ -14,14 +14,20 @@ const AddContact = () => {
 
     // function for adding user as contact
     const handleAddContact = (user_id, user_uid) => {
-        const contact = currentUserContacts.find(user => user.id === user_id)
-        if(!contact){
+        if(currentUserContacts) {
+            const contact = currentUserContacts.find(user => user.id === user_id)
+            if(!contact){
+                setUserContacts(user_id, user_uid)
+                setErrorMessage(null)
+            }
+            else{
+                setErrorMessage('User is already in contacts list.')
+            }
+        }
+        else {
             setUserContacts(user_id, user_uid)
-            setErrorMessage(null)
         }
-        else{
-            setErrorMessage('User is already in contacts list.')
-        }
+        
     }
 
     return (
