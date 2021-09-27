@@ -1,7 +1,6 @@
 import DirectMessages from './DirectMessages'
 
 const DirectMessageTable = ({messages}) => {
-    console.log(messages)
     return (
         <table className="DirectMessageTable message-table">
             <tbody>

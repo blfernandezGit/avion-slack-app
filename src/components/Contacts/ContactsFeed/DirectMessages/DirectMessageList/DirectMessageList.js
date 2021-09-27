@@ -13,7 +13,6 @@ const ChannelMessageList = ({id}) => {
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Channels of User
     const {fetchedData: messages, isLoading, errorMessage} = useAxiosGetMessages(messageUrl, headers, null, directMessagesAuditText)
 
-    // console.log(messages)
     return (
         <div className="DirectMessageList message-list">
             <strong>Direct Message List</strong>

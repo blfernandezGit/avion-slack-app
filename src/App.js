@@ -6,14 +6,9 @@ import ChatContainer from './routes/ChatContainer'
 // import RedirectComp from './routes/RedirectComp'
 import Registration from './components/Home/Registration'
 import Login from './components/Home/Login'
-
-let renderCount = 0;
+import RedirectComp from './routes/RedirectComp'
 
 function App() {
-  //temporary render counter - TODO: remove when done
-  renderCount++
-  console.log(renderCount)
-
   return (
     <div className="App">
       <ClientContextProvider>
@@ -29,7 +24,7 @@ function App() {
               <Registration />
             </Route>
           </Switch>
-          {/* <RedirectComp /> */}
+          <RedirectComp />
         </Router>
       </ClientContextProvider>
       

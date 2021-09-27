@@ -67,7 +67,7 @@ const ClientContextProvider = (props) => {
     // function to get saved user contacts
     const handleDisplayedContacts = () => {
         const userAcct = contacts.find(user => {return user.user_id === response?.fetchedData?.id})
-        setCurrentUserContacts(userAcct.contacts)
+        if(userAcct) {setCurrentUserContacts(userAcct.contacts)}
     }
 
     return (
