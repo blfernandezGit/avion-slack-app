@@ -1,15 +1,20 @@
 import Users from './Users'
 
-const UserTable = ({users}) => {
+const UserTable = ({users, onClick, searchQuery}) => {
     return (
-        <table className="UserTable">
-            <tbody>
+        <div className="UserTable">
                 {/* Map users into a table*/}
-                {users.map(user => {
-                    return <Users key={user.id}  user = {user}/>
-                })}
-            </tbody>
-        </table>
+                {users
+                    // .filter(user => searchQuery === '' || user.email.includes(searchQuery))
+                    .map(user => {
+                        return <Users 
+                                    key={user.id} 
+                                    user = {user}
+                                    onClick={onClick}
+                                />
+                    })
+                }
+        </div>
     )
 }
 
