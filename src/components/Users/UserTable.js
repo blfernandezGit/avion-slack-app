@@ -5,7 +5,7 @@ const UserTable = ({users, onClick, searchQuery}) => {
         <div className="UserTable">
                 {/* Map users into a table*/}
                 {users
-                    // .filter(user => searchQuery === '' || user.email.includes(searchQuery))
+                    .filter(user => user.uid.includes(searchQuery))
                     .map(user => {
                         return <Users 
                                     key={user.id} 
