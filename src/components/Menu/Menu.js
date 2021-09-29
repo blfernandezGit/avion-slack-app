@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { v4 as uuid_v4 } from "uuid"
 import Logout from '../Home/Logout'
 import ChannelList from '../Channels/ChannelList/ChannelList'
 import CreateChannel from '../Channels/CreateChannel'
 import AddContact from '../Contacts/AddContact'
 import ContactList from '../Contacts/ContactList/ContactList'
+import { ClientContext } from '../../context/ClientContext'
 
 const Menu = () => {
+    const { showMenu } = useContext(ClientContext)
+
     const [recallChannels, setRecallChannels] = useState(null)
 
     // function that changes recallChannels state every call such that it can be added as a useEffect dependency in useAxiosGet call by ChannelList
@@ -15,23 +18,29 @@ const Menu = () => {
     const handleRecallChannels = () => {
         setRecallChannels(uuid_v4())
     }
+    console.log(showMenu)
     
     //TODO: add link to a default page /client to remove view from messages
-    return (
-        <div className="Menu">
-            <Logout /> {/* Can be moved to header or anywhere else */}
-            {/* TODO: Create modal for CreateChannel */}
-            <CreateChannel 
-                handleRecallChannels={handleRecallChannels} 
-            />
-            <ChannelList 
-                recallChannels={recallChannels}
-            />
-            {/* TODO: Create modal for AddContact */}
-            <AddContact />
-            <ContactList />
-        </div>
-    )
+    if(showMenu){
+        return (
+            <div className="Menu">
+                <Logout /> {/* Can be moved to header or anywhere else */}
+                {/* TODO: Create modal for CreateChannel */}
+                <CreateChannel 
+                    handleRecallChannels={handleRecallChannels} 
+                />
+                <ChannelList 
+                    recallChannels={recallChannels}
+                />
+                {/* TODO: Create modal for AddContact */}
+                <AddContact />
+                <ContactList />
+            </div>
+        )
+    }
+    else {
+        return <div></div>
+    }
 }
 
 export default Menu

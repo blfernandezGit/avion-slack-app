@@ -25,7 +25,7 @@ function App() {
               <Registration />
             </Route>
           </Switch>
-          {/* <RedirectComp /> */}
+          <RedirectComp />
         </Router>
       </ClientContextProvider>
       

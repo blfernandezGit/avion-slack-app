@@ -7,21 +7,26 @@ const ClientContextProvider = (props) => {
     const [response, setResponse] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_1)) || false)
     const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_2)) || [])
     const [currentUserContacts ,setCurrentUserContacts] = useState()
+    const [showMenu, setShowMenu] = useState(true)
+    const [moveTo, setMoveTo] = useState(null)
 
     // Set data on login and remove on logout
     const setLoginDetails = (data) => {
-        data ?
-        setResponse({
-            fetchedData: data[0], //response body
-            headers: data[1], // response headers
-            isAuth: true
-        })
-        :
-        setResponse({
-            fetchedData: {},
-            headers: {},
-            isAuth: false
-        })
+        if(data) {
+            setResponse({
+                fetchedData: data[0], //response body
+                headers: data[1], // response headers
+                isAuth: true
+            })
+        }
+        else {
+            setResponse({
+                fetchedData: {},
+                headers: {},
+                isAuth: false
+            })
+            setShowMenu(true) // no need if logout is is menu
+        }
     }
 
     // On change of response, saves data and headers to local storage
@@ -70,8 +75,13 @@ const ClientContextProvider = (props) => {
         if(userAcct) {setCurrentUserContacts(userAcct.contacts)}
     }
 
+    // function for showing/hiding menu
+    const handleShowMenu = () => {
+        setShowMenu(!showMenu)
+    }
+
     return (
-        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts }}>
+        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu, moveTo }}>
             { props.children }
         </ClientContext.Provider>
     )

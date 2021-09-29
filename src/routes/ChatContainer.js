@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import ChannelFeed from '../components/Channels/ChannelFeed/ChannelFeed'
@@ -7,7 +8,6 @@ import ContactsFeed from '../components/Contacts/ContactsFeed/ContactsFeed'
 const ChatContainer = () => {
     return (
         <div className="ChatContainer">
-
             <Header />
             <Menu />
             <Switch>

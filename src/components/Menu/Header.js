@@ -1,3 +1,4 @@
+import Hamburger from "./Hamburger"
 import UserProfile from "./UserProfile"
 
 const Header = () => {
@@ -7,6 +8,8 @@ const Header = () => {
 
     return (
         <div className="Header">
+            <Hamburger />
+
             {/* Search Bar TODO: add functionality OPTIONAL*/}
             <form onSubmit = {handleSearch}>
                 <input type="text" name="search-field" placeholder="Search"/>

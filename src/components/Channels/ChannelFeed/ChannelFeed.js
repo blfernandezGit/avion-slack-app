@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import useAxiosGet from '../../../helpers/useAxiosGet'
 import { channelsBaseUrl, channelRetrieveAuditText } from '../../../helpers/constants'
@@ -21,14 +21,20 @@ const ChannelFeed = () => {
     // get channel id from url
     const { id } = useParams()
     
-    // get required headers from context
-    const { headers } = useContext(ClientContext)
+    // get required headers and handleShowMenu function from context
+    const { headers, handleShowMenu } = useContext(ClientContext)
 
     // define url with channel id
     let channelUrl = channelsBaseUrl+'/'+id
 
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving channel details
     const {fetchedData: details, isLoading} = useAxiosGet( channelUrl, headers, null, channelRetrieveAuditText, recallMembers )
+
+    // change menu show state when id changes
+    useEffect(() => {
+        handleShowMenu()
+        //eslint-disable-next-line
+    }, [id])
 
     return (
         <div className="ChannelFeed feed">

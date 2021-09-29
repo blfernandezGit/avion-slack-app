@@ -31,9 +31,8 @@ const CreateChannel = ({handleRecallChannels}) => {
                 setErrorMessage(data[2][0])
                 :
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
-                handleRecallChannels()
+                console.log(data)
             })
-
         channelNameRef.current.value = null
     }
 
