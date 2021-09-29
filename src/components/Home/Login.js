@@ -4,6 +4,12 @@ import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
 import { ClientContext } from '../../context/ClientContext'
+import FormButton from '../Elements/FormButton'
+import FormInputs from '../Elements/FormInputs'
+import Forms from '../Elements/Forms'
+import img1 from  '../Images/Kaizen.png'
+import '../Assets/General.CSS'
+
 
 const Login = () => {
     const { setLoginDetails } = useContext(ClientContext)
@@ -40,22 +46,24 @@ const Login = () => {
     }
 
     return (
-        <div className="Login">
+        <div className="flex flex-col justify-center items-center h-screen">
+            <div className="">
+            <img src={img1} alt="" />
+            </div>
             {/* Login Form */}
-            <form onSubmit={(e) => handleLogin(e)}>
-                <input type="email" ref={emailRef} placeholder="Email"/>
-                <input type="password" ref={passwordRef} placeholder="Password"/>
-                <button type="submit">Login</button>
+            <form onSubmit={handleLogin} className="flex flex-col mt-10 items-center">
+                <FormInputs type="email" reference={emailRef} placeholder="Email"/>
+                <FormInputs type="password" reference={passwordRef} placeholder="Password"/>
+                <FormButton buttonName="Login"/>
+                <p className="text-center text-white">No Account?</p>
+                <Link to={`/signup`} className="text-center md text-white hover:text-pink">
+                    Sign up
+                </Link> 
             </form>
             
             {/* Display error message if it exists */}
-            { errorMessage &&  <div>{errorMessage}</div> }
+            { errorMessage &&  <div className='text-pink'>{errorMessage}</div> }
 
-            <div>
-                <Link to={`/signup`}>
-                    Sign up
-                </Link>
-            </div>
             
         </div>
     )
