@@ -16,6 +16,7 @@ const ChannelDetails = ({details, handleRecallMembers}) => {
         if(users) {
             const ownerDetails = users.find(user => user.id === details.owner_id)
             setOwner(ownerDetails.uid)
+            console.log(users)
         }
         //eslint-disable-next-line
     }, [users])

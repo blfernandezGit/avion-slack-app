@@ -4,7 +4,7 @@
 export const LOCAL_STORAGE_KEY_1 = 'userLoginSession'
 export const LOCAL_STORAGE_KEY_2 = 'contacts'
 
-// URL
+// URL for API
 export const baseUrl = 'http://206.189.91.54//api/v1/'
 
 export const loginUrl = 'auth/sign_in'
@@ -30,3 +30,10 @@ export const channelMessagesAuditText = 'Retrieve All Messages in a Channel'
 export const directMessagesAuditText = 'Retrieve All Messages with a User'
 export const sendChannelMessageAuditText = 'Create Message in a Channel'
 export const sendDirectMessageAuditText = 'Create Direct Message to a User'
+
+// Path url for chat app
+export const loginPath = '/'
+export const registrationPath = '/signup'
+export const clientPath = '/client'
+export const messagesPath = '/client/messages/'
+export const channelMessagesPath = '/client/channels/'
