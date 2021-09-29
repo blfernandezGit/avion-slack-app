@@ -70,8 +70,16 @@ const ClientContextProvider = (props) => {
         if(userAcct) {setCurrentUserContacts(userAcct.contacts)}
     }
 
+    // function for showing/hiding menu
+    const [showMenu, setShowMenu] = useState(true)
+
+    const handleShowMenu = (e) => {
+        e.preventDefault()
+        setShowMenu(!showMenu)
+    }
+
     return (
-        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts }}>
+        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu }}>
             { props.children }
         </ClientContext.Provider>
     )

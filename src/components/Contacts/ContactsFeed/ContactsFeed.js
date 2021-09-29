@@ -9,7 +9,7 @@ const ContactsFeed = () => {
 
     return (
         <div className="ContactsFeed feed">
-            <strong>Channel Feed</strong>
+            <strong>Contacts Feed</strong>
 
             <ContactsHeader
                 uid={uid}
