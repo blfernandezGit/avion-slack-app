@@ -10,14 +10,16 @@ const ChannelList = ({recallChannels}) => {
     const {fetchedData: channels, isLoading, errorMessage} = useAxiosGet(channelsBaseUrl, headers, null, channelListAuditText, recallChannels)
     // console.log(errorMessage)
     return (
-        <div className="ChannelList">
-            <strong>Channel List</strong>
-            { isLoading && <p>Loading...</p> }
+        <div>
+            <strong>Channels</strong>
+            <div className="overflow-auto max-h-60">
+                { isLoading && <p>Loading...</p> }
 
-            {/* Table component that displays list of Channels for User */}
-            { channels && <ChannelsTable channels={channels} /> }
+                {/* Table component that displays list of Channels for User */}
+                { channels && <ChannelsTable channels={channels} /> }
 
-            { errorMessage &&  <div>{errorMessage}</div> }
+                { errorMessage &&  <div>{errorMessage}</div> }
+            </div>
         </div>
     )
 }

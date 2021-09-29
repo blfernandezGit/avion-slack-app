@@ -11,7 +11,7 @@ import AuthRoute from './routes/AuthRoute'
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-screen"> 
       <ClientContextProvider>
         <Router>
           <Switch>
@@ -19,7 +19,7 @@ function App() {
               <Login />
             </Route>
             <AuthRoute path="/client">
-              <ChatContainer />
+              <ChatContainer /> 
             </AuthRoute>
             <Route path="/signup">
               <Registration />

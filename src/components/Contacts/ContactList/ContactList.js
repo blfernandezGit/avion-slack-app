@@ -6,7 +6,7 @@ const ContactList = () => {
     const { currentUserContacts } = useContext(ClientContext)
 
     return (
-        <div className="ContactList">
+        <div className="max-h-60 overflow-auto">
             <strong>Contact List</strong> {/* temporary, may or may not be removed */}
             
             {/* Table component that displays list of Contacts */}

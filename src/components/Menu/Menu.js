@@ -23,18 +23,21 @@ const Menu = () => {
     //TODO: add link to a default page /client to remove view from messages
     if(showMenu){
         return (
-            <div className="Menu">
-                <Logout /> {/* Can be moved to header or anywhere else */}
+            <div className="bg-black h-full text-white pt-12">  {/* PADDING SA LAHAT PARA SA HEADER*/}
+                {/* Add home component */}
+                <div>Home</div>
+
                 {/* TODO: Create modal for CreateChannel */}
-                <CreateChannel 
+                {/* <CreateChannel 
                     handleRecallChannels={handleRecallChannels} 
-                />
+                /> */}
                 <ChannelList 
                     recallChannels={recallChannels}
                 />
                 {/* TODO: Create modal for AddContact */}
-                <AddContact />
-                <ContactList />
+                {/* <AddContact /> */}
+                <ContactList />  
+                <Logout /> 
             </div>
         )
     }
