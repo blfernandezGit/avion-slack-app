@@ -9,9 +9,10 @@ import Login from './components/Home/Login'
 import RedirectComp from './routes/RedirectComp'
 import AuthRoute from './routes/AuthRoute'
 
+
 function App() {
   return (
-    <div className="h-screen"> 
+    <div className="h-screen w-screen">
       <ClientContextProvider>
         <Router>
           <Switch>
