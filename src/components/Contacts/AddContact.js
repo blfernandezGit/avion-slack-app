@@ -26,6 +26,7 @@ const AddContact = () => {
         }
         else {
             setUserContacts(user_id, user_uid)
+            setErrorMessage(null)
         }
         
     }

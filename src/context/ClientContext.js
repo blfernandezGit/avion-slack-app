@@ -8,7 +8,6 @@ const ClientContextProvider = (props) => {
     const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_2)) || [])
     const [currentUserContacts ,setCurrentUserContacts] = useState()
     const [showMenu, setShowMenu] = useState(true)
-    const [moveTo, setMoveTo] = useState(null)
 
     // Set data on login and remove on logout
     const setLoginDetails = (data) => {
@@ -81,7 +80,7 @@ const ClientContextProvider = (props) => {
     }
 
     return (
-        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu, moveTo }}>
+        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu }}>
             { props.children }
         </ClientContext.Provider>
     )
