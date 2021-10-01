@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
 import ContactsHeader from "./ContactsHeader"
 import MessageList from '../../Messages/MessageList'
-import CreateDirectMessage from './DirectMessages/CreateDirectMessage'
+import CreateDirectMessage from './CreateDirectMessages'
 import { ClientContext } from '../../../context/ClientContext'
 
 const ContactsFeed = () => {
