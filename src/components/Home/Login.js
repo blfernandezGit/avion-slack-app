@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { useHistory, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
@@ -15,8 +15,6 @@ import LogoBg from '../Assets/Elements/LogoBg'
 
 const Login = () => {
     const { setLoginDetails, handleLoading } = useContext(ClientContext)
-    // get current url path
-    const history = useHistory()
 
     // Input field references
     const emailRef = useRef()
