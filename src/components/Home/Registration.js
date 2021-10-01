@@ -40,6 +40,7 @@ const Registration = () => {
                 const errorArray = error?.full_messages
                 // Set error message from error response
                 setErrorMessage(errorArray)
+                setTimeout(() =>{setErrorMessage(null)}, 3000)
             })
     }
 

@@ -14,7 +14,7 @@ import LogoBg from '../Assets/Elements/LogoBg'
 
 
 const Login = () => {
-    const { setLoginDetails } = useContext(ClientContext)
+    const { setLoginDetails, handleLoading } = useContext(ClientContext)
     // get current url path
     const history = useHistory()
 
@@ -38,8 +38,12 @@ const Login = () => {
         postAPI(loginUrl, requestData, null, loginAuditText)
             .then(data => {
                 // Change login details to response data
-                setLoginDetails(data)
-                history.push("/client")
+                handleLoading(true)
+                setTimeout(() => {
+                    setLoginDetails(data)
+                    handleLoading(false)
+                }, 3000)
+                
             })
             .catch(error => {
                 // Set error message from error response

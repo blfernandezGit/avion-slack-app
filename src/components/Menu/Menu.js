@@ -26,7 +26,7 @@ const Menu = () => {
     //TODO: add link to a default page /client to remove     view from messages
     if(showMenu){
         return (
-            <div className="flex bg-dirtyWhite min-h-screen max-w-screen text-white pt-12 flex-col overflow-auto">  {/* PADDING SA LAHAT PARA SA HEADER*/}
+            <div className="flex bg-dirtyWhite max-h-screen min-h-screen max-w-screen text-white pt-12 flex-col overflow-auto">  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
                 <div className="">
                     <div className="py-1 rounded-md flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-b-2 border-opacity-25">Home</div>

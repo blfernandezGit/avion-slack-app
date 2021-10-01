@@ -1,16 +1,16 @@
-import { useHistory } from "react-router-dom"
 import { useContext } from 'react'
 import { ClientContext } from '../../context/ClientContext'
 
 const Logout = () => {
-    const { setLoginDetails, loginPath } = useContext(ClientContext)
-
-    // get current url path
-    const history = useHistory()
+    const { setLoginDetails, handleLoading } = useContext(ClientContext)
 
     const handleLogout = () => {
-        setLoginDetails()
-        history.replace(loginPath) 
+        handleLoading(true)
+        setTimeout(() =>{
+            handleLoading(false)
+            setLoginDetails()
+        }, 3000)
+        
     }
     // Button for Logout
     // TODO: might need to rethink component - maybe just use Button Component - can be custom or from framework

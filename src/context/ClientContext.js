@@ -8,7 +8,8 @@ const ClientContextProvider = (props) => {
     const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_2)) || [])
     const [currentUserContacts ,setCurrentUserContacts] = useState()
     const [showMenu, setShowMenu] = useState(true)
-    const [moveTo, setMoveTo] = useState(null)
+    const [showLoading, setShowLoading] = useState(false)
+
 
     // Set data on login and remove on logout
     const setLoginDetails = (data) => {
@@ -80,8 +81,13 @@ const ClientContextProvider = (props) => {
         setShowMenu(!showMenu)
     }
 
+    // Loading screen
+    const handleLoading = (state) => {
+        setShowLoading(state)
+    }
+
     return (
-        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu, moveTo }}>
+        <ClientContext.Provider value={{ userDetails: response.fetchedData, headers: response.headers, isAuth: response.isAuth, setLoginDetails, setUserContacts, currentUserContacts, showMenu, handleShowMenu, handleLoading, showLoading }}>
             { props.children }
         </ClientContext.Provider>
     )
