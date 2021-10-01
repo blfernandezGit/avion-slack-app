@@ -34,15 +34,17 @@ const CreateChannelMessages = ({details}) => {
     const placeholder = `Message #${details.name}`
 
     return (
-        <div className="ChannelChatBox chat-box">
-            {/* Add Member Form */}
-            <form onSubmit={(e) => createChannelMessage(e)}>
-                <input type="text" ref={bodyRef} placeholder={placeholder}/>
-                <button type="submit">Send</button>
-            </form>
-            
-            {/* Display error message if it exists */}
-            { errorMessage &&  <div>{errorMessage}</div> }
+        <div className="h-16 relative w-screen">
+            <div className="fixed bottom-0 h-12 w-screen flex justify-center items-center">
+                {/* Add Member Form */}
+                <form onSubmit={(e) => createChannelMessage(e)}>
+                    <input type="text" ref={bodyRef} placeholder={placeholder}/>
+                    <button type="submit">Send</button>
+                </form>
+                
+                {/* Display error message if it exists */}
+                { errorMessage &&  <div>{errorMessage}</div> }
+            </div>
         </div>
     )
 }

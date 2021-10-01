@@ -7,7 +7,7 @@ const LoadingScreen = () => {
     bgColor = colorArray[randomIndex]
 
     return (
-        <div className={`flex justify-center items-center w-full h-full ${bgColor} absolute z-50`}>
+        <div className={`flex justify-center items-center w-full h-full ${bgColor} fixed top-0 z-50`}>
             <img src={loadingImage} alt="loading..." className="h-1/2"/>
         </div>
     )

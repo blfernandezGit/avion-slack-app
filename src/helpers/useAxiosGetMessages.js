@@ -46,7 +46,7 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
 
         return () => { isActive = false }
         //eslint-disable-next-line
-    },[fetchedData])
+    },[url])
 
     // when api is called, these values can be retrieved
     return { fetchedData, isLoading, errorMessage}

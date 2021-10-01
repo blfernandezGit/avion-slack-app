@@ -37,7 +37,7 @@ const ChannelFeed = () => {
     }, [id])
 
     return (
-        <div className="ChannelFeed feed">
+        <div className="relative h-header-negative w-full">
             { isLoading && <p>Loading...</p> }
 
             <ChannelHeader 
@@ -45,17 +45,17 @@ const ChannelFeed = () => {
                 handleRecallMembers={handleRecallMembers}
             />
 
-            {details && 
-                <>
-                    <MessageList 
-                        details={details}
-                    />
-                    <CreateChannelMessages 
-                        details={details}
-                    />
-                </>
-            }
-        </div>
+                {details && 
+                    <>
+                        <MessageList 
+                            details={details}
+                        />
+                        <CreateChannelMessages 
+                            details={details}
+                        />
+                    </>
+                }
+            </div>
     )
 }
 

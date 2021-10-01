@@ -8,7 +8,7 @@ const FormInput = ({type, placeholder, reference, inputName, inputLabel, search}
             </div>
         }
         {search &&
-            <input className="bg-transparent placeholder-transparent::placeholder text-center w-full text-white w-100 border-2 border-white focus:outline-none focus:border-pink rounded-md" type={type} placeholder={placeholder} ref={reference}></input>
+            <input className="bg-transparent border-2 border-white focus:border-pink focus:outline-none rounded-md text-center text-white w-full" type={type} placeholder={placeholder} ref={reference}></input>
         }
         </>
     )

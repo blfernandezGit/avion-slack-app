@@ -24,17 +24,20 @@ const MessageList = ({details, id}) => {
     const { fetchedData: messages, isLoading, errorMessage } = useAxiosGetMessages( messageUrl, headers, null, channelMessagesAuditText )
 
     return (
-        <div className="">
-            { isLoading && <p>Loading...</p> }
+        <>
+            <div className="h-12"> test </div>
+            <div className="w-full h-double-header-negative overflow-y-auto overflow-x-hidden">
+                    { isLoading && <p>Loading...</p> }
 
-            { (messages && messages.length>0) ? 
-                <MessageTable messages={messages} /> //Table component that displays list of Channels for User
-                :
-                <div>Start Conversation</div>
-            }
+                    { (messages && messages.length>0) ? 
+                        <MessageTable messages={messages} /> //Table component that displays list of Channels for User
+                        :
+                        <div>Start Conversation</div>
+                    }
 
-            { errorMessage &&  <div>{errorMessage}</div> }
-        </div>
+                    { errorMessage &&  <div>{errorMessage}</div> }
+            </div>
+        </>
     )
 }
 
