@@ -1,6 +1,6 @@
 const Collapse = () => {
     return (
-        <svg height="16px" width="16px" className="mr-1 fill-current text-white"
+        <svg height="16px" width="16px" className="ml-5 mr-1 fill-current text-white"
 	 viewBox="0 0 512 512">
 <g>
 	<g>

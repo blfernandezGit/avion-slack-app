@@ -1,6 +1,7 @@
 import Hamburger from "./Hamburger"
 import UserProfile from "./UserProfile"
 import FormInput from '../Assets/Elements/FormInput'
+import Transparent from "../Assets/Elements/Transparent"
 
 const Header = () => {
     const handleSearch = () => {
@@ -8,7 +9,7 @@ const Header = () => {
     }
 
     return (
-        <div className="grid w-screen p-2 grid-cols-6 fixed">
+        <div className="grid w-screen bg-custom p-2 grid-cols-6 fixed">
             <Hamburger className="col-span-1"/>
 
             {/* Search Bar TODO: add functionality OPTIONAL*/}

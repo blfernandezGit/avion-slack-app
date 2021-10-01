@@ -38,7 +38,6 @@ const ChannelFeed = () => {
 
     return (
         <div className="ChannelFeed feed">
-            <strong>Channel Feed</strong>
             { isLoading && <p>Loading...</p> }
 
             <ChannelHeader 

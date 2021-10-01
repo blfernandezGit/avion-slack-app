@@ -26,23 +26,25 @@ const Menu = () => {
     //TODO: add link to a default page /client to remove     view from messages
     if(showMenu){
         return (
-            <div className="flex bg-dirtyWhite max-h-screen min-h-screen max-w-screen text-white pt-12 flex-col overflow-auto">  {/* PADDING SA LAHAT PARA SA HEADER*/}
+            <div className="flex bg-dirtyWhite md:w-1/4 max-h-screen min-h-screen max-w-screen text-white pt-12 flex-col overflow-auto">  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
                 <div className="">
-                    <div className="py-1 rounded-md flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-b-2 border-opacity-25">Home</div>
-                    <div className="flex rounded-md w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4  border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
+                    <button className="rounded-md flex w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-25 border-black -ml-2 mr-2 border-b-2 border-t-2 border-r-2 border-opacity-25">
+                        <div className="ml-10 py-1">Home</div> 
+                    </button>
+                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-25 border-white -ml-2 mr-2 border-t-2 border-b-2 border-r-2  border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
                         <Collapse />
                         <span className="my-1">Channels</span>
-                    </div>
+                    </button>
                     {!channelCollapse &&                     
                         <ChannelList 
                             recallChannels={recallChannels} 
                         />
                     }
-                    <div className="flex rounded-md w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-t-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
-                        <Collapse/>
+                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-25 border-black border-b-2 -ml-2 mr-2 border-t-2 border-r-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
+                        <Collapse />
                         <span className="my-1">Contacts</span>
-                    </div>
+                    </button>
                     {!contactCollapse &&         
                         <ContactList />
                     }

@@ -10,7 +10,7 @@ const MessageList = ({details, id}) => {
     let userId
     let receiverClass
 
-    if( details ) {
+    if( details ) { 
         userId = details.id
         receiverClass = channelReceiverClass
     } else {

@@ -6,7 +6,7 @@ import ContactsFeed from '../components/Contacts/ContactsFeed/ContactsFeed'
 
 const ChatContainer = () => {
     return (
-        <div className="h-screen">
+        <div className="h-screen relative">
             <Header />
             <Menu />
             <Switch>
