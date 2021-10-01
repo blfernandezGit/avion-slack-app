@@ -2,12 +2,12 @@ import { useState, useRef } from 'react'
 import { Link, Redirect } from "react-router-dom"
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
-import Error from '../Elements/Error'
-import LogoBg from '../Elements/LogoBg'
-import HalfContainer from '../Elements/HalfContainer'
-import Form from '../Elements/Form'
-import FormInput from '../Elements/FormInput'
-import FormButton from '../Elements/FormButton'
+import Error from '../Assets/Elements/Error'
+import LogoBg from '../Assets/Elements/LogoBg'
+import HalfContainer from '../Assets/Elements/HalfContainer'
+import Form from '../Assets/Elements/Form'
+import FormInput from '../Assets/Elements/FormInput'
+import FormButton from '../Assets/Elements/FormButton'
 
 const Registration = () => {
     // Input field references

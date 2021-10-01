@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import ChannelFeed from '../components/Channels/ChannelFeed/ChannelFeed'
