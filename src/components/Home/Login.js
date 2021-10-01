@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <div className="flex flex-col md:flex-row justify-center items-center h-screen">
             <LogoBg/>
-            <HalfContainer >
+            <HalfContainer customBg="md:bg-dirtyWhite">
                 <Form onSubmit={handleLogin}>
                     <FormInputs type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
                     <FormInputs type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>

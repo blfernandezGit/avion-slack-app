@@ -1,5 +1,6 @@
 import Hamburger from "./Hamburger"
 import UserProfile from "./UserProfile"
+import FormInput from '../Elements/FormInput'
 
 const Header = () => {
     const handleSearch = () => {
@@ -12,7 +13,7 @@ const Header = () => {
 
             {/* Search Bar TODO: add functionality OPTIONAL*/}
             <form onSubmit = {handleSearch} className="col-span-4 align-middle w-full">
-                <input type="text" name="search-field" placeholder="Search..." className="justify-center w-full text-white align-middle col-span-4 border-2 border-darkRed text-center focus:outline-none bg-custom"/>
+                <FormInput type="text" name="search-field" placeholder="Search..." search={true}/>
             </form>
 
             {/* Image TODO: will be clickable to display user profile*/}
@@ -20,7 +21,7 @@ const Header = () => {
 
             {/* TODO: Convert to modal */}
             {/* <UserProfile/> */}
- 
+
         </div>
     )
 }

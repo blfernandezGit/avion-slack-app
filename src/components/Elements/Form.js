@@ -1,6 +1,6 @@
 const Form = ({onSubmit, children}) => {
     return (
-        <form onSubmit={(e) => onSubmit(e)} className="flex flex-col mt-10 items-center">
+        <form onSubmit={(e) => onSubmit(e)} className="flex flex-col items-center">
             {children}
         </form>
     )
