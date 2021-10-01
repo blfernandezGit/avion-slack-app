@@ -1,4 +1,4 @@
-const DirectMessages = ({message}) => {
+const Message = ({message}) => {
     return (
         <tr>
             {/* Message details*/}
@@ -9,4 +9,4 @@ const DirectMessages = ({message}) => {
     )
 }
 
-export default DirectMessages
+export default Message

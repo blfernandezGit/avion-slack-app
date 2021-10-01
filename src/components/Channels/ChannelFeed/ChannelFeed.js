@@ -5,7 +5,7 @@ import { channelsBaseUrl, channelRetrieveAuditText } from '../../../helpers/cons
 import { ClientContext } from '../../../context/ClientContext'
 import ChannelHeader from './ChannelHeader'
 import CreateChannelMessages from './ChannelMessages/CreateChannelMessage'
-import ChannelMessageList from './ChannelMessages/ChannelMessageList/ChannelMessageList'
+import MessageList from '../../Messages/MessageList'
 import { v4 as uuid_v4 } from "uuid"
 
 const ChannelFeed = () => {
@@ -48,7 +48,7 @@ const ChannelFeed = () => {
 
             {details && 
                 <>
-                    <ChannelMessageList 
+                    <MessageList 
                         details={details}
                     />
                     <CreateChannelMessages 

@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
 import ContactsHeader from "./ContactsHeader"
-import DirectMessageList from './DirectMessages/DirectMessageList/DirectMessageList'
+import MessageList from '../../Messages/MessageList'
 import CreateDirectMessage from './DirectMessages/CreateDirectMessage'
 import { ClientContext } from '../../../context/ClientContext'
 
@@ -26,7 +26,7 @@ const ContactsFeed = () => {
                 uid={uid}
             />
             
-            <DirectMessageList 
+            <MessageList 
                 id={id}
             />
 
