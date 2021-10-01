@@ -5,10 +5,12 @@ import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
 import { ClientContext } from '../../context/ClientContext'
 import FormButton from '../Elements/FormButton'
-import FormInputs from '../Elements/FormInputs'
-import Forms from '../Elements/Forms'
-import img1 from  '../Images/Kaizen.png'
+import FormInputs from '../Elements/FormInput'
+import Form from '../Elements/Form'
+import Error from '../Elements/Error'
+import HalfContainer from '../Elements/HalfContainer'
 import '../Assets/General.CSS'
+import LogoBg from '../Elements/LogoBg'
 
 
 const Login = () => {
@@ -42,29 +44,27 @@ const Login = () => {
             .catch(error => {
                 // Set error message from error response
                 setErrorMessage(error)
+                setTimeout(() =>{setErrorMessage(null)}, 3000)
             })
     }
 
     return (
-        <div className="flex flex-col justify-center items-center h-screen">
-            <div className="">
-            <img src={img1} alt="" />
-            </div>
-            {/* Login Form */}
-            <form onSubmit={handleLogin} className="flex flex-col mt-10 items-center">
-                <FormInputs type="email" reference={emailRef} placeholder="Email"/>
-                <FormInputs type="password" reference={passwordRef} placeholder="Password"/>
-                <FormButton buttonName="Login"/>
-                <p className="text-center text-white">No Account?</p>
-                <Link to={`/signup`} className="text-center md text-white hover:text-pink">
-                    Sign up
-                </Link> 
-            </form>
-            
-            {/* Display error message if it exists */}
-            { errorMessage &&  <div className='text-pink'>{errorMessage}</div> }
-
-            
+        <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+            <LogoBg/>
+            <HalfContainer >
+                <Form onSubmit={handleLogin}>
+                    <FormInputs type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
+                    <FormInputs type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>
+                    <FormButton buttonName="Login"/>
+                </Form>
+                <Error errorMessage={errorMessage}/>
+                <div className="flex text-sm">
+                    <span className="text-white mr-1">No Account?</span>
+                    <Link to={`/signup`} className="text-white hover:text-pink">
+                        Sign up
+                    </Link> 
+                </div>
+            </HalfContainer>
         </div>
     )
 }

@@ -2,6 +2,12 @@ import { useState, useRef } from 'react'
 import { Link, Redirect } from "react-router-dom"
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
+import Error from '../Elements/Error'
+import LogoBg from '../Elements/LogoBg'
+import HalfContainer from '../Elements/HalfContainer'
+import Form from '../Elements/Form'
+import FormInput from '../Elements/FormInput'
+import FormButton from '../Elements/FormButton'
 
 const Registration = () => {
     // Input field references
@@ -41,27 +47,23 @@ const Registration = () => {
         return (<Redirect to='/'/>) //redirect to sign in page on successful registration
     }
     return (
-        <div className="Registration">
-            <form onSubmit={(e) => handleRegistration(e)}>
-                <input type="email" ref={emailRef} placeholder="Email"/>
-                <input type="password" ref={passwordRef} placeholder="Password"/>
-                <input type="password" ref={passwordConfirmationRef}/>
-                <button type="submit">Register</button>
-            </form>
-            
-            {/* Display error message if it exists - specific for Registration API */}
-            { errorMessage && 
-                <>
-                    <div>{errorMessage[0]}</div>
-                    <div>{errorMessage[1]}</div>
-                </>
-            }
-
-            <div>
-                <Link to={`/`}>
-                    Sign in
-                </Link>
-            </div>
+        <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+            <LogoBg/>
+            <HalfContainer >
+                <Form onSubmit={handleRegistration}>
+                    <FormInput type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
+                    <FormInput type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>
+                    <FormInput type="password" name="password" reference={passwordConfirmationRef} inputName="confirm_password" inputLabel="Confirm Password"/>
+                    <FormButton buttonName="Register"/>
+                </Form>
+                <Error errorMessage={errorMessage}/>
+                <div className="flex text-sm">
+                    <span className="text-white mr-1">Already Registered?</span>
+                    <Link to={`/`} className="text-white hover:text-pink">
+                        Sign in
+                    </Link> 
+                </div>
+            </HalfContainer>
         </div>
     )
 }

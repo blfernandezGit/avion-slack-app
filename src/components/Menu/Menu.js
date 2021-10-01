@@ -22,15 +22,15 @@ const Menu = () => {
     const handleRecallChannels = () => {
         setRecallChannels(uuid_v4())
     }
-    const { Panel } = Collapse;
+
     //TODO: add link to a default page /client to remove     view from messages
     if(showMenu){
         return (
             <div className="flex bg-dirtyWhite min-h-screen max-w-screen text-white pt-12 flex-col overflow-auto">  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
                 <div className="">
-                    <div className="py-1 font-bold flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-b-2 border-opacity-25">Home</div>
-                    <div className="flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4  border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
+                    <div className="py-1 rounded-md flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-b-2 border-opacity-25">Home</div>
+                    <div className="flex rounded-md w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4  border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
                         <Collapse />
                         <span className="my-1">Channels</span>
                     </div>
@@ -39,7 +39,7 @@ const Menu = () => {
                             recallChannels={recallChannels} 
                         />
                     }
-                    <div className="flex w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-t-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
+                    <div className="flex rounded-md w-screen text-left select-none font-bold items-center order-4 bg-black bg-opacity-25 border-white border-4 border-t-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
                         <Collapse/>
                         <span className="my-1">Contacts</span>
                     </div>
