@@ -7,10 +7,12 @@ const Message = ({message}) => {
     const [ showDateTime, setShowDateTime ] = useState(false)
 
     let rowClasses = "w-full flex flex-col items-end"
-    let messageClasses = "max-w-1/2 bg-pink text-white rounded-l-md py-2 px-4 outline-none"
+    let messageClasses = "max-w-1/2 bg-pink text-white rounded-l-lg rounded-tr-lg py-2 px-4 my-1 outline-none transform hover:-translate-x-2 duration-300 ease-in-out "
+    let senderClasses = "hidden"
     if(message.sender.uid !== userDetails.uid){
         rowClasses += "items-start"
-        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black rounded-r-md focus:outline-none active:outline-none"
+        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black rounded-r-lg rounded-tl-lg focus:outline-none active:outline-none transform hover:translate-x-2 duration-300 ease-in-out "
+        senderClasses = "text-lightGrey text-xs"
     }
 
     let date = new Date(message.created_at).toLocaleDateString()
@@ -25,15 +27,15 @@ const Message = ({message}) => {
         sendDateTime = time
     }
 
-    const handleToggleDateTime = () => {
-        setShowDateTime(!showDateTime)
+    const handleToggleDateTime = (val) => {
+        setShowDateTime(val)
     }
 
     return (
         <div className={rowClasses}>
             {/* Message details*/}
-                <div className="text-lightGrey text-xs">{message.sender.uid}</div>
-                <button className={messageClasses} onClick={handleToggleDateTime}>{message.body}</button>
+                <div className={senderClasses}>{message.sender.uid}</div>
+                <button className={messageClasses} onMouseOver={() => handleToggleDateTime(true)} onMouseLeave={() => handleToggleDateTime(false)} onClick={() => handleToggleDateTime(!showDateTime)}>{message.body}</button>
                 {showDateTime && <div className="text-lightGrey text-xs">{sendDateTime}</div>}
         </div>
     )
