@@ -25,7 +25,7 @@ const Menu = () => {
         setRecallChannels(uuid_v4())
     }
 
-    let classes = "fixed bg-yellowishWhite h-header-negative w-screen lg:w-1/4 md:w-1/2 transform duration-500 ease-in-out z-30 overflow-auto"
+    let classes = "fixed bg-yellowishWhite h-header-negative w-screen lg:w-1/4 md:w-1/2 transform duration-500 ease-in-out z-30 overflow-auto overscroll-none"
     if(showMenu) {
         classes += " -translate-x-full"
     }

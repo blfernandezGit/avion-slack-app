@@ -31,7 +31,7 @@ const AddContact = () => {
     }
 
     return (
-        <div className="AddContact">
+        <div className="fixed top-1/4 inset-x-1/4 h-1/2 w-5/6 bg-white rounded-md">
             {/* Search User form */}
             <form onSubmit={(e) => handleAddContact(e)}>
                 <input type="text" placeholder="User Email" onChange={(e) =>setSearchQuery(e.target.value)}/> 

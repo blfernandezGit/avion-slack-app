@@ -26,7 +26,7 @@ const MessageList = ({details, id}) => {
     return (
         <>
             <div className="h-12 w-full"> </div>
-            <div className="w-full h-double-header-negative overflow-y-auto overflow-x-hidden flex items-end">
+            <div className="w-full h-double-header-negative overflow-y-auto overflow-x-hidden flex flex-col items-end">
                     { isLoading && <p>Loading...</p> }
 
                     { (messages && messages.length>0) ? 

@@ -10,7 +10,7 @@ const UserList = ({onClick, searchQuery}) => {
     const {fetchedData: users, isLoading, errorMessage} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
     return (
-        <div className="UserList">
+        <div className="max-h-full min-h-full max-w-full min-w-full overflow-y-auto overscroll-none bg-white">
             <strong>User List</strong> {/* temporary, may or may not be removed */}
             
             { isLoading && <p>Loading...</p> /* Displayed while API is being fetched */ } 
