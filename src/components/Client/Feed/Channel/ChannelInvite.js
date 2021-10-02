@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
-import {postAPI} from '../../../helpers/useAxiosPost'
-import { channelAddUserUrl, inviteToChannelAuditText } from '../../../helpers/constants'
-import { ClientContext } from '../../../context/ClientContext'
+import {postAPI} from '../../../../helpers/useAxiosPost'
+import { channelAddUserUrl, inviteToChannelAuditText } from '../../../../helpers/constants'
+import { ClientContext } from '../../../../context/ClientContext'
 import UserList from '../../Users/UserList'
 
 const ChannelInvite = ({details, handleRecallMembers}) => {

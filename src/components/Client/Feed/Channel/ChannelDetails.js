@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react'
 import ChannelInvite from './ChannelInvite'
 import MemberList from './ChannelMembers/MemberList'
-import useAxiosGet from '../../../helpers/useAxiosGet'
-import { userListUrl, userListAuditText } from '../../../helpers/constants'
-import { ClientContext } from '../../../context/ClientContext'
+import useAxiosGet from '../../../../helpers/useAxiosGet'
+import { userListUrl, userListAuditText } from '../../../../helpers/constants'
+import { ClientContext } from '../../../../context/ClientContext'
 
 const ChannelDetails = ({details, handleRecallMembers}) => {
     const { headers } = useContext(ClientContext)

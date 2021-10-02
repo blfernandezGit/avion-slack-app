@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react'
 import { v4 as uuid_v4 } from "uuid"
-import Logout from '../Home/Logout'
-import ChannelList from '../Channels/ChannelList/ChannelList'
-import CreateChannel from '../Channels/CreateChannel'
-import AddContact from '../Contacts/AddContact'
-import ContactList from '../Contacts/ContactList/ContactList'
-import { ClientContext } from '../../context/ClientContext'
-import Collapse from '../Assets/Collapse'
+import Logout from '../../Home/Logout'
+import ChannelList from './Channels/ChannelList'
+import CreateChannel from './Channels/CreateChannel'
+import AddContact from './Contacts/AddContact'
+import ContactList from './Contacts/ContactList'
+import { ClientContext } from '../../../context/ClientContext'
+import Collapse from '../../Assets/ComponentSVG/Collapse'
 
 const Menu = () => {
     const { showMenu } = useContext(ClientContext)

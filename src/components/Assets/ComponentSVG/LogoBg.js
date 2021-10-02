@@ -1,6 +1,6 @@
 import logo from  '../Images/Kaizen.png'
 import sakuraBg from '../Images/sakura.png'
-import HalfContainer from './HalfContainer'
+import HalfContainer from '../Elements/HalfContainer'
 
 const LogoBg = () => {
     return (

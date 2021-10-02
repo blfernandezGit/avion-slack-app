@@ -1,6 +1,6 @@
-import Hamburger from "./Hamburger"
+import Hamburger from "../../Assets/ComponentSVG/Hamburger"
 import UserProfile from "./UserProfile"
-import FormInput from '../Assets/Elements/FormInput'
+import FormInput from '../../Assets/Elements/FormInput'
 
 const Header = () => {
     const handleSearch = () => {

@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import useAxiosGet from '../../../helpers/useAxiosGet'
+import useAxiosGet from '../../../../helpers/useAxiosGet'
 import ChannelsTable from './ChannelsTable'
-import { channelsBaseUrl, channelListAuditText } from '../../../helpers/constants'
-import { ClientContext } from '../../../context/ClientContext'
+import { channelsBaseUrl, channelListAuditText } from '../../../../helpers/constants'
+import { ClientContext } from '../../../../context/ClientContext'
 
 
 

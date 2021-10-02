@@ -1,8 +1,8 @@
 import { Switch, Route } from 'react-router-dom'
-import Menu from '../components/Menu/Menu'
-import ChannelFeed from '../components/Channels/ChannelFeed/ChannelFeed'
-import Header from '../components/Menu/Header'
-import ContactsFeed from '../components/Contacts/ContactsFeed/ContactsFeed'
+import Menu from '../components/Client/Menu/Menu'
+import ChannelFeed from '../components/Client/Feed/Channel/ChannelFeed'
+import Header from '../components/Client/Header/Header'
+import ContactFeed from '../components/Client/Feed/Contact/ContactFeed'
 
 const ChatContainer = () => {
     return (
@@ -14,7 +14,7 @@ const ChatContainer = () => {
                     <ChannelFeed />
                 </Route>
                 <Route path='/client/messages/:id/:uid'>
-                    <ContactsFeed />
+                    <ContactFeed />
                 </Route>
             </Switch>
 

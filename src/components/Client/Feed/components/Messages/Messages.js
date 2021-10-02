@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { ClientContext } from '../../context/ClientContext'
+import { ClientContext } from '../../../../../context/ClientContext'
 
 const Message = ({message}) => {
     const { userDetails } = useContext(ClientContext)

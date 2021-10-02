@@ -1,15 +1,13 @@
 import { useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
-import ContactsHeader from "./ContactsHeader"
-import MessageList from '../../Messages/MessageList'
-import CreateDirectMessage from './CreateDirectMessages'
-import { ClientContext } from '../../../context/ClientContext'
+import { ClientContext } from '../../../../context/ClientContext'
+import FeedHeader from '../components/FeedHeader'
+import MessageList from '../components/Messages/MessageList'
+import ChatBox from '../components/ChatBox'
 
-const ContactsFeed = () => {
-    // get contact id from url
+const ContactFeed = () => {
     const { id, uid } = useParams()
 
-    // get handleShowMenu function from context
     const { handleShowMenu } = useContext(ClientContext)
 
     // change menu show state when id changes
@@ -19,10 +17,8 @@ const ContactsFeed = () => {
     }, [id])
 
     return (
-        <div className="relative h-header-negative">
-            <strong>Contacts Feed</strong>
-
-            <ContactsHeader
+        <>
+            <FeedHeader
                 uid={uid}
             />
             
@@ -30,12 +26,12 @@ const ContactsFeed = () => {
                 id={id}
             />
 
-            <CreateDirectMessage 
+            <ChatBox 
                 uid={uid}
                 id={id}
             />
-        </div>
+        </>
     )
 }
 
-export default ContactsFeed
+export default ContactFeed

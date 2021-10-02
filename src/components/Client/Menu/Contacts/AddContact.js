@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import UserList from '../Users/UserList'
+import UserList from '../../Users/UserList'
 import { useContext } from 'react'
-import { ClientContext } from '../../context/ClientContext'
+import { ClientContext } from '../../../../context/ClientContext'
 
 const AddContact = () => {
     const { setUserContacts, currentUserContacts } = useContext(ClientContext)

@@ -10,7 +10,7 @@ import Form from '../Assets/Elements/Form'
 import Error from '../Assets/Elements/Error'
 import HalfContainer from '../Assets/Elements/HalfContainer'
 import '../Assets/General.CSS'
-import LogoBg from '../Assets/Elements/LogoBg'
+import LogoBg from '../Assets/ComponentSVG/LogoBg'
 
 
 const Login = () => {

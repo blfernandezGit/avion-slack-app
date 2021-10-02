@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom"
 import {postAPI} from '../../helpers/useAxiosPost'
 import { registrationUrl, registerAuditText } from '../../helpers/constants'
 import Error from '../Assets/Elements/Error'
-import LogoBg from '../Assets/Elements/LogoBg'
+import LogoBg from '../Assets/ComponentSVG/LogoBg'
 import HalfContainer from '../Assets/Elements/HalfContainer'
 import Form from '../Assets/Elements/Form'
 import FormInput from '../Assets/Elements/FormInput'
