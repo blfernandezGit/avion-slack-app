@@ -19,8 +19,6 @@ const Message = ({message}) => {
         minute: "2-digit",
     });
     let currentDate = new Date(Date.now()).toLocaleDateString()
-    console.log(date)
-    console.log(currentDate)
     
     let sendDateTime = date
     if( date === currentDate ) {

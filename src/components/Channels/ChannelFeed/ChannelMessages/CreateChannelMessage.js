@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
 import {postAPI} from '../../../../helpers/useAxiosPost'
 import { messagesBaseUrl, sendChannelMessageAuditText, channelReceiverClass } from '../../../../helpers/constants'
 import { ClientContext } from '../../../../context/ClientContext'
@@ -31,6 +31,15 @@ const CreateChannelMessages = ({details}) => {
         })
         bodyRef.current.value = null
     }
+
+    useEffect(() => {
+        if (bodyRef) {
+            bodyRef.current.addEventListener('DOMNodeInserted', event => {
+                const { currentTarget: target } = event;
+                target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+            });
+        }
+    }, [])
 
     const placeholder = `Message #${details.name}`
 

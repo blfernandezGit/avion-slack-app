@@ -22,16 +22,14 @@ const ChannelDetails = ({details, handleRecallMembers}) => {
     }, [users])
 
     return (
-        <div className="ChannelDetails modal">
+        <div className="text-center flex flex-col items-center justify-center bg-yellowishWhite h-24 p-36"> 
             {details &&
                 <div>
-                    <div>Channel Name: {details.name}</div>
-                    <div>Channel Owner: {owner}</div> {/*TODO: get name from user details*/}
+                    <div><span className="text-sm">Channel Owner: </span>{owner}</div> {/*TODO: get name from user details*/}
                     <MemberList 
                         details={details}
                         users={users}
                     />
-                    {/* TODO: move to a tab in modal? */}
                     <ChannelInvite 
                         details={details} 
                         handleRecallMembers={handleRecallMembers}

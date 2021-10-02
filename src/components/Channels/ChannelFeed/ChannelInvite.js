@@ -37,10 +37,10 @@ const ChannelInvite = ({details, handleRecallMembers}) => {
     }
 
     return (
-        <div className="ChannelInvite">
+        <div className="h-24 bg-white rounded-md my-2 flex justify-center flex-col items-center">
             {/* Search User form */}
             <form onSubmit={(e) => channelInvite(e)}>
-                <input type="text" placeholder="User Email" onChange={(e) =>setSearchQuery(e.target.value)}/> 
+                <input type="text" placeholder="Search User..." className="text-center text-sm" onChange={(e) =>setSearchQuery(e.target.value)}/> 
             </form>
 
             <UserList 
