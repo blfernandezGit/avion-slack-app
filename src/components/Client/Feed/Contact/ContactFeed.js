@@ -4,6 +4,7 @@ import { ClientContext } from '../../../../context/ClientContext'
 import FeedHeader from '../components/FeedHeader'
 import MessageList from '../components/Messages/MessageList'
 import ChatBox from '../components/ChatBox'
+import Feed from '../../../Assets/Elements/Feed'
 
 const ContactFeed = () => {
     const { id, uid } = useParams()
@@ -17,7 +18,7 @@ const ContactFeed = () => {
     }, [id])
 
     return (
-        <>
+        <Feed >
             <FeedHeader
                 uid={uid}
             />
@@ -30,7 +31,7 @@ const ContactFeed = () => {
                 uid={uid}
                 id={id}
             />
-        </>
+        </Feed>
     )
 }
 

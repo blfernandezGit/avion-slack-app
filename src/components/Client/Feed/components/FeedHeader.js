@@ -6,8 +6,7 @@ const FeedHeader = ({ uid, details, isLoading, handleRecallMembers }) => {
     const [ showChannelDetails, setShowChannelDetails ] = useState(false)
 
     return (
-        <div className="relative w-full">
-            <div className="fixed top-12 w-full bg-yellowishWhite flex flex-col min-h-12 max-h-screen justify-center items-center">
+            <div className="absolute top-0 w-full bg-yellowishWhite flex flex-col min-h-12 max-full justify-center items-center">
                 <div className="h-12 flex flex-row w-full items-center">
                     <ProfilePicture/>
                     { details &&
@@ -29,7 +28,6 @@ const FeedHeader = ({ uid, details, isLoading, handleRecallMembers }) => {
                     </div>
                 }
             </div>
-        </div>
     )
 }
 

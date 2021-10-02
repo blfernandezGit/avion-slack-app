@@ -5,7 +5,7 @@ import { ClientContext } from '../../../../context/ClientContext'
 import FormInput from '../../../Assets/Elements/FormInput'
 
 const ChatBox = ({ details, id, uid }) => {
-    const { headers } = useContext(ClientContext)
+    const { headers, handleRecall } = useContext(ClientContext)
 
     // Input field references
     const bodyRef = useRef()
@@ -28,7 +28,7 @@ const ChatBox = ({ details, id, uid }) => {
             headers, 
             details ? sendChannelMessageAuditText : sendDirectMessageAuditText
         ).then( data => {
-            console.log(data)
+            handleRecall()
         })
         bodyRef.current.value = null
     }
@@ -37,17 +37,14 @@ const ChatBox = ({ details, id, uid }) => {
     details ? placeholder += `# ${ details.name }` : placeholder += `${ uid }`
 
     return (
-        <div className="h-16 relative w-screen">
-            <div className="fixed bottom-0 h-12 w-screen flex justify-center items-center">
-                <form onSubmit={(e) => createMessage(e)}>
+            <div className="absolute bottom-0 h-12 w-screen flex justify-center items-center">
+                <form onSubmit={(e) => createMessage(e)} className="h-full w-full">
                     <FormInput type="text" reference={bodyRef} placeholder={placeholder} inputName='chatBox' chat={true}/>
-                    <button type="submit">Send</button>
                 </form>
                 
                 {/* Display error message if it exists */}
                 { errorMessage &&  <div>{errorMessage}</div> }
             </div>
-        </div>
     )
 }
 

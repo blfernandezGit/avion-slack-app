@@ -11,7 +11,7 @@ const FormInput = ({type, placeholder, reference, inputName, inputLabel, search,
             <input className="bg-transparent border-2 border-white focus:border-pink focus:outline-none rounded-md text-center text-white w-full" type={type} placeholder={placeholder} ref={reference}></input>
         }
         {chat &&
-            <input className="bg-transparent border-2 border-custom h-14 focus:border-pink focus:outline-none rounded-md text-white w-screen" type={type} placeholder={placeholder} ref={reference}></input>
+            <input className="bg-transparent border-2 border-custom focus:border-pink h-full focus:outline-none rounded-md text-white w-full" type={type} placeholder={placeholder} ref={reference}></input>
         }
         </>
     )

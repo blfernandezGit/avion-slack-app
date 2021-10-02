@@ -2,10 +2,10 @@ import { useContext } from 'react'
 import MessageTable from './MessageTable'
 import { messagesBaseUrl, channelMessagesAuditText, directMessagesAuditText, channelReceiverClass, userReceiverClass } from '../../../../../helpers/constants'
 import { ClientContext } from '../../../../../context/ClientContext'
-import useAxiosGetMessages from '../../../../../helpers/useAxiosGetMessages'
+import useAxiosGet from '../../../../../helpers/useAxiosGet'
 
 const MessageList = ({details, id}) => {
-    const { headers } = useContext(ClientContext)
+    const { headers, recall } = useContext(ClientContext)
 
     let userId
     let receiverClass
@@ -21,12 +21,11 @@ const MessageList = ({details, id}) => {
     const messageUrl = messagesBaseUrl+'?receiver_id='+userId+'&receiver_class='+receiverClass;
 
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Messages of User
-    const { fetchedData: messages, isLoading, errorMessage } = useAxiosGetMessages( messageUrl, headers, null, details ? channelMessagesAuditText : directMessagesAuditText)
+    const { fetchedData: messages, isLoading, errorMessage } = useAxiosGet( messageUrl, headers, null, details ? channelMessagesAuditText : directMessagesAuditText, recall)
 
     return (
         <>
-            <div className="h-12 w-full"> </div>
-            <div className="w-full h-double-header-negative overflow-y-auto overflow-x-hidden flex flex-col items-end overscroll-none">
+            <div className="w-full h-double-header-negative absolute top-12 overflow-y-auto overflow-x-hidden flex flex-col items-end overscroll-none">
                     { isLoading && <p>Loading...</p> }
 
                     { (messages && messages.length>0) ? 

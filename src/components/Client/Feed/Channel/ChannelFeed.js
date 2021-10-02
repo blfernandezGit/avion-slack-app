@@ -6,6 +6,7 @@ import { channelsBaseUrl, channelRetrieveAuditText } from '../../../../helpers/c
 import FeedHeader from '../components/FeedHeader'
 import MessageList from '../components/Messages/MessageList'
 import ChatBox from '../components/ChatBox'
+import Feed from '../../../Assets/Elements/Feed'
 
 const ChannelFeed = () => {
     const { id } = useParams()
@@ -20,8 +21,7 @@ const ChannelFeed = () => {
     }, [id])
 
     return (
-        <>
-
+        <Feed >
             <FeedHeader
                 details = { details }
                 handleRecall = { handleRecall } 
@@ -36,7 +36,7 @@ const ChannelFeed = () => {
                 details = { details } 
             />
 
-        </>
+        </Feed>
     )
 }
 
