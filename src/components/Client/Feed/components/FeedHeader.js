@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ChannelDetails from '../Channel/ChannelDetails'
+import ChannelDetails from '../Channel/ChannelDetails/ChannelDetails'
 import ProfilePicture from '../../../Assets/ComponentSVG/ProfilePicture'
 
 const FeedHeader = ({ uid, details, isLoading, handleRecallMembers }) => {
