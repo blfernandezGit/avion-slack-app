@@ -44,7 +44,12 @@ const Menu = () => {
                     </button>
                     {!channelCollapse &&    
                         <>
-                            <button onClick={() => {setShowChannelAdd(!showChannelAdd)}}>+</button>                 
+                            <button onClick={() => {setShowChannelAdd(!showChannelAdd)}} className ="text-sm text-pink">+svg Add Channel</button>    
+                            { showChannelAdd &&
+                                <CreateChannel 
+                                    handleRecallChannels={handleRecallChannels} 
+                                />
+                            }             
                             <ChannelList 
                                 recallChannels={recallChannels} 
                             />
@@ -56,20 +61,14 @@ const Menu = () => {
                     </button>
                     {!contactCollapse &&  
                         <>
-                            <button onClick={() =>{setShowContactAdd(!showContactAdd)}}>+</button>       
+                            <button onClick={() =>{setShowContactAdd(!showContactAdd)}} className ="text-sm text-pink">+svg Add Contact</button>   
+                            { showContactAdd &&
+                                <AddContact />
+                            }    
                             <ContactList />
                         </>
                     }
-
-                    { showChannelAdd &&
-                        <CreateChannel 
-                            handleRecallChannels={handleRecallChannels} 
-                        />
-                    }
-                    
-                    { showContactAdd &&
-                        <AddContact />
-                    }
+                
                     
 
                     <Logout /> 

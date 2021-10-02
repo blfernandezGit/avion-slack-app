@@ -31,7 +31,7 @@ const CreateChannel = ({handleRecallChannels}) => {
                 setErrorMessage(data[2][0])
                 :
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
-                console.log(data)
+                handleRecallChannels()
             })
         channelNameRef.current.value = null
     }
@@ -41,7 +41,7 @@ const CreateChannel = ({handleRecallChannels}) => {
             {/* Create Channel Form */}
             <form onSubmit={(e) => createChannel(e)}>
                 <input type="text" ref={channelNameRef} placeholder="Channel Name"/>
-                <button type="submit">Create Channel</button>
+                <button type="submit">+svg</button>
             </form>
             
             {/* Display error message if it exists */}
