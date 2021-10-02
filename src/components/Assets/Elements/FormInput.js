@@ -1,7 +1,7 @@
-const FormInput = ({type, placeholder, reference, inputName, inputLabel, search}) => {
+const FormInput = ({type, placeholder, reference, inputName, inputLabel, search, chat}) => {
     return (
         <>
-        {!search && 
+        {!search && !chat && 
             <div className="relative m-1 flex flex-col">
                 <label htmlFor={inputName} className="text-sm text-center text-white md:mt-2">{inputLabel}</label>
                 <input className="bg-transparent text-center text-white md:w-80 md:m-2 border-b-2 border-white focus:outline-none focus:border-pink rounded-md" type={type} placeholder={placeholder} ref={reference}></input>
@@ -9,6 +9,9 @@ const FormInput = ({type, placeholder, reference, inputName, inputLabel, search}
         }
         {search &&
             <input className="bg-transparent border-2 border-white focus:border-pink focus:outline-none rounded-md text-center text-white w-full" type={type} placeholder={placeholder} ref={reference}></input>
+        }
+        {chat &&
+            <textarea className="bg-transparent border-2 border-custom h-14 focus:border-pink focus:outline-none rounded-md text-custom w-screen" type={type} placeholder={placeholder} ref={reference}></textarea>
         }
         </>
     )

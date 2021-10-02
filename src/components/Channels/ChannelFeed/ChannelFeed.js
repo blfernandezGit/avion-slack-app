@@ -37,7 +37,7 @@ const ChannelFeed = () => {
     }, [id])
 
     return (
-        <div className="relative h-header-negative w-full">
+        <div className="relative h-header-negative">
             { isLoading && <p>Loading...</p> }
 
             <ChannelHeader 

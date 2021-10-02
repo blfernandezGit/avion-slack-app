@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../../helpers/useAxiosPost'
 import { messagesBaseUrl, sendDirectMessageAuditText, userReceiverClass } from '../../../helpers/constants'
 import { ClientContext } from '../../../context/ClientContext'
+import FormInput from '../../Assets/Elements/FormInput'
 
 const CreateDirectMessages = ({id, uid}) => {
     const { headers } = useContext(ClientContext)
@@ -34,15 +35,16 @@ const CreateDirectMessages = ({id, uid}) => {
     const placeholder = `Message ${uid}`
 
     return (
-        <div className="DirectMessageChatBox chat-box">
-            {/* Add Member Form */}
-            <form onSubmit={(e) => createDirectMessage(e)}>
-                <input type="text" ref={bodyRef} placeholder={placeholder}/>
-                <button type="submit">Send</button>
-            </form>
-            
-            {/* Display error message if it exists */}
-            { errorMessage &&  <div>{errorMessage}</div> }
+        <div className="h-16 relative w-screen">
+            <div className="fixed bottom-0 h-max w-screen flex justify-center items-center bg-yellowishWhite">                     
+                <form onSubmit={(e) => createDirectMessage(e)}>
+                    <FormInput type="text" reference={bodyRef} placeholder={placeholder} inputName='chatBox' chat={true}/>
+                    <button type="submit">Send</button>
+                </form>
+                
+                {/* Display error message if it exists */}
+                { errorMessage &&  <div>{errorMessage}</div> }
+            </div>
         </div>
     )
 }

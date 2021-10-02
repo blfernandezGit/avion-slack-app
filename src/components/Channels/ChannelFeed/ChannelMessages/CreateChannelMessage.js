@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from 'react'
 import {postAPI} from '../../../../helpers/useAxiosPost'
 import { messagesBaseUrl, sendChannelMessageAuditText, channelReceiverClass } from '../../../../helpers/constants'
 import { ClientContext } from '../../../../context/ClientContext'
+import FormInput from '../../../Assets/Elements/FormInput'
 
 const CreateChannelMessages = ({details}) => {
     const { headers } = useContext(ClientContext)
@@ -36,9 +37,8 @@ const CreateChannelMessages = ({details}) => {
     return (
         <div className="h-16 relative w-screen">
             <div className="fixed bottom-0 h-12 w-screen flex justify-center items-center">
-                {/* Add Member Form */}
                 <form onSubmit={(e) => createChannelMessage(e)}>
-                    <input type="text" ref={bodyRef} placeholder={placeholder}/>
+                    <FormInput type="text" reference={bodyRef} placeholder={placeholder} inputName='chatBox' chat={true}/>
                     <button type="submit">Send</button>
                 </form>
                 

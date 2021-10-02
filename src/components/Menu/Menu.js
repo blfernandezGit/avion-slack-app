@@ -13,6 +13,8 @@ const Menu = () => {
 
     const [ channelCollapse, setChannelCollapse] = useState(false)
     const [ contactCollapse, setContactCollapse] = useState(false)
+    const [ showContactAdd, setShowContactAdd] = useState(false)
+    const [ showChannelAdd, setShowChannelAdd] = useState(false)
 
     const [recallChannels, setRecallChannels] = useState(null)
 
@@ -23,7 +25,7 @@ const Menu = () => {
         setRecallChannels(uuid_v4())
     }
 
-    let classes = "fixed bg-yellowishWhite -left-screen h-header-negative w-screen transform duration-500 ease-in-out z-30 overflow-auto"
+    let classes = "fixed bg-yellowishWhite h-header-negative w-screen lg:w-1/4 md:w-1/2 transform duration-500 ease-in-out z-30 overflow-auto"
     if(showMenu) {
         classes += " -translate-x-full"
     }
@@ -33,33 +35,41 @@ const Menu = () => {
             <div className={classes}>  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
                 <div className="">
-                    <button className="rounded-md flex w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-95 border-black -ml-2 mr-2 border-b-2 border-t-2 border-r-2 border-opacity-25">
+                    <button className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left text-white select-none items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 mt-2 rounded-r-md border-opacity-25 hover:border-opacity-25">
                         <div className="ml-10 py-1">Home</div> 
                     </button>
-                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-95 border-white -ml-2 mr-2 border-t-2 border-b-2 border-r-2  border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
+                    <button className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 rounded-r-md border-opacity-25 my-2 hover:border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
                         <Collapse />
                         <span className="my-1">Channels</span>
                     </button>
-                    {!channelCollapse &&                     
-                        <ChannelList 
-                            recallChannels={recallChannels} 
-                        />
+                    {!channelCollapse &&    
+                        <>
+                            <button onClick={() => {setShowChannelAdd(!showChannelAdd)}}>+</button>                 
+                            <ChannelList 
+                                recallChannels={recallChannels} 
+                            />
+                        </>
                     }
-                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-95 border-black border-b-2 -ml-2 mr-2 border-t-2 border-r-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
+                    <button className="flex w-full transform hover:translate-x-2 mb-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black border-2 rounded-r-md -ml-2 mr-2 border-opacity-25 hover:border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
                         <Collapse />
                         <span className="my-1">Contacts</span>
                     </button>
-                    {!contactCollapse &&         
-                        <ContactList />
+                    {!contactCollapse &&  
+                        <>
+                            <button onClick={() =>{setShowContactAdd(!showContactAdd)}}>+</button>       
+                            <ContactList />
+                        </>
                     }
 
-                    {/* TODO: Create modal for CreateChannel */}
-                    {/* <CreateChannel 
-                        handleRecallChannels={handleRecallChannels} 
-                    /> */}
+                    { showChannelAdd &&
+                        <CreateChannel 
+                            handleRecallChannels={handleRecallChannels} 
+                        />
+                    }
                     
-                    {/* TODO: Create modal for AddContact */}
-                    {/* <AddContact /> */}
+                    { showContactAdd &&
+                        <AddContact />
+                    }
                     
 
                     <Logout /> 

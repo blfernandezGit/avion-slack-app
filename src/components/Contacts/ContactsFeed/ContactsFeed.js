@@ -19,7 +19,7 @@ const ContactsFeed = () => {
     }, [id])
 
     return (
-        <div className="ContactsFeed feed">
+        <div className="relative h-header-negative">
             <strong>Contacts Feed</strong>
 
             <ContactsHeader
