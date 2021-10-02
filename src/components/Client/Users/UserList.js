@@ -6,16 +6,15 @@ import { ClientContext } from '../../../context/ClientContext'
 
 const UserList = ({onClick, searchQuery}) => {
     const { headers } = useContext(ClientContext)
-    // Use custom react hook - useAxiosGet - to automatically call API request for retrieving list of users
+
     const {fetchedData: users, isLoading, errorMessage} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
     return (
         <>
-        <div className="text-xs text-lightGrey">Click on user to add</div> {/* temporary, may or may not be removed */}
-        <div className="overflow-y-auto overscroll-none text-center">
-            { isLoading && <p>Loading...</p> /* Displayed while API is being fetched */ } 
+        <div className="text-xs text-lightGrey">Click on user to add</div>
+        <div className="overflow-y-auto overscroll-none no-scrollbar text-center w-full">
+            { isLoading && <p>Loading...</p> } 
             
-            {/* Table component that displays list of Users */}
             { users && 
                 <UserTable 
                     users={users} 

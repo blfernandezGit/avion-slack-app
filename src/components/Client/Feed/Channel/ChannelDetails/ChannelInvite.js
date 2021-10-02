@@ -4,8 +4,8 @@ import { channelAddUserUrl, inviteToChannelAuditText } from '../../../../../help
 import { ClientContext } from '../../../../../context/ClientContext'
 import UserList from '../../../Users/UserList'
 
-const ChannelInvite = ({details, handleRecallMembers}) => {
-    const { headers } = useContext(ClientContext)
+const ChannelInvite = ({details}) => {
+    const { headers, handleRecall } = useContext(ClientContext)
 
     // State for search query
     const [searchQuery, setSearchQuery] = useState('')
@@ -31,13 +31,13 @@ const ChannelInvite = ({details, handleRecallMembers}) => {
             setErrorMessage(data[2])
             :
             // Calls function that has a side-effect of re-requesting the API to fetch Channel List
-            handleRecallMembers()
+            handleRecall()
         })
 
     }
 
     return (
-        <div className="h-24 bg-white rounded-md my-2 flex justify-center flex-col items-center">
+        <div className="max-h-48 bg-white rounded-md my-2 flex justify-center flex-col items-center w-1/2 ml-3">
             {/* Search User form */}
             <form onSubmit={(e) => channelInvite(e)}>
                 <input type="text" placeholder="Search User..." className="text-center text-sm" onChange={(e) =>setSearchQuery(e.target.value)}/> 

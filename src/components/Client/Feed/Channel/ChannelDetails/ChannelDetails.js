@@ -5,10 +5,10 @@ import useAxiosGet from '../../../../../helpers/useAxiosGet'
 import { userListUrl, userListAuditText } from '../../../../../helpers/constants'
 import { ClientContext } from '../../../../../context/ClientContext'
 
-const ChannelDetails = ({details, handleRecallMembers}) => {
-    const { headers } = useContext(ClientContext)
+const ChannelDetails = ({ details }) => {
+    const { headers, handleRecall } = useContext(ClientContext)
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving list of users
-    const {fetchedData: users} = useAxiosGet(userListUrl, headers, null, userListAuditText)
+    const {fetchedData: users, isLoading} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
     const [owner, setOwner] = useState('')
 
@@ -22,21 +22,24 @@ const ChannelDetails = ({details, handleRecallMembers}) => {
     }, [users])
 
     return (
-        <div className="text-center flex flex-col items-center justify-center bg-yellowishWhite h-24 p-36"> 
+        <> 
             {details &&
-                <div>
-                    <div><span className="text-sm">Channel Owner: </span>{owner}</div> {/*TODO: get name from user details*/}
-                    <MemberList 
-                        details={details}
-                        users={users}
-                    />
-                    <ChannelInvite 
-                        details={details} 
-                        handleRecallMembers={handleRecallMembers}
-                    />
-                </div>
+                <>
+                    <div><span className="text-sm">Channel Owner: </span>{isLoading ? "Loading..." : owner}</div> {/*TODO: get name from user details*/}
+                    <div className="flex justify-between">
+                        <MemberList 
+                            details={details}
+                            users={users}
+                            isLoading={isLoading}
+                        />
+                        <ChannelInvite 
+                            details={details} 
+                            handleRecallMembers={handleRecall}
+                        />
+                    </div>
+                </>
             }
-        </div>
+        </>
     )
 }
 

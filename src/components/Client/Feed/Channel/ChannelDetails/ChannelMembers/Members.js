@@ -11,7 +11,6 @@ const Members = ({member, users}) => {
     }, [users])
     return (
         <tr>
-            {/* Member details TODO: add name from user list*/}
             <td>{user}</td>
         </tr>
     )
