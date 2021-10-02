@@ -25,7 +25,7 @@ const Menu = () => {
         setRecallChannels(uuid_v4())
     }
 
-    let classes = "fixed bg-yellowishWhite h-header-negative w-screen lg:w-1/4 md:w-1/2 transform duration-500 ease-in-out z-30 overflow-auto overscroll-none"
+    let classes = "fixed no-scrollbar bg-yellowishWhite h-header-negative w-screen lg:w-1/4 md:w-1/2 transform duration-500 ease-in-out z-30 overflow-auto overscroll-none"
     if(showMenu) {
         classes += " -translate-x-full"
     }
@@ -34,7 +34,6 @@ const Menu = () => {
         return (
             <div className={classes}>  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
-                <div className="">
                     <button className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left text-white select-none items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 mt-2 rounded-r-md border-opacity-25 hover:border-opacity-25">
                         <div className="ml-10 py-1">Home</div> 
                     </button>
@@ -72,7 +71,6 @@ const Menu = () => {
                     
 
                     <Logout /> 
-                </div>
                 </div>
         )
 }

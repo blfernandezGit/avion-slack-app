@@ -7,11 +7,11 @@ const Message = ({message}) => {
     const [ showDateTime, setShowDateTime ] = useState(false)
 
     let rowClasses = "w-full flex flex-col items-end"
-    let messageClasses = "max-w-1/2 bg-pink text-white rounded-l-lg rounded-tr-lg py-2 px-4 my-1 outline-none transform hover:-translate-x-2 duration-300 ease-in-out "
+    let messageClasses = "max-w-1/2 bg-pink text-white rounded-l-lg text-left rounded-tr-lg py-2 px-4 my-1 outline-none transform hover:-translate-x-2 duration-300 ease-in-out "
     let senderClasses = "hidden"
     if(message.sender.uid !== userDetails.uid){
         rowClasses += "items-start"
-        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black rounded-r-lg rounded-tl-lg focus:outline-none active:outline-none transform hover:translate-x-2 duration-300 ease-in-out "
+        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black text-left rounded-r-lg rounded-tl-lg focus:outline-none active:outline-none transform hover:translate-x-2 duration-300 ease-in-out "
         senderClasses = "text-lightGrey text-xs"
     }
 

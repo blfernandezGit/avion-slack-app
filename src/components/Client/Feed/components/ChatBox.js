@@ -34,11 +34,11 @@ const ChatBox = ({ details, id, uid }) => {
     }
 
     let placeholder = "Message "
-    details ? placeholder += `# ${ details.name }` : placeholder += `${ uid }`
+    details ? placeholder += `#${ details.name }` : placeholder += `${ uid }`
 
     return (
-            <div className="absolute bottom-0 h-12 w-screen flex justify-center items-center">
-                <form onSubmit={(e) => createMessage(e)} className="h-full w-full">
+            <div className="absolute bottom-0 h-12 w-full flex justify-center items-center">
+                <form onSubmit={(e) => createMessage(e)} className="h-full w-full px-6">
                     <FormInput type="text" reference={bodyRef} placeholder={placeholder} inputName='chatBox' chat={true}/>
                 </form>
                 

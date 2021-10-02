@@ -7,3 +7,20 @@
     padding: 0px;
     margin: 0px;
 }
+
+@layer utilities {
+    @variants responsive {
+      /* Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    }
+}
+
+/* display messages at bottom */
+.MessageList > :first-child { margin-top: auto }

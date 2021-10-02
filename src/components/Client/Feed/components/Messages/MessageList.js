@@ -35,7 +35,7 @@ const MessageList = ({details, id}) => {
 
     return (
         <>
-            <div className="w-full h-double-header-negative absolute top-12 overflow-y-auto overflow-x-hidden flex flex-col items-end overscroll-none p-3">
+            <div className="MessageList w-full no-scrollbar h-double-header-negative absolute top-12 overflow-y-auto overflow-x-hidden flex flex-col overscroll-none p-3">
                 { isLoading && <p>Loading...</p> }
 
                 { (messages && messages.length>0) ? 
