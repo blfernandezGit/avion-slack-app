@@ -12,7 +12,8 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
     // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     useEffect(() => {
-        let isActive = true
+        setTimeout( () => {
+            let isActive = true
         axios({
             // Axios needed parameters to fetch API
             url: url,
@@ -42,10 +43,10 @@ const useAxiosGetChannel = (url, headers, requestData, auditTrail) => {
                 // set error message from error response
                 setErrorMessage(error.response?.data?.errors[0])
             }
-        })
-
+        }, 2000)
         return () => { isActive = false }
-        //eslint-disable-next-line
+        })
+    //eslint-disable-next-line
     },[fetchedData])
 
     // when api is called, these values can be retrieved
