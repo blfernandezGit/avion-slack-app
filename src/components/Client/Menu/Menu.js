@@ -41,32 +41,36 @@ const Menu = () => {
                         <Collapse />
                         <span className="my-1">Channels</span>
                     </button>
-                    {!channelCollapse &&    
-                        <>
-                            <button onClick={() => {setShowChannelAdd(!showChannelAdd)}} className ="text-sm text-pink">+svg Add Channel</button>    
-                            { showChannelAdd &&
-                                <CreateChannel 
-                                    handleRecallChannels={handleRecallChannels} 
+                    <div className="px-6">
+                        {!channelCollapse &&    
+                            <>
+                                <button onClick={() => {setShowChannelAdd(!showChannelAdd)}} className ="text-sm text-pink">+svg Add Channel</button>    
+                                { showChannelAdd &&
+                                    <CreateChannel 
+                                        handleRecallChannels={handleRecallChannels} 
+                                    />
+                                }             
+                                <ChannelList 
+                                    recallChannels={recallChannels} 
                                 />
-                            }             
-                            <ChannelList 
-                                recallChannels={recallChannels} 
-                            />
-                        </>
-                    }
+                            </>
+                        }
+                    </div>
                     <button className="flex w-full transform hover:translate-x-2 mb-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black border-2 rounded-r-md -ml-2 mr-2 border-opacity-25 hover:border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
                         <Collapse />
                         <span className="my-1">Contacts</span>
                     </button>
-                    {!contactCollapse &&  
-                        <>
-                            <button onClick={() =>{setShowContactAdd(!showContactAdd)}} className ="text-sm text-pink">+svg Add Contact</button>   
-                            { showContactAdd &&
-                                <AddContact />
-                            }    
-                            <ContactList />
-                        </>
-                    }
+                    <div className="px-6">
+                        {!contactCollapse &&  
+                            <>
+                                <button onClick={() =>{setShowContactAdd(!showContactAdd)}} className ="text-sm text-pink">+svg Add Contact</button>   
+                                { showContactAdd &&
+                                    <AddContact />
+                                }    
+                                <ContactList />
+                            </>
+                        }
+                    </div>
                 
                     
 

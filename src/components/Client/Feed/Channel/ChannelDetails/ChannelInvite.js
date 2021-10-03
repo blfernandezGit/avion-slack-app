@@ -42,7 +42,7 @@ const ChannelInvite = ({details}) => {
         <div className="bg-white flex flex-col flex-start h-full w-full z-10">
             {/* Search User form */}
             <form onSubmit={(e) => channelInvite(e)}>
-                <input type="text" placeholder="Search User..." className="border-2 border-opacity-50 border-pink focus:outline-none rounded-md w-full text-sm p-1" onChange={(e) =>setSearchQuery(e.target.value)}/> 
+                <input type="text" placeholder="Search User..." className="border-2 border-opacity-50 border-pink focus:border-pink focus:outline-none rounded-md w-full text-sm p-1" onChange={(e) =>setSearchQuery(e.target.value)}/> 
             </form>
 
             <UserList 
