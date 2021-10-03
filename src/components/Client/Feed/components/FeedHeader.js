@@ -2,15 +2,19 @@ import { useState } from 'react'
 import ChannelDetails from '../Channel/ChannelDetails/ChannelDetails'
 import ProfilePicture from '../../../Assets/ComponentSVG/ProfilePicture'
 
-const FeedHeader = ({ uid, details, handleRecallMembers }) => {
+const FeedHeader = ({ uid, details }) => {
     const [ showChannelDetails, setShowChannelDetails ] = useState(false)
+
+    const handleShowChannelDetails = () => {
+        setShowChannelDetails(!showChannelDetails)
+    }
 
     return (
             <div className="absolute top-0 w-full bg-yellowishWhite h-12 px-6 z-20">
                 <div className="h-12 flex flex-row w-full items-center">
                     { details &&
                         <>
-                            <button className="w-1/2 flex justify-start text-pink text-lg" onClick={()=>{setShowChannelDetails(!showChannelDetails)}}>
+                            <button className="w-1/2 flex justify-start text-pink text-lg" onClick={()=>{handleShowChannelDetails()}}>
                                 <ProfilePicture/>
                                 <div className="ml-4">{details.name}</div>
                                 <span className="text-sm">svg</span>
@@ -28,7 +32,7 @@ const FeedHeader = ({ uid, details, handleRecallMembers }) => {
                 { showChannelDetails && details &&
                     <ChannelDetails 
                         details={details}
-                        handleRecallMembers={handleRecallMembers}
+                        handleShowChannelDetails={handleShowChannelDetails}
                     /> 
                 }
             </div>

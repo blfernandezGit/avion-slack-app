@@ -16,7 +16,8 @@ module.exports = {
             darkRed: '#c71340', 
             black: '#000000', 
             dirtyWhite: '#3c3d41', 
-            transparent: 'rgb(0,0,0,0)'},
+            transparent: 'rgb(0,0,0,0)'
+        },
         extend: {
             gridTemplateRows: {
                 '12': 'repeat(12, minmax(0, 1fr))'
