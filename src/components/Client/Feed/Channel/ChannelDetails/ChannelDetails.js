@@ -1,12 +1,11 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, forwardRef } from 'react'
 import ChannelInvite from './ChannelInvite'
 import MemberList from './ChannelMembers/MemberList'
 import useAxiosGet from '../../../../../helpers/useAxiosGet'
 import { userListUrl, userListAuditText } from '../../../../../helpers/constants'
 import { ClientContext } from '../../../../../context/ClientContext'
 
-const ChannelDetails = ({ details, handleShowChannelDetails }) => {
-    console.log(details)
+const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
     const { headers, handleRecall } = useContext(ClientContext)
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving list of users
     const {fetchedData: users, isLoading} = useAxiosGet(userListUrl, headers, null, userListAuditText)
@@ -24,7 +23,6 @@ const ChannelDetails = ({ details, handleShowChannelDetails }) => {
         if(users) {
             const ownerDetails = users.find(user => user.id === details.owner_id)
             setOwner(ownerDetails.uid)
-            console.log(users)
         }
         //eslint-disable-next-line
     }, [users])
@@ -32,14 +30,13 @@ const ChannelDetails = ({ details, handleShowChannelDetails }) => {
     const handleChangeTab = ( val ) => {
         if( val === "add" ) {
             setZIndex( 'z-0' )
-            console.log('z-0')
         } else {
             setZIndex( 'z-20' )
         }
     }
 
     return (
-        <div onClick={ () => {handleShowChannelDetails()}} className="Overlay absolute bg-yellowishWhite bg-opacity-20 w-full left-0 h-dhn-vh flex justify-center items-center"> 
+        <div ref={ ref } onClick={ ( e ) => { handleShowChannelDetails( e ) } } className="Overlay absolute bg-yellowishWhite bg-opacity-20 w-full left-0 h-dhn-vh flex justify-center items-center"> 
             {details &&
                 <div className = "Modal bg-yellowishWhite h-5/6 lg:h-4/6 p-6 rounded-md w-5/6 lg:w-1/2 grid grid-rows-12 grid-cols-12">
                     <div className="text-xl font-semibold col-span-full row-span-1">{details.name}</div>
@@ -70,4 +67,6 @@ const ChannelDetails = ({ details, handleShowChannelDetails }) => {
     )
 }
 
-export default ChannelDetails
+const forwardedRef = forwardRef(ChannelDetails);
+
+export default forwardedRef;

@@ -1,7 +1,6 @@
 import Members from './Members'
 
 const MemberTable = ({members, users}) => {
-    console.log(members)
     return (
         <>
             {/* Map members into a table*/}

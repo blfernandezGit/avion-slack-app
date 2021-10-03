@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import ChannelDetails from '../Channel/ChannelDetails/ChannelDetails'
 import ProfilePicture from '../../../Assets/ComponentSVG/ProfilePicture'
 
 const FeedHeader = ({ uid, details }) => {
     const [ showChannelDetails, setShowChannelDetails ] = useState(false)
 
-    const handleShowChannelDetails = () => {
-        setShowChannelDetails(!showChannelDetails)
+    const overlayRef = useRef()
+
+    const handleShowChannelDetails = (e) => {
+        if( e ) {
+            if ( e?.target === overlayRef.current ) {
+                setShowChannelDetails(!showChannelDetails)
+            } 
+        } else {
+            setShowChannelDetails(!showChannelDetails)
+        }
     }
 
     return (
@@ -33,6 +41,7 @@ const FeedHeader = ({ uid, details }) => {
                     <ChannelDetails 
                         details={details}
                         handleShowChannelDetails={handleShowChannelDetails}
+                        ref={overlayRef}
                     /> 
                 }
             </div>
