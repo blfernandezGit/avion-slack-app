@@ -1,5 +1,5 @@
 import useAxiosGet from '../../../helpers/useAxiosGet'
-import UserTable from './UserTable'
+import Users from './Users'
 import { userListUrl, userListAuditText } from '../../../helpers/constants'
 import { useContext } from 'react'
 import { ClientContext } from '../../../context/ClientContext'
@@ -17,11 +17,15 @@ const UserList = ({onClick, searchQuery}) => {
             { isLoading && <p>Loading...</p> } 
             
             { users && 
-                <UserTable 
-                    users={users} 
-                    onClick={onClick}
-                    searchQuery={searchQuery} 
-                /> 
+                users
+                    .filter(user => searchQuery==='' || user.uid.includes(searchQuery))
+                    .map(user => {
+                        return <Users 
+                                    key={user.id} 
+                                    user = {user}
+                                    onClick={onClick}
+                                />
+                    })
             }
             { errorMessage &&  <Error errorMessage={errorMessage}/> }
         </div>
