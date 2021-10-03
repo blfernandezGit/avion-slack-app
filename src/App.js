@@ -7,6 +7,7 @@ import AuthRoute from './routes/AuthRoute'
 import LoadingScreen from './components/Home/LoadingScreen';
 import { useContext } from 'react'
 import { ClientContext } from './context/ClientContext'
+import HomePage from './components/Client/HomePage'
 
 function App() {
   const { showLoading } = useContext(ClientContext)

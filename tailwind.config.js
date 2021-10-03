@@ -19,6 +19,12 @@ module.exports = {
             transparent: 'rgb(0,0,0,0)'
         },
         extend: {
+            backgroundImage: theme => ({
+                'bg1': "url('./components/Assets/Images/HomeBG.jpg')",
+                'bg2': "url('./components/Assets/Images/HomeBG2.jpg')",
+                'bg3': "url('./components/Assets/Images/HomeBG3.jpg')",
+                'bg4': "url('./components/Assets/Images/HomeBG4.jpg')",
+            }),
             gridTemplateRows: {
                 '12': 'repeat(12, minmax(0, 1fr))'
             },        
