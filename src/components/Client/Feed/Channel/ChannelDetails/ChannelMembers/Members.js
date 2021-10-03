@@ -10,9 +10,7 @@ const Members = ({member, users}) => {
         //eslint-disable-next-line
     }, [users])
     return (
-        <tr>
-            <td>{user}</td>
-        </tr>
+            <div className="w-full h-8">{user}</div>
     )
 }
 

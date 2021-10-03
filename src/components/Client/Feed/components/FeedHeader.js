@@ -6,7 +6,7 @@ const FeedHeader = ({ uid, details, handleRecallMembers }) => {
     const [ showChannelDetails, setShowChannelDetails ] = useState(false)
 
     return (
-            <div className="absolute top-0 w-full bg-yellowishWhite min-h-12 max-h-full md:max-h-96 px-6 z-20">
+            <div className="absolute top-0 w-full bg-yellowishWhite h-12 px-6 z-20">
                 <div className="h-12 flex flex-row w-full items-center">
                     { details &&
                         <>

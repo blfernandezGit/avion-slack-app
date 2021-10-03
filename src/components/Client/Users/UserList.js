@@ -3,6 +3,7 @@ import UserTable from './UserTable'
 import { userListUrl, userListAuditText } from '../../../helpers/constants'
 import { useContext } from 'react'
 import { ClientContext } from '../../../context/ClientContext'
+import Error from '../../Assets/Elements/Error'
 
 const UserList = ({onClick, searchQuery}) => {
     const { headers } = useContext(ClientContext)
@@ -11,8 +12,8 @@ const UserList = ({onClick, searchQuery}) => {
 
     return (
         <>
-        <div className="text-xs text-lightGrey">Click on user to add</div>
-        <div className="overflow-y-auto overscroll-none no-scrollbar text-center w-full">
+        <div className="text-xs text-lightGrey w-full">Click on user to add</div>
+        <div className="overflow-y-auto overscroll-none no-scrollbar w-full">
             { isLoading && <p>Loading...</p> } 
             
             { users && 
@@ -22,8 +23,7 @@ const UserList = ({onClick, searchQuery}) => {
                     searchQuery={searchQuery} 
                 /> 
             }
-            
-            { errorMessage &&  <div>{errorMessage}</div> }
+            { errorMessage &&  <Error errorMessage={errorMessage}/> }
         </div>
         </>
     )
