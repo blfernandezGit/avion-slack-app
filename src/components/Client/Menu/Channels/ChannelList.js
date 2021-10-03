@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import useAxiosGet from '../../../../helpers/useAxiosGet'
-import ChannelsTable from './ChannelsTable'
+import Channels from './Channels'
 import { channelsBaseUrl, channelListAuditText } from '../../../../helpers/constants'
 import { ClientContext } from '../../../../context/ClientContext'
 
@@ -17,7 +17,9 @@ const ChannelList = ({recallChannels}) => {
                 { isLoading && <p>Loading...</p> }
 
                 {/* Table component that displays list of Channels for User */}
-                { channels && <ChannelsTable channels={channels} /> }
+                { channels && channels.map(channel => {
+                    return <Channels key={channel.id}  channel = {channel}/>
+                }) }
 
                 { errorMessage &&  <div>{errorMessage}</div> }
                 

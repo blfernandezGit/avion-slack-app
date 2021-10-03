@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef  } from 'react'
-import MessageTable from './MessageTable'
+import Messages from './Messages'
 import { messagesBaseUrl, channelMessagesAuditText, directMessagesAuditText, channelReceiverClass, userReceiverClass } from '../../../../../helpers/constants'
 import { ClientContext } from '../../../../../context/ClientContext'
 import useAxiosGet from '../../../../../helpers/useAxiosGet'
@@ -39,7 +39,9 @@ const MessageList = ({details, id}) => {
                 { isLoading && <p>Loading...</p> }
 
                 { (messages && messages.length>0) ? 
-                    <MessageTable messages={messages} /> //Table component that displays list of Messages for User
+                    messages.map(message => {
+                        return <Messages key={message.id}  message = {message}/>
+                    })
                     :
                     <div className="z-50">Start Conversation</div>
                 }

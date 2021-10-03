@@ -1,4 +1,4 @@
-import ContactsTable from './ContactsTable'
+import Contacts from './Contacts'
 import { useContext } from 'react'
 import { ClientContext } from '../../../../context/ClientContext'
 
@@ -7,13 +7,10 @@ const ContactList = () => {
 
     return (
         <>
-             {/* temporary, may or may not be removed */}
-            
-            {/* Table component that displays list of Contacts */}
             { currentUserContacts ?
-                <ContactsTable 
-                    currentUserContacts={currentUserContacts} 
-                /> 
+                currentUserContacts.map(contact => {
+                    return <Contacts key={contact.id}  contact = {contact}/>
+                }) 
                 :
                 <div>No available contacts.</div>
             }
