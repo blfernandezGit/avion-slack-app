@@ -45,7 +45,7 @@ const Menu = () => {
                             recallChannels={recallChannels} 
                         />
                     }
-                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold items-center order-4 bg-pink bg-opacity-95 border-black border-b-2 -ml-2 mr-2 border-t-2 border-r-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
+                    <button className="flex rounded-md w-full transform hover:translate-x-2 text-left select-none font-bold shadow-inner items-center order-4 bg-pink bg-opacity-95 border-black border-b-2 -ml-2 mr-2 border-t-2 border-r-2 border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
                         <Collapse />
                         <span className="my-1">Contacts</span>
                     </button>

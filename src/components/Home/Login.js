@@ -56,7 +56,7 @@ const Login = () => {
             <HalfContainer customBg="md:bg-dirtyWhite">
                 <Form onSubmit={handleLogin}>
                     <FormInputs type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
-                    <FormInputs type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>
+                    <FormInputs type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/><i class="far fa-eye" id="togglePassword"></i>
                     <FormButton buttonName="Login"/>
                 </Form>
                 <Error errorMessage={errorMessage}/>

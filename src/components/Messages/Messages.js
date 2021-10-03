@@ -10,7 +10,7 @@ const Message = ({message}) => {
     let messageClasses = "max-w-1/2 bg-pink text-white rounded-l-md py-2 px-4 outline-none"
     if(message.sender.uid !== userDetails.uid){
         rowClasses += "items-start"
-        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black rounded-r-md focus:outline-none active:outline-none"
+        messageClasses = "max-w-1/2 w-max py-2 px-4 bg-yellowishWhite text-black rounded-r-md   cus:outline-none active:outline-none"
     }
 
     let date = new Date(message.created_at).toLocaleDateString()
@@ -34,10 +34,10 @@ const Message = ({message}) => {
     return (
         <div className={rowClasses}>
             {/* Message details*/}
-                <div className="text-lightGrey text-xs">{message.sender.uid}</div>
+                <div className="text-lightGrey text-xl">{message.sender.uid}</div>
                 <button className={messageClasses} onClick={handleToggleDateTime}>{message.body}</button>
-                {showDateTime && <div className="text-lightGrey text-xs">{sendDateTime}</div>}
-        </div>
+                {showDateTime && <div className="text-lightGrey text-xl">{sendDateTime}</div>}
+        </div>  
     )
 }
 
