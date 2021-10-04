@@ -1,19 +1,18 @@
-import { useEffect, useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useParams } from "react-router-dom"
-import { ClientContext } from '../../../../context/ClientContext'
 import FeedHeader from '../components/FeedHeader'
 import MessageList from '../components/Messages/MessageList'
 import ChatBox from '../components/ChatBox'
 import Feed from '../../../Assets/Elements/Feed'
+import { ClientContext } from '../../../../context/ClientContext'
 
 const ContactFeed = () => {
     const { id, uid } = useParams()
 
-    const { handleShowMenu } = useContext(ClientContext)
+    const { handleShowWelcome } = useContext( ClientContext )
 
-    // change menu show state when id changes
     useEffect(() => {
-        handleShowMenu()
+        handleShowWelcome(false)
         //eslint-disable-next-line
     }, [id])
 

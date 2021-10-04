@@ -10,13 +10,14 @@ import Feed from '../../../Assets/Elements/Feed'
 
 const ChannelFeed = () => {
     const { id } = useParams()
-    const { headers, recall, handleRecall, handleShowMenu } = useContext(ClientContext)
+    const { headers, recall, handleRecall, handleShowMenu, handleShowWelcome } = useContext(ClientContext)
     const channelUrl = channelsBaseUrl + '/' + id
     const { fetchedData: details, isLoading } = useAxiosGet( channelUrl, headers, null, channelRetrieveAuditText, recall )
 
     // change menu show state when id changes
     useEffect(() => {
         handleShowMenu()
+        handleShowWelcome(false)
         //eslint-disable-next-line
     }, [id])
 

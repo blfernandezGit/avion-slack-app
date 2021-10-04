@@ -5,8 +5,8 @@ import { useContext } from 'react'
 import { ClientContext } from '../../../context/ClientContext'
 import Error from '../../Assets/Elements/Error'
 
-const UserList = ({onClick, searchQuery}) => {
-    const { headers } = useContext(ClientContext)
+const UserList = ({onClick, searchQuery, members, addContact}) => {
+    const { headers, userDetails } = useContext(ClientContext)
 
     const {fetchedData: users, isLoading, errorMessage} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
@@ -18,12 +18,15 @@ const UserList = ({onClick, searchQuery}) => {
             
             { users && 
                 users
+                    .filter(user => user.uid !== userDetails.uid)
+                    .filter(user => members ? !members.map(member => {return member.user_id}).includes(user.id) : user)
                     .filter(user => searchQuery==='' || user.uid.includes(searchQuery))
                     .map(user => {
                         return <Users 
                                     key={user.id} 
                                     user = {user}
                                     onClick={onClick}
+                                    addContact={addContact}
                                 />
                     })
             }

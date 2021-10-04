@@ -35,11 +35,10 @@ const ChannelInvite = ({details}) => {
                 setSuccessMessage('User successfully added')
             }
         })
-
     }
 
     return (
-        <div className="bg-white flex flex-col flex-start h-full w-full z-10">
+        <div className="bg-white flex flex-col flex-start h-full w-full z-10 px-2">
             {/* Search User form */}
             <form onSubmit={(e) => channelInvite(e)}>
                 <input type="text" placeholder="Search User..." className="border-2 border-opacity-50 border-pink focus:border-pink focus:outline-none rounded-md w-full text-sm p-1" onChange={(e) =>setSearchQuery(e.target.value)}/> 
@@ -48,6 +47,7 @@ const ChannelInvite = ({details}) => {
             <UserList 
                 onClick={channelInvite}
                 searchQuery={searchQuery}
+                members = {details?.channel_members}
             />
             
             { errorMessage &&  <Error errorMessage={ errorMessage }/> }

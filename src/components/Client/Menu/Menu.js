@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { v4 as uuid_v4 } from "uuid"
 import Logout from '../../Home/Logout'
 import ChannelList from './Channels/ChannelList'
@@ -9,7 +10,7 @@ import { ClientContext } from '../../../context/ClientContext'
 import Collapse from '../../Assets/ComponentSVG/Collapse'
 
 const Menu = () => {
-    const { showMenu } = useContext(ClientContext)
+    const { showMenu, handleShowWelcome } = useContext(ClientContext)
 
     const [ channelCollapse, setChannelCollapse] = useState(false)
     const [ contactCollapse, setContactCollapse] = useState(false)
@@ -34,10 +35,12 @@ const Menu = () => {
         return (
             <div className={classes}>  {/* PADDING SA LAHAT PARA SA HEADER*/}
                 {/* Add home component */}
-                    <button className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left text-white select-none items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 mt-2 rounded-r-md border-opacity-25 hover:border-opacity-25">
-                        <div className="ml-10 py-1">Home</div> 
+                    <button onClick={()=> handleShowWelcome(true)} className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left text-white select-none items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 mt-2 rounded-r-md border-opacity-25 hover:border-opacity-25">
+                        <Link to="/client">
+                            <div className="ml-10 py-1">Home</div> 
+                        </Link>
                     </button>
-                    <button className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 rounded-r-md border-opacity-25 my-2 hover:border-opacity-25" onClick={() => {setChannelCollapse(!channelCollapse)}}>
+                    <button  onClick={() => {setChannelCollapse(!channelCollapse)}} className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 rounded-r-md border-opacity-25 my-2 hover:border-opacity-25">
                         <Collapse />
                         <span className="my-1">Channels</span>
                     </button>
@@ -56,7 +59,7 @@ const Menu = () => {
                             </>
                         }
                     </div>
-                    <button className="flex w-full transform hover:translate-x-2 mb-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black border-2 rounded-r-md -ml-2 mr-2 border-opacity-25 hover:border-opacity-25" onClick={() => {setContactCollapse(!contactCollapse)}}>
+                    <button  onClick={() => {setContactCollapse(!contactCollapse)}} className="flex w-full transform hover:translate-x-2 mb-2 duration-300 ease-in-out text-left select-none text-white items-center text-lg bg-pink bg-opacity-95 border-white hover:border-black border-2 rounded-r-md -ml-2 mr-2 border-opacity-25 hover:border-opacity-25">
                         <Collapse />
                         <span className="my-1">Contacts</span>
                     </button>

@@ -10,7 +10,7 @@ const Logout = () => {
         setTimeout(() =>{
             handleLoading(false)
             setLoginDetails()
-        }, 3000)
+        }, 2000)
         
     }
     // Button for Logout

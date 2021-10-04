@@ -31,11 +31,10 @@ const AddContact = () => {
             setUserContacts(user_id, user_uid)
             setSuccessMessage('User successfully added as contact')
         }
-        
-    }
+}
 
     return (
-        <div className="h-48 bg-white rounded-md my-2 flex flex-col items-start justify-start px-6">
+        <div className="h-48 bg-white rounded-md my-2 flex flex-col items-start justify-start p-4">
             {/* Search User form */}
             <form className="w-full" onSubmit={(e) => handleAddContact(e)}>
                 <input type="text" placeholder="Search Users..." className="border-2 border-pink focus:border-pink border-opacity-25 focus:outline-none rounded-md text-sm w-full" onChange={(e) =>setSearchQuery(e.target.value)}/> 
@@ -44,6 +43,7 @@ const AddContact = () => {
                 <UserList 
                     onClick={handleAddContact}
                     searchQuery={searchQuery}
+                    addContact={true}
                 />
 
             { successMessage &&  <Error errorMessage={successMessage}/> }

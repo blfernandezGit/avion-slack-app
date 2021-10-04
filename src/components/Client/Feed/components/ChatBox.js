@@ -6,7 +6,7 @@ import FormInput from '../../../Assets/Elements/FormInput'
 import PaperPlane from '../../../Assets/ComponentSVG/PaperPlane'
 
 const ChatBox = ({ details, id, uid }) => {
-    const { headers, handleRecall } = useContext(ClientContext)
+    const { headers, handleRecall, focusClass } = useContext(ClientContext)
 
     // Input field references
     const bodyRef = useRef()
@@ -38,10 +38,10 @@ const ChatBox = ({ details, id, uid }) => {
     details ? placeholder += `#${ details.name }` : placeholder += `${ uid }`
 
     return (
-            <div className="absolute bottom-0 h-12 w-full flex justify-center items-center">
+            <div className="absolute bottom-0 h-16 w-full flex justify-center items-center p-2">
                 <form onSubmit={(e) => createMessage(e)} className="h-full w-full px-6 grid grid-cols-12">
                     <FormInput type="text" reference={bodyRef} placeholder={placeholder} inputName='chatBox' chat={true}/>
-                    <button type="submit" className="col-span-1 flex justify-end items-center w-full h-full border-r-2 border-b-2 border-t-2 border-pink border-opacity-25 rounded-r-md px-2"><PaperPlane/></button>
+                    <button type="submit" className={`col-span-1 flex justify-end items-center w-full h-full border-r-2 border-b-2 border-t-2 border-pink ${focusClass} rounded-r-md px-2`}><PaperPlane/></button>
                 </form>
                 
                 {/* Display error message if it exists */}

@@ -9,10 +9,13 @@ const ContactList = () => {
         <>
             { currentUserContacts ?
                 currentUserContacts.map(contact => {
-                    return <Contacts key={contact.id}  contact = {contact}/>
+                    return <Contacts key={contact.id}  
+                            contact = {contact}
+                            />
                 }) 
                 :
                 <div>No available contacts.</div>
+
             }
             
         </>

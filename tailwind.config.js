@@ -20,7 +20,7 @@ module.exports = {
         },
         extend: {
             backgroundImage: theme => ({
-                'bg1': "url('./components/Assets/Images/HomeBG.jpg')",
+                'bg1': "url('./components/Assets/Images/Home.png')",
                 'bg2': "url('./components/Assets/Images/HomeBG2.jpg')",
                 'bg3': "url('./components/Assets/Images/HomeBG3.jpg')",
                 'bg4': "url('./components/Assets/Images/HomeBG4.jpg')",
@@ -48,6 +48,13 @@ module.exports = {
                 'header-negative': 'calc(100% - 3rem)',
                 'double-header-negative': 'calc(100% - 6rem)',
                 'dhn-vh': 'calc(100vh - 6rem)'
+            },
+            zIndex: {
+                '-10': '-10',
+                '-20': '-20',
+                '-30': '-30',
+                '-40': '-40',
+                '-50': '-50',
             },
             'animation': {
                 'gradient-x':'gradient-x 15s ease infinite',

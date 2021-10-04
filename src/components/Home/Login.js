@@ -40,7 +40,7 @@ const Login = () => {
                 setTimeout(() => {
                     setLoginDetails(data)
                     handleLoading(false)
-                }, 3000)
+                }, 2000)
                 
             })
             .catch(error => {

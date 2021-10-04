@@ -7,10 +7,13 @@ const ClientContextProvider = ( props ) => {
     // State to store response data and headers from login - initial value from local storage
     const [ response, setResponse ] = useState( JSON.parse( localStorage.getItem( LOCAL_STORAGE_KEY_1 ) ) || false )
     const [ contacts, setContacts ] = useState( JSON.parse( localStorage.getItem( LOCAL_STORAGE_KEY_2 ) ) || [] )
-    const [ currentUserContacts ,setCurrentUserContacts ] = useState()
+    const [ currentUserContacts, setCurrentUserContacts ] = useState(null)
     const [ showMenu, setShowMenu ] = useState( true )
+    const [ showWelcome, setShowWelcome ] = useState( true )
     const [ showLoading, setShowLoading ] = useState( false )
     const [ recall, setRecall ] = useState() 
+    const [ focusClass, setFocusClass ] = useState('border-opacity-25')
+    const [ textFocusClass, setTextFocusClass ] = useState('text-opacity-25')
 
     // Set data on login and remove on logout
     const setLoginDetails = ( data ) => {
@@ -73,11 +76,15 @@ const ClientContextProvider = ( props ) => {
     const handleDisplayedContacts = () => {
         const userAcct = contacts.find( user => { return user.user_id === response?.fetchedData?.id })
         if( userAcct ) { setCurrentUserContacts( userAcct.contacts ) }
+        else { setCurrentUserContacts(null) }
     }
 
     // function for showing/hiding menu
-    const handleShowMenu = () => {
-        setShowMenu( !showMenu )
+    const handleShowMenu = (val) => {
+        console.log(val)
+        if( !val ) {
+            setShowMenu( !showMenu )
+        }
     }
 
     // Loading screen
@@ -85,8 +92,25 @@ const ClientContextProvider = ( props ) => {
         setShowLoading( state )
     }
 
+    // random number to recall axios
     const handleRecall = () => {
         setRecall( uuid_v4() )
+    }
+
+    // function to include button in focus change
+    const handleFocusChatBox = (val) => {
+        if(val) {
+            setFocusClass('')
+            setTextFocusClass('')
+        }
+        else {
+            setFocusClass('border-opacity-25')
+            setTextFocusClass('text-opacity-25')
+        }
+    }
+
+    const handleShowWelcome = (val) => {
+        setShowWelcome(val)
     }
 
     return (
@@ -102,7 +126,12 @@ const ClientContextProvider = ( props ) => {
             showLoading,
             handleLoading,
             recall, 
-            handleRecall
+            handleRecall,
+            handleFocusChatBox,
+            focusClass,
+            textFocusClass,
+            handleShowWelcome,
+            showWelcome
         }}>
             { props.children }
         </ClientContext.Provider>
