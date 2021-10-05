@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { v4 as uuid_v4 } from "uuid"
 import Logout from '../../Home/Logout'
 import ChannelList from './Channels/ChannelList'
@@ -39,7 +39,7 @@ const Menu = () => {
 
     //TODO: add link to a default page /client to remove     view from messages
         return (
-            <div className={classes}>  {/* PADDING SA LAHAT PARA SA HEADER*/}
+            <div className={classes}> 
                 {/* Add home component */}
                     <button onClick={() =>{handleHome()}} className="flex w-full transform hover:translate-x-2 duration-300 ease-in-out text-left text-white select-none items-center bg-pink bg-opacity-95 border-white hover:border-black -ml-2 mr-2 border-2 mt-2 rounded-r-md border-opacity-25 hover:border-opacity-25">
                         <Collapse />    

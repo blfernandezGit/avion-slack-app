@@ -10,7 +10,6 @@ const Users = ({user, onClick, addContact}) => {
                 </Link>
                 : user.uid
             }
-
         </button>
     )
 }
