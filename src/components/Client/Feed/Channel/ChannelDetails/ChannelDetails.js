@@ -4,6 +4,8 @@ import MemberList from './ChannelMembers/MemberList'
 import useAxiosGet from '../../../../../helpers/useAxiosGet'
 import { userListUrl, userListAuditText } from '../../../../../helpers/constants'
 import { ClientContext } from '../../../../../context/ClientContext'
+import addMembers from '../../../../Assets/Images/add_members.png'
+import members from '../../../../Assets/Images/members_2.png'
 
 const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
     const { headers, handleRecall } = useContext(ClientContext)
@@ -39,21 +41,29 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
         <div ref={ ref } onClick={ ( e ) => { handleShowChannelDetails( e ) } } className="Overlay absolute bg-yellowishWhite bg-opacity-20 w-full left-0 h-dhn-vh flex justify-center items-center"> 
             {details &&
                 <div className = "Modal bg-yellowishWhite h-5/6 lg:h-4/6 p-6 rounded-md w-5/6 lg:w-1/2 grid grid-rows-12 grid-cols-12 shadow-md">
-                    <div className="text-xl font-semibold col-span-full row-span-1">{details.name}</div>
-                    <div className="bg-white flex flex-col justify-center px-6 rounded-t-md col-span-full row-span-2">
-                        <div className="text-sm">Created by </div>
+                    <div className="text-xl font-semibold col-span-full row-span-1 text-pink">{details.name}</div>
+                    <div className="bg-white flex flex-col justify-center px-6 rounded-md col-span-full row-span-2">
+                        <div className="text-sm text-pink text-opacity-90">Created by </div>
                         <div>{isLoading ? "Loading..." : `${owner} on ${date}`}</div>
                     </div>
                     <div className="col-span-full grid grid-cols-12 grid-rows-12 row-start-4 row-end-12">
-                        <button onClick={() => handleChangeTab('member')} className="col-span-3 flex justify-center items-end row-span-1 text-sm">Members</button>
-                        <button onClick={() =>handleChangeTab('add')} className="col-span-4 flex justify-center items-end row-span-1 text-xs">Add Members</button>
+                        <button onClick={() => handleChangeTab('member')} className="col-span-4 lg:col-span-3 flex justify-center items-end row-span-2 text-sm">
+                            <div className="bg-white w-full h-1/2 flex justify-center rounded-t-md">
+                                <img src={members} alt="members" className="h-5"/>
+                                <div>Members</div>
+                            </div>
+                        </button>
+                        <button onClick={() =>handleChangeTab('add')} className="col-span-5 lg:col-span-3 flex justify-center items-end row-span-2 text-xs">
+                            <img src={addMembers} alt="addMembers" className="h-5"/>
+                            <div>Add Members</div>
+                        </button>
                         <MemberList
                             details={details}
                             users={users}
                             isLoading={isLoading}
                             zIndex={zIndex}
                         />
-                        <div className="col-span-full row-start-2 row-end-13 bg-white rounded-md flex justify-center flex-col p-4">
+                        <div className="col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col p-4">
                             <ChannelInvite 
                                 details={details} 
                                 handleRecallMembers={handleRecall}

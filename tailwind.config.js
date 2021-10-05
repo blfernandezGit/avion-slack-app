@@ -20,7 +20,7 @@ module.exports = {
         },
         extend: {
             backgroundImage: theme => ({
-                'bg1': "url('./components/Assets/Images/Home.png')",
+                'bg1': "url('./components/Assets/Images/Background.jpg')",
                 'bg2': "url('./components/Assets/Images/HomeBG2.jpg')",
                 'bg3': "url('./components/Assets/Images/HomeBG3.jpg')",
                 'bg4': "url('./components/Assets/Images/HomeBG4.jpg')",

@@ -15,7 +15,7 @@ const Header = () => {
                 </div>
 
                 {/* Search Bar TODO: add functionality OPTIONAL*/}
-                <div className="grid h-full place-items-center w-full col-span-10">
+                <div className="grid h-full place-items-center w-full col-span-10 px-4">
                     <form onSubmit = {handleSearch} className="w-full">
                         <FormInput type="text" name="search-field" placeholder="Search..." search={true}/>
                     </form>
