@@ -81,7 +81,6 @@ const ClientContextProvider = ( props ) => {
 
     // function for showing/hiding menu
     const handleShowMenu = (val) => {
-        console.log(val)
         if( !val ) {
             setShowMenu( !showMenu )
         }
@@ -109,8 +108,9 @@ const ClientContextProvider = ( props ) => {
         }
     }
 
-    const handleShowWelcome = (val) => {
+    const handleShowWelcome = (val, history) => {
         setShowWelcome(val)
+        history && history.replace('/client')
     }
 
     return (

@@ -6,7 +6,8 @@ const Welcome = () => {
     const [ dateState, setDateState ] = useState(new Date())
 
     useEffect(() => {
-        setInterval(() => setDateState(new Date()), 30000);
+        const intervalId = setInterval( () => setDateState( new Date() ), 30000 );
+        return () => { clearInterval( intervalId ) }
     }, []);
 
     return (

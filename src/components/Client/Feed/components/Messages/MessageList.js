@@ -35,15 +35,15 @@ const MessageList = ({details, id}) => {
 
     return (
         <>
-            <div className="MessageList w-full no-scrollbar h-double-header-negative absolute top-12 overflow-y-auto overflow-x-hidden flex flex-col overscroll-none p-3 pb-8">
-                { isLoading && <p>Loading...</p> }
+            <div className="MessageList w-full no-scrollbar h-double-header-negative absolute top-12 overflow-y-auto overflow-x-hidden flex flex-col overscroll-none p-8 pb-8">
+                { isLoading && <div className="w-full h-full grid place-items-center text-xl text-white text-opacity-75" >Loading...</div> }
 
                 { ( messages && messages.length>0 ) ? 
                     messages.map(message => {
                         return <Messages key={message.id}  message = {message}/>
                     })
                     :
-                    <div>Start Conversation</div>
+                    !isLoading && <div className="w-full h-full grid place-items-center text-xl text-white text-opacity-75" >Start Conversation</div>
                 }
 
                 { errorMessage &&  <div>{errorMessage}</div> }

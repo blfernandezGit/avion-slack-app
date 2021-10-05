@@ -1,7 +1,7 @@
 const Collapse = () => {
     return (
         <svg height="16px" width="16px" className="ml-5 mr-1 fill-current text-white"
-	 viewBox="0 0 512 512">
+	viewBox="0 0 512 512">
 <g>
 	<g>
 		<path d="M491.841,156.427c-19.471-45.946-51.936-85.013-92.786-112.637C358.217,16.166,308.893-0.007,256,0

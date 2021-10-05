@@ -18,16 +18,20 @@ const FeedHeader = ({ uid, details }) => {
     }
 
     return (
-            <div className="absolute top-0 w-full bg-yellowishWhite h-12 px-6 z-20">
-                <div className="h-12 flex flex-row w-full items-center">
+            <div className="absolute top-0 w-full bg-yellowishWhite h-12 px-8 z-20">
+                <div className="h-12 grid grid-cols-12 w-full items-center">
                     { details &&
                         <>
-                            <button className="w-1/2 flex justify-start text-pink text-lg" onClick={()=>{handleShowChannelDetails()}}>
+                            <button className="col-span-6 text-pink text-lg h-full w-full flex items-center" onClick={()=>{handleShowChannelDetails()}}>
                                 <ProfilePicture/>
-                                <div className="ml-4">{details.name}</div>
+                                <div className="col-start-2 ml-4">{details.name}</div>
                                 <span className="text-sm">svg</span>
                             </button>
-                            <div className="flex w-1/2 justify-end mr-4 text-pink text-lg">{details?.channel_members.length}</div>
+                            <div className="col-start-12 mr-4 text-pink text-lg w-full">
+                                <div className="w-full text-right">
+                                    svg {details?.channel_members.length}
+                                </div>
+                            </div>
                         </>
                     }
                     { uid &&

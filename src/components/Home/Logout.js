@@ -16,9 +16,9 @@ const Logout = () => {
     // Button for Logout
     // TODO: might need to rethink component - maybe just use Button Component - can be custom or from framework
     return (
-        <div className="flex ml-2 align-middle mt-2">
+        <div className="flex ml-4 align-middle mt-2">
             <Sakura/>
-            <button onClick={handleLogout} className="text-pink font-bold">Sign Out</button>
+            <button onClick={handleLogout} className="ml-1 text-transparent font-bold bg-clip-text bg-gradient-to-r from-pink via-pink to-custom animate-gradient-x">Sign Out</button>
         </div>
     )
 }
