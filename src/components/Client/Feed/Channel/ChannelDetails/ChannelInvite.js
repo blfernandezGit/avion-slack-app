@@ -29,10 +29,16 @@ const ChannelInvite = ({details}) => {
         .then( data => {
             if( data[ 2 ] ) {
                 setErrorMessage(data[2])
+                setTimeout(() => {
+                    setErrorMessage(null)
+                }, 3000)
             } else {
                 // Calls function that has a side-effect of re-requesting the API to fetch Channel List
                 handleRecall()
                 setSuccessMessage('User successfully added')
+                setTimeout(() => {
+                    setSuccessMessage(null)
+                }, 3000)
             }
         })
     }
