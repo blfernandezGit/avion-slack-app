@@ -8,7 +8,7 @@ import addMembers from '../../../../Assets/Images/add_members.png'
 import members from '../../../../Assets/Images/members_2.png'
 
 const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
-    const { headers, handleRecall } = useContext(ClientContext)
+    const { headers } = useContext(ClientContext)
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving list of users
     const {fetchedData: users, isLoading} = useAxiosGet(userListUrl, headers, null, userListAuditText)
 
@@ -66,7 +66,6 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
                         <div className="col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col p-4">
                             <ChannelInvite 
                                 details={details} 
-                                handleRecallMembers={handleRecall}
                             />
                         </div>
                     </div>

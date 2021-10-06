@@ -4,8 +4,8 @@ import { channelsBaseUrl, channelCreateAuditText } from '../../../../helpers/con
 import { ClientContext } from '../../../../context/ClientContext'
 import Error from '../../../Assets/Elements/Error'
 
-const CreateChannel = ({handleRecallChannels}) => {
-    const { headers } = useContext(ClientContext)
+const CreateChannel = () => {
+    const { headers, handleRecall } = useContext(ClientContext)
 
     const channelNameRef = useRef()
 
@@ -25,7 +25,7 @@ const CreateChannel = ({handleRecallChannels}) => {
                 if( data[ 2 ] ) {
                     setErrorMessage( data[ 2 ][ 0 ] )
                 } else {
-                    handleRecallChannels()
+                    handleRecall()
                     setSuccessMessage('Channel successfully created')
                 }
             })

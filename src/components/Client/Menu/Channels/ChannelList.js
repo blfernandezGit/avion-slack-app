@@ -6,10 +6,10 @@ import { ClientContext } from '../../../../context/ClientContext'
 
 
 
-const ChannelList = ({recallChannels}) => {
-    const { headers } = useContext(ClientContext)
+const ChannelList = () => {
+    const { headers, recall } = useContext(ClientContext)
     // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Channels of User
-    const {fetchedData: channels, isLoading, errorMessage} = useAxiosGet(channelsBaseUrl, headers, null, channelListAuditText, recallChannels)
+    const {fetchedData: channels, isLoading, errorMessage} = useAxiosGet(channelsBaseUrl, headers, null, channelListAuditText, recall)
     return (
         <div className="border-black">
 

@@ -65,6 +65,12 @@ const ClientContextProvider = ( props ) => {
         }
     }
 
+    const handleDeleteContacts = (newContactList) => {
+        const userAcct = contacts.find( user => { return user.user_id === response?.fetchedData?.id } )
+        console.log(newContactList)
+        setContacts( [ ...contacts ], userAcct.contacts = newContactList )
+    }
+
     // On add contact, saves data to local storage
     useEffect( () =>{
         localStorage.setItem( LOCAL_STORAGE_KEY_2, JSON.stringify( contacts ) )
@@ -131,7 +137,8 @@ const ClientContextProvider = ( props ) => {
             focusClass,
             textFocusClass,
             handleShowWelcome,
-            showWelcome
+            showWelcome,
+            handleDeleteContacts
         }}>
             { props.children }
         </ClientContext.Provider>
