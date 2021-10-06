@@ -35,10 +35,10 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
         if( val === "add" ) {
             setZIndex( 'z-0' )
             setAddTabClass('bg-white text-pink text-opacity-90')
-            setTabClass('')
+            setTabClass('hover:text-pink')
         } else {
             setZIndex( 'z-20' )
-            setAddTabClass('')
+            setAddTabClass('hover:text-pink')
             setTabClass('bg-white text-pink text-opacity-90')
         }
     }
