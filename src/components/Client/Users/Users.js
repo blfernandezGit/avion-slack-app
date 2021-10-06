@@ -6,9 +6,14 @@ const Users = ({user, onClick, addContact}) => {
         <button onClick={() => {onClick(user.id, user.uid)} } className="w-full h-8 text-left">
             {addContact ?
                 <Link to={`/client/messages/${user.id}/${user.uid}`}>
-                    {user.uid}
+                    <div className=" hover:text-transparent bg-clip-text bg-gradient-to-r hover:from-pink hover:via-pink hover:to-custom animate-gradient-x w-max">
+                        {user.uid}
+                    </div>
                 </Link>
-                : user.uid
+                : 
+                <div className="hover:text-transparent bg-clip-text bg-gradient-to-r hover:from-pink hover:via-pink hover:to-custom animate-gradient-x w-max">
+                    {user.uid}
+                </div>
             }
         </button>
     )

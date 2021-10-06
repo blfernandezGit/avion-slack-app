@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Members = ({member, users}) => {
     const [user, setUser] = useState('')
@@ -10,7 +11,13 @@ const Members = ({member, users}) => {
         //eslint-disable-next-line
     }, [users])
     return (
-            <div className="w-full h-8">{user}</div>
+            <div className="h-8">
+                <Link to={`/client/messages/${member.user_id}/${user}`}>
+                    <div className=" hover:text-transparent bg-clip-text bg-gradient-to-r hover:from-pink hover:via-pink hover:to-custom animate-gradient-x w-max">
+                        {user}
+                    </div>
+                </Link>
+            </div>
     )
 }
 

@@ -42,7 +42,9 @@ const ContactList = ({contact}) => {
                     <div className="grid place-items-center h-full col-span-1 row-span-2">
                         <ProfilePicture />
                     </div>
-                    <div className="col-start-2 col-end-9 pl-4 text-custom">{contact.uid}</div>
+                    <div className="col-start-2 col-end-9 pl-4 text-custom hover:text-transparent bg-clip-text bg-gradient-to-r hover:from-pink hover:via-pink hover:to-custom animate-gradient-x w-max">
+                        {contact.uid}
+                    </div>
                     <div className="col-start-2 row-start-2 h-full col-end-9 pl-4">
                         { isLoading && <p>Loading...</p> }
 
