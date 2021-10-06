@@ -5,7 +5,7 @@ export const LOCAL_STORAGE_KEY_1 = 'userLoginSession'
 export const LOCAL_STORAGE_KEY_2 = 'contacts'
 
 // URL for API
-export const baseUrl = 'http://206.189.91.54//api/v1/'
+export const baseUrl = 'https://slackapi.avionschool.com/api/v1/'
 
 export const loginUrl = 'auth/sign_in'
 export const registrationUrl = 'auth'
