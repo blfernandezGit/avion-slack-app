@@ -36,7 +36,7 @@ const ContactList = ({contact}) => {
         return <></>
     }
     return (     
-        <div onClick={() => handleShowMenu(true)}className="w-5/6 h-16 bg-yellowishWhite bg-opacity-75 hover:bg-lightGrey hover:bg-opacity-80 border-2 border-pink border-opacity-50 hover:border-pink rounded-md p-2 truncate my-2">
+        <div onClick={() => handleShowMenu(true)}className="w-5/6 h-16 bg-yellowishWhite bg-opacity-75 hover:bg-lightGrey hover:bg-opacity-80 border-2 border-pink border-opacity-50 hover:border-pink rounded-md p-2 my-2">
             <Link to={`/client/messages/${contact.id}/${contact.uid}`}>
                 <div className="grid grid-cols-8 grid-rows-2 h-full relative">
                     <div className="grid place-items-center h-full col-span-1 row-span-2">
@@ -51,7 +51,7 @@ const ContactList = ({contact}) => {
                         { messages &&
                             <>
                                 {messages[messages.length-1]?.created_at && <div  className="absolute top-0 right-0 text-xs">{sendDateTime}</div>}
-                                <div className="text-custom text-opacity-75">{messages[messages.length-1]?.body}</div>
+                                <div className="text-custom text-opacity-75 truncate">{messages[messages.length-1]?.body}</div>
                             </>
                         }
 
