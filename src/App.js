@@ -1,25 +1,25 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ClientContextProvider from "./context/ClientContext";
-import './App.css';
 import ChatContainer from './routes/ChatContainer'
-// import AuthRoute from './routes/AuthRoute'
-// import RedirectComp from './routes/RedirectComp'
 import Registration from './components/Home/Registration'
 import Login from './components/Home/Login'
 import RedirectComp from './routes/RedirectComp'
 import AuthRoute from './routes/AuthRoute'
+import LoadingScreen from './components/Home/LoadingScreen';
+import { useContext } from 'react'
+import { ClientContext } from './context/ClientContext'
 
 function App() {
+  const { showLoading } = useContext(ClientContext)
   return (
-    <div className="App">
-      <ClientContextProvider>
+    <div className="h-screen w-screen">
         <Router>
+          {showLoading && <LoadingScreen/>}
           <Switch>
             <Route exact path="/">
               <Login />
             </Route>
             <AuthRoute path="/client">
-              <ChatContainer />
+              <ChatContainer /> 
             </AuthRoute>
             <Route path="/signup">
               <Registration />
@@ -27,8 +27,6 @@ function App() {
           </Switch>
           <RedirectComp />
         </Router>
-      </ClientContextProvider>
-      
     </div>
   );
 }

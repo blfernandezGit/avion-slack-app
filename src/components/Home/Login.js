@@ -1,14 +1,20 @@
 import { useState, useRef } from 'react'
-import { useHistory, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { postAPI } from '../../helpers/useAxiosPost'
 import { loginUrl, loginAuditText } from '../../helpers/constants'
 import { useContext } from 'react'
 import { ClientContext } from '../../context/ClientContext'
+import FormButton from '../Assets/Elements/FormButton'
+import FormInputs from '../Assets/Elements/FormInput'
+import Form from '../Assets/Elements/Form'
+import Error from '../Assets/Elements/Error'
+import HalfContainer from '../Assets/Elements/HalfContainer'
+import '../Assets/General.CSS'
+import LogoBg from '../Assets/ComponentSVG/LogoBg'
+
 
 const Login = () => {
-    const { setLoginDetails } = useContext(ClientContext)
-    // get current url path
-    const history = useHistory()
+    const { setLoginDetails, handleLoading } = useContext(ClientContext)
 
     // Input field references
     const emailRef = useRef()
@@ -30,33 +36,37 @@ const Login = () => {
         postAPI(loginUrl, requestData, null, loginAuditText)
             .then(data => {
                 // Change login details to response data
-                setLoginDetails(data)
-                history.push("/client")
+                handleLoading(true)
+                setTimeout(() => {
+                    setLoginDetails(data)
+                    handleLoading(false)
+                }, 2000)
+                
             })
             .catch(error => {
                 // Set error message from error response
                 setErrorMessage(error)
+                setTimeout(() =>{setErrorMessage(null)}, 3000)
             })
     }
 
     return (
-        <div className="Login">
-            {/* Login Form */}
-            <form onSubmit={(e) => handleLogin(e)}>
-                <input type="email" ref={emailRef} placeholder="Email"/>
-                <input type="password" ref={passwordRef} placeholder="Password"/>
-                <button type="submit">Login</button>
-            </form>
-            
-            {/* Display error message if it exists */}
-            { errorMessage &&  <div>{errorMessage}</div> }
-
-            <div>
-                <Link to={`/signup`}>
-                    Sign up
-                </Link>
-            </div>
-            
+        <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+            <LogoBg/>
+            <HalfContainer customBg="md:bg-dirtyWhite">
+                <Form onSubmit={handleLogin}>
+                    <FormInputs type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
+                    <FormInputs type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>
+                    <FormButton buttonName="Login"/>
+                </Form>
+                <Error errorMessage={errorMessage}/>
+                <div className="flex text-sm">
+                    <span className="text-white mr-1">No Account?</span>
+                    <Link to={`/signup`} className="text-white hover:text-pink">
+                        Sign up
+                    </Link> 
+                </div>
+            </HalfContainer>
         </div>
     )
 }

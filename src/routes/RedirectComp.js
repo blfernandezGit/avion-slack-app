@@ -10,8 +10,8 @@ const RedirectComp = () => {
         <>
         {isAuth &&
             <>
-                <Redirect from="/" to="/client" />
-                <Redirect from="/signup" to="/client" />
+                <Redirect from="/" to="/client/home" />
+                <Redirect from="/signup" to="/client/home" />
             </>
         }
         </>
