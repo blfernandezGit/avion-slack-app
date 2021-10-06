@@ -3,6 +3,7 @@ import {postAPI} from '../../../../helpers/useAxiosPost'
 import { channelsBaseUrl, channelCreateAuditText } from '../../../../helpers/constants'
 import { ClientContext } from '../../../../context/ClientContext'
 import Error from '../../../Assets/Elements/Error'
+import CreateChannelModal from './CreateChannelModal'
 
 const CreateChannel = ({handleRecallChannels}) => {
     const { headers } = useContext(ClientContext)
@@ -35,13 +36,14 @@ const CreateChannel = ({handleRecallChannels}) => {
     return (
         <>
             <form className="grid grid-cols-12 w-full" onSubmit={(e) => createChannel(e)}>
-                <input className="border-2 border-pink col-span-11 focus:border-pink border-opacity-25 focus:outline-none rounded-md my-2 px-2" type="text" ref={channelNameRef} placeholder="Channel Name"/>
+                <input className="border-2 border-pink col-span-11 focus:border-pink border-opacity-25 focus:outline-none rounded-md mt-2 px-2" type="text" ref={channelNameRef} placeholder="Channel Name"/>
                 <button className="col-span-1 text-2xl text-pink hover:text-pink text-opacity-50" type="submit">
                     +
                 </button>
             </form>
-            { successMessage &&  <Error errorMessage={successMessage}/> }
-            
+            <button className="text-sm text-pink text-opacity-50 hover:text-pink">More options</button>
+            <CreateChannelModal/>
+            { successMessage &&  <Error errorMessage={successMessage}/> }            
             { errorMessage &&  <Error errorMessage={errorMessage}/> }
         </>
     )

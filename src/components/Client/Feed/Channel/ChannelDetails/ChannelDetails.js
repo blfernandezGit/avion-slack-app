@@ -40,7 +40,7 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
     return (
         <div ref={ ref } onClick={ ( e ) => { handleShowChannelDetails( e ) } } className="Overlay absolute bg-yellowishWhite bg-opacity-20 w-full left-0 h-dhn-vh flex justify-center items-center"> 
             {details &&
-                <div className = "Modal bg-yellowishWhite h-5/6 lg:h-4/6 p-6 rounded-md w-5/6 lg:w-1/2 grid grid-rows-12 grid-cols-12 shadow-md">
+                <div className = "Modal bg-yellowishWhite h-5/6 lg:h-4/6 p-4 rounded-md w-5/6 lg:w-1/2 grid grid-rows-12 grid-cols-12 shadow-md">
                     <div className="text-xl font-semibold col-span-full row-span-1 text-pink">{details.name}</div>
                     <div className="bg-white flex flex-col justify-center px-6 rounded-md col-span-full row-span-2">
                         <div className="text-sm text-pink text-opacity-90">Created by </div>
@@ -63,7 +63,7 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
                             isLoading={isLoading}
                             zIndex={zIndex}
                         />
-                        <div className="col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col p-4">
+                        <div className="col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col p-2">
                             <ChannelInvite 
                                 details={details} 
                                 handleRecallMembers={handleRecall}

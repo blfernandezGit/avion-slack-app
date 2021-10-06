@@ -1,7 +1,7 @@
 import Members from './Members'
 
 const MemberList = ({details, users, isLoading, zIndex}) => {
-    let classes = `col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col items-center p-4 px-6 ${zIndex}`
+    let classes = `col-span-full row-start-3 row-end-13 bg-white rounded-md flex justify-center flex-col items-center py-1 px-6 ${zIndex}`
 
     return (
         <div className={classes}>
