@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/avion-slack-app/static/css/main.8fbbb9da.chunk.css",
-    "main.js": "/avion-slack-app/static/js/main.168a5cbd.chunk.js",
-    "main.js.map": "/avion-slack-app/static/js/main.168a5cbd.chunk.js.map",
+    "main.js": "/avion-slack-app/static/js/main.42e56560.chunk.js",
+    "main.js.map": "/avion-slack-app/static/js/main.42e56560.chunk.js.map",
     "runtime-main.js": "/avion-slack-app/static/js/runtime-main.2d7d54b6.js",
     "runtime-main.js.map": "/avion-slack-app/static/js/runtime-main.2d7d54b6.js.map",
     "static/js/2.e270e091.chunk.js": "/avion-slack-app/static/js/2.e270e091.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.2d7d54b6.js",
     "static/js/2.e270e091.chunk.js",
     "static/css/main.8fbbb9da.chunk.css",
-    "static/js/main.168a5cbd.chunk.js"
+    "static/js/main.42e56560.chunk.js"
   ]
 }
