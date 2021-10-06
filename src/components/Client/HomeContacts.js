@@ -10,7 +10,6 @@ const ContactList = ({contact}) => {
 
     const messageUrl = messagesBaseUrl+'?receiver_id='+contact.id+'&receiver_class='+userReceiverClass;
 
-    // Use custom react hook - useAxiosGet - to automatically call API request for retrieving Messages of User
     const { fetchedData: messages, isLoading, errorMessage } = useAxiosGet( messageUrl, headers, null, directMessagesAuditText, recall)
 
     let sendDateTime

@@ -14,6 +14,8 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
 
     const [ owner, setOwner ] = useState('')
     const [ zIndex, setZIndex ] = useState( 'z-20' )
+    const [ tabClass, setTabClass ] = useState('bg-white text-pink text-opacity-90')
+    const [ addTabClass, setAddTabClass ] = useState('')
 
     const date = new Date(details.created_at).toLocaleDateString([], {
         year: 'numeric',
@@ -32,8 +34,12 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
     const handleChangeTab = ( val ) => {
         if( val === "add" ) {
             setZIndex( 'z-0' )
+            setAddTabClass('bg-white text-pink text-opacity-90')
+            setTabClass('')
         } else {
             setZIndex( 'z-20' )
+            setAddTabClass('')
+            setTabClass('bg-white text-pink text-opacity-90')
         }
     }
 
@@ -48,14 +54,16 @@ const ChannelDetails = ({ details, handleShowChannelDetails }, ref) => {
                     </div>
                     <div className="col-span-full grid grid-cols-12 grid-rows-12 row-start-4 row-end-12">
                         <button onClick={() => handleChangeTab('member')} className="col-span-4 lg:col-span-3 flex justify-center items-end row-span-2 text-sm">
-                            <div className="bg-white w-full h-1/2 flex justify-center rounded-t-md">
+                            <div className={`${tabClass} w-full h-1/2 flex justify-center items-end mx-1 rounded-t-md`}>
                                 <img src={members} alt="members" className="h-5"/>
                                 <div>Members</div>
                             </div>
                         </button>
                         <button onClick={() =>handleChangeTab('add')} className="col-span-5 lg:col-span-3 flex justify-center items-end row-span-2 text-xs">
-                            <img src={addMembers} alt="addMembers" className="h-5"/>
-                            <div>Add Members</div>
+                            <div className={`${addTabClass} w-full h-1/2 flex justify-center items-end mx-1 rounded-t-md`}>
+                                <img src={addMembers} alt="addMembers" className="h-5"/>
+                                <div>Add Members</div>
+                            </div>
                         </button>
                         <MemberList
                             details={details}

@@ -10,7 +10,7 @@ const HomePage = () => {
             { currentUserContacts ?
                 currentUserContacts.map(contact => <HomeContacts key={contact.id} contact={contact}/>)
                 :
-                <div>No contacts available</div>
+                <div className="text-pink h-full w-full grid place-items-center">No contacts available</div>
             }
         </div>
     )
