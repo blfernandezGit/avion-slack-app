@@ -13,7 +13,7 @@ const Contacts = ({contact}) => {
         <div className="w-full h-8 grid grid-cols-12">
             <div className="col-span-11 h-full w-full" onClick={() => {handleShowMenu()}}>
                 <Link to={`/client/messages/${contact.id}/${contact.uid}`}>
-                    <div>{contact.uid}</div>
+                    <div className="h-full flex items-center">{contact.uid}</div>
                 </Link>
             </div>
             <button onClick={()=>handleDelete()} className="col-start-12 h-full text-pink text-opacity-50 hover:text-pink">x</button>

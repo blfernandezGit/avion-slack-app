@@ -21,15 +21,23 @@ const AddContact = () => {
             if(!contact){
                 setUserContacts(user_id, user_uid)
                 setSuccessMessage('User successfully added as contact')
-                setErrorMessage(null)
+                setTimeout(() =>{
+                    setSuccessMessage(null)
+                }, 3000)
             }
             else{
                 setErrorMessage('User is already in contacts list.')
+                setTimeout(() =>{
+                    setErrorMessage(null)
+                }, 3000)
             }
         }
         else {
             setUserContacts(user_id, user_uid)
             setSuccessMessage('User successfully added as contact')
+            setTimeout(() =>{
+                setSuccessMessage(null)
+            }, 3000)
         }
 }
 
