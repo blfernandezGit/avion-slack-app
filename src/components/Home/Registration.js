@@ -51,6 +51,7 @@ const Registration = () => {
         <div className="flex flex-col md:flex-row justify-center items-center h-screen">
             <LogoBg/>
             <HalfContainer customBg="md:bg-dirtyWhite">
+                <div className="flex flex-col h-full w-full justify-center items-center bg-bg2 bg-cover bg-no-repeat">
                 <Form onSubmit={handleRegistration}>
                     <FormInput type="email" name="email" reference={emailRef} inputName="email" inputLabel="Email"/>
                     <FormInput type="password" name="password" reference={passwordRef} inputName="password" inputLabel="Password"/>
@@ -63,6 +64,7 @@ const Registration = () => {
                     <Link to={`/`} className="text-white hover:text-pink">
                         Sign in
                     </Link> 
+                </div>
                 </div>
             </HalfContainer>
         </div>
