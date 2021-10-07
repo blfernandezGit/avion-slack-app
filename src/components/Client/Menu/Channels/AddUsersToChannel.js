@@ -1,4 +1,4 @@
-const InviteUsers = ({ user, index, addedUsers, handleAddedUsers }) => {
+const AddUsersToChannel = ({ user, index, addedUsers, handleAddedUsers }) => {
     const handleRemove = (e) => {
         e.preventDefault();
         let tempAddedUsers = [...addedUsers]
@@ -8,9 +8,9 @@ const InviteUsers = ({ user, index, addedUsers, handleAddedUsers }) => {
 
     return (
         <button onClick={(e) => {handleRemove(e)} } data-index={ index } className="w-full h-8 text-left">
-            {user}
+            {user.uid}
         </button>
     )
 }
 
-export default InviteUsers
+export default AddUsersToChannel
