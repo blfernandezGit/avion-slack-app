@@ -17,8 +17,8 @@ const Welcome = () => {
         <div className="WelcomeParent fixed h-full w-full flex justify-end">
             <div className="Welcome bg-bg1 bg-center bg-cover h-header-negative relative w-full md:w-1/2 lg:w-3/4 z-10">
                 <div className="h-3/5 flex flex-col items-center justify-center text-custom">
-                    <div className="text-5xl">Welcome,</div>
-                    <div className="text-6xl lg:text-10xl md:text-7xl  w-full break-words text-center">{userName}</div>
+                    <div className="WelcomeText text-5xl ">Welcome,</div>
+                    <div className="NameText text-white text-6xl lg:text-10xl md:text-7xl  w-full break-words text-center">{userName}</div>
                 </div>
                 <div className="h-2/5 flex flex-col items-center justify-center">
                     <div className="text-7xl text-yellowishWhite my-6 md:text-8xl">
