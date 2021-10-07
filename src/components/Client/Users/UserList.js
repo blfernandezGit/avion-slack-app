@@ -25,7 +25,7 @@ const UserList = ({onClick, searchQuery, members, addContact}) => {
                         : 
                         user
                     )
-                    .filter(user => searchQuery==='' || user.uid.includes(searchQuery))
+                    .filter(user => user.uid.includes(searchQuery))
                     .map(user => {
                         return <Users 
                                     key={user.id} 
