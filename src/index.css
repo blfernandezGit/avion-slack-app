@@ -31,3 +31,7 @@ body {
 
 /* display messages at bottom */
 .MessageList > :first-child { margin-top: auto }
+
+.NameText {
+        text-shadow: 0 0 5px #ea1646;
+}
