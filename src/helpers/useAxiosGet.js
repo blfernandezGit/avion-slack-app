@@ -9,7 +9,6 @@ const useAxiosGet = (url, headers, requestData, auditTrail, checker) => {
     const [isLoading, setIsLoading] = useState(true)
     const [errorMessage, setErrorMessage] = useState(null)
 
-    // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     useEffect(() => {
         let isActive = true

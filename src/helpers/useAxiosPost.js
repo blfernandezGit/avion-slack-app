@@ -3,7 +3,6 @@ import { baseUrl } from './constants'
 
 /* Reusable function for using axios post */
 export const postAPI = (url, requestData, headers, auditTrail) => {
-    // Set base url as recognized by axios
     axios.defaults.baseURL = baseUrl
     return axios({
         // Axios needed parameters to fetch API
